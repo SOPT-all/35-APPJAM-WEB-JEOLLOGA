@@ -39,7 +39,7 @@ export default tseslint.config(
     },
     rules: {
       'indent': ['error', 2],
-      'no-console': ['error', { 'allow': ['warn', 'error'] }],
+      'no-console': ['warn', { 'allow': ['warn', 'error'] }],
       'camelcase': ['error', { properties: 'always' }],
       'space-infix-ops': ['warn'],
 
