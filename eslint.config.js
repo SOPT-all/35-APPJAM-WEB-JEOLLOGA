@@ -90,6 +90,7 @@ export default tseslint.config(
         },
       ],
       'unused-imports/no-unused-imports': 'error',
+      'import/prefer-default-export': 'error',
 
       ...eslintPluginReact.configs.flat.recommended.rules,
       ...reactHooks.configs.recommended.rules,
