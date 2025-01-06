@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "svgr": "npx @svgr/cli --out-dir src/assets/svgs --typescript -- public/svgs"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.11",
