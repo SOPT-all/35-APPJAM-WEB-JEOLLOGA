@@ -42,6 +42,7 @@ export default tseslint.config(
       'no-console': ['warn', { 'allow': ['warn', 'error'] }],
       'camelcase': ['error', { properties: 'always' }],
       'space-infix-ops': ['warn'],
+      'func-style': ['error', 'expression'],
 
       'react/require-default-props': 'off',
       'react/react-in-jsx-scope': 'off',
