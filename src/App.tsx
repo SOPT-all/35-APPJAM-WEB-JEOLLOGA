@@ -1,7 +1,6 @@
 import '@styles/global.css.ts';
-
 const App = () => {
-  return <></>;
+  return <div></div>;
 };
 
 export default App;
