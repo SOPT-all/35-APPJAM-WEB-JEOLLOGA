@@ -7,6 +7,7 @@ import eslintPluginReact from 'eslint-plugin-react';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 export default tseslint.config(
   { ignores: ['dist', 'node_modules', '**/*.stories.{js,jsx,ts,tsx}'] },
@@ -34,6 +35,7 @@ export default tseslint.config(
       react: eslintPluginReact,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      'unused-imports': unusedImports,
     },
     rules: {
       'indent': ['error', 2],
@@ -87,6 +89,7 @@ export default tseslint.config(
           'newlines-between': 'always',
         },
       ],
+      'unused-imports/no-unused-imports': 'error',
 
       ...eslintPluginReact.configs.flat.recommended.rules,
       ...reactHooks.configs.recommended.rules,
