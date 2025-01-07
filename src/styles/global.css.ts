@@ -24,7 +24,7 @@ globalStyle('*', {
 });
 
 globalStyle('html, body', {
-  width: 100,
+  width: '100%',
   fontSize: '62.5%',
   scrollBehavior: 'smooth',
 });
