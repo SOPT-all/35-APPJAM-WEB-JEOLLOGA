@@ -1,7 +1,7 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 
 const theme = createGlobalTheme(':root', {
-  colors: {
+  COLORS: {
     gray1: '#F6F6F6',
     gray2: '#EBEDEF',
     gray3: '#E1E4E7',
@@ -21,7 +21,7 @@ const theme = createGlobalTheme(':root', {
     primary400: '#6EBE7D',
   },
 
-  fonts: {
+  FONTS: {
     //Heading
     headSemiBold24: {
       fontSize: '2.4rem',
