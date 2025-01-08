@@ -19,41 +19,49 @@ const theme = createGlobalTheme(':root', {
 
     primary200: '#D3ECD8',
     primary400: '#6EBE7D',
+
+    gradient: 'linear-gradient(180deg, #00000000 61.26%, #000000BF 100%)',
   },
 
   FONTS: {
     //Heading
-    headSemiBold24: {
+    h0B24: {
+      fontSize: '2.4rem',
+      fontFamily: "'Pretendard-Bold', sans-serif",
+      lineHeight: '140%',
+      letterSpacing: '1%',
+    },
+    h1Sb24: {
       fontSize: '2.4rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    headSemiBold20: {
+    h2Sb20: {
       fontSize: '2rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    headSemiBold18: {
+    h3Sb18: {
       fontSize: '1.8rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    headSemiBold17: {
+    h4Sb17: {
       fontSize: '1.7rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    headSemiBold16: {
+    h5Sb16: {
       fontSize: '1.6rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    headRegular20: {
+    h6R20: {
       fontSize: '2rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '140%',
@@ -61,55 +69,55 @@ const theme = createGlobalTheme(':root', {
     },
 
     //Body
-    bodyMedium20: {
+    b1M20: {
       fontSize: '2rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyMedium18: {
+    b2M18: {
       fontSize: '1.8rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyRegular18: {
+    b3R18: {
       fontSize: '1.8rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyMedium17: {
+    b4M17: {
       fontSize: '1.7rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyRegular17: {
+    b5R17: {
       fontSize: '1.7rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyMedium16: {
+    b6M16: {
       fontSize: '1.6rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyRegular16: {
+    b7R16: {
       fontSize: '1.6rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyMedium15: {
+    b8M15: {
       fontSize: '1.5rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    bodyRegular15: {
+    b9R15: {
       fontSize: '1.5rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '140%',
@@ -117,15 +125,27 @@ const theme = createGlobalTheme(':root', {
     },
 
     //caption
-    captionSemiBold15: {
+    c1Sb15: {
       fontSize: '1.5rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '140%',
       letterSpacing: '1%',
     },
-    captionRegular14: {
+    c2R14: {
       fontSize: '1.4rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c3R12: {
+      fontSize: '1.2rem',
+      fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c4M12: {
+      fontSize: '1.2rem',
+      fontFamily: "'Pretendard-Medium', sans-serif",
       lineHeight: '128%',
       letterSpacing: '2%',
     },

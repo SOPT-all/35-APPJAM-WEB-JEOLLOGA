@@ -1,23 +1,4 @@
-import { globalFontFace, globalStyle } from '@vanilla-extract/css';
-import '@styles/reset.css.ts';
-
-globalFontFace('Pretendard-Medium', {
-  fontWeight: 400,
-  fontStyle: 'normal',
-  src: "url('/src/assets/fonts/Pretendard-Medium.woff2') format('woff2')",
-});
-
-globalFontFace('Pretendard-Regular', {
-  fontWeight: 500,
-  fontStyle: 'normal',
-  src: "url('/src/assets/fonts/Pretendard-Regular.woff2') format('woff2')",
-});
-
-globalFontFace('Pretendard-SemiBold', {
-  fontWeight: 600,
-  fontStyle: 'normal',
-  src: "url('/src/assets/fonts/Pretendard-SemiBold.woff2') format('woff2')",
-});
+import { globalStyle } from '@vanilla-extract/css';
 
 globalStyle('*', {
   boxSizing: 'border-box',
@@ -34,10 +15,6 @@ globalStyle('#root', {
   minHeight: '100dvh',
   backgroundColor: '#fff',
   margin: '0 auto',
-});
-
-globalStyle('::-webkit-scrollbar', {
-  display: 'none',
 });
 
 globalStyle('body, button, input, select, table, textarea', {
