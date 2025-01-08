@@ -11,10 +11,11 @@ globalStyle('html, body', {
 });
 
 globalStyle('#root', {
-  width: '37.5rem',
+  width: '100%',
+  maxWidth: '37.5rem',
   minHeight: '100dvh',
-  backgroundColor: '#fff',
   margin: '0 auto',
+  padding: '0 2rem',
 });
 
 globalStyle('body, button, input, select, table, textarea', {
