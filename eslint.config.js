@@ -10,7 +10,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import unusedImports from 'eslint-plugin-unused-imports';
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', '**/*.stories.{js,jsx,ts,tsx}'] },
+  { ignores: ['dist', 'node_modules', 'stories'] },
   {
     extends: [
       eslint.configs.recommended,
@@ -38,9 +38,9 @@ export default tseslint.config(
       'unused-imports': unusedImports,
     },
     rules: {
-      'indent': ['error', 2],
-      'no-console': ['warn', { 'allow': ['warn', 'error'] }],
-      'camelcase': ['error', { properties: 'always' }],
+      indent: ['error', 2],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      camelcase: ['error', { properties: 'always' }],
       'space-infix-ops': ['warn'],
       'func-style': ['error', 'expression'],
 
