@@ -47,7 +47,7 @@ jobs:
 
       - name: Push Changes to forked_repo
         run: |
-          git push -f forked_repo HEAD:main
+          git push -f forked_repo HEAD:refs/heads/main
 
   sync_pr:
     name: Build project on pull_request to develop
