@@ -24,3 +24,14 @@
 
 <br />
 
+## 👶 OUR TEAM
+   <div align="center">
+     
+| <img src="https://avatars.githubusercontent.com/u/52481403?v=4" width="200" alt="프로필사진"> | <img src="https://avatars.githubusercontent.com/u/127061738?v=4" width="200" alt="프로필사진">  | <img src="https://avatars.githubusercontent.com/u/102952855?v=4" width="200" alt="프로필사진"> |  <img src="https://avatars.githubusercontent.com/u/113450966?v=4" width="200" alt="프로필사진">  |
+| :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------:
+|                            <div align = "center"><b>성희</b></div>                            |                            <div align = "center"><b>태욱</b></div>                            |                            <div align = "center"><b>영경</b></div>                            |                             <div align = "center"><b>예림</b></div>
+|                            [@seong-hui](https://github.com/seong-hui)                            |                [@Taew00k](https://github.com/Taew00k)                                 |                       [@bykbyk0401](https://github.com/bykbyk0401)                        |                        [@maylh](https://github.com/maylh)   | 
+
+</div>
+<br />
+
