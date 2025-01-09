@@ -30,10 +30,12 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create comment PR
-        uses: thollander/actions-comment-pull-request@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peter-evans/create-or-update-comment@v3
         with:
-          message: |
-            🪷 Storybook 🪷
-            - ${{ steps.chromatic.outputs.storybookUrl }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            🪷 **Storybook** 🪷  
+            ${{ steps.chromatic.outputs.storybookUrl }}
+          edit_mode: update
