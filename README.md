@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# 🪷절로가🪷 (Jeolloga)
+	“내 마음에 딱 맞는 템플스테이를 찾아주는 힐링 추천 서비스”
+`절`(사찰)로 떠나고 싶다는 마음이 `절로` 들게 만드는 서비스, **'절로가'**입니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
 
-Currently, two official plugins are available:
+## 🪷 프로젝트 소개
+템플스테이를 (처음) 가보려 하면…
+- 위치가 어디인지,
+- 어떤 프로그램들이 있는지,
+- 후기는 어떠한지,
+- 예약은 어떻게 해야 하는지…
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+등등 필요한 정보가 한데 모여 있지 않아, 여기저기 플랫폼을 옮겨다니며 수많은 과정을 거쳐야만 했습니다.
 
-## Expanding the ESLint configuration
+<br />
+절로가는 나만의 템플스테이를 쉽고 빠르게 찾을 수 있도록 돕는 추천 서비스로,
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **원하는 조건에 맞게 사찰·프로그램을 탐색**하고,
+- **한눈에 후기**와 참여 정보를 확인하며,
+- 지도 기반으로 위치 정보를 얻어
 
-- Configure the top-level `parserOptions` property like this:
+한 번의 접속만으로도 나에게 딱 맞는 템플스테이를 찾을 수 있습니다!
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<br />
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
