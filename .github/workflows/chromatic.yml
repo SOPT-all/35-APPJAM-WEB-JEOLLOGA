@@ -5,36 +5,36 @@ on:
     branches:
       - develop
 
-permissions:
-  pull-requests: write
-  contents: read
+permissions: write-all
 
-# List of jobs
 jobs:
   chromatic:
     name: 'Run Chromatic'
     runs-on: ubuntu-latest
-    # Job steps
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@latest
-        # Options required for Chromatic's GitHub Action
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Chromatic
         id: chromatic
+        uses: chromaui/action@latest
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create comment PR
         uses: thollander/actions-comment-pull-request@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
+          comment_tag: ${{ github.event.number }}-storybook
           message: |
-            🪷 Storybook 🪷
-            ${{ steps.chromatic.outputs.storybookUrl }}
+            🪷 Storybook 확인 🪷
+            🔗 ${{ steps.chromatic.outputs.storybookUrl }}
           edit_mode: update
