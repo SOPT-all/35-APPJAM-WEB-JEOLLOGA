@@ -1,53 +1,67 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { ButtonHTMLAttributes } from 'react';
+import Button from '@components/common/Button/Button';
 
-import { Button } from '../components/common/Button/Button';
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline';
+  size?: 'xLarge' | 'large' | 'medium';
+  isDisabled?: boolean;
+  label: string;
+}
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'Common/Button',
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    variant: {
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'tertiary', 'outline'],
+    },
+    size: {
+      control: { type: 'radio' },
+      options: ['xLarge', 'large', 'medium'],
+    },
+    isDisabled: {
+      control: { type: 'boolean' },
+    },
+    label: {
+      control: { type: 'text' },
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
-  args: { onClick: fn() },
+  args: {
+    variant: 'primary',
+    size: 'medium',
+    isDisabled: false,
+    label: 'Button',
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
-};
+export const Default: Story = {};
 
-export const Secondary: Story = {
+const createButtonStory = (variant: ButtonProps['variant'], label: string) => ({
   args: {
-    label: 'Button',
+    variant,
+    label,
   },
-};
+  argsType: {
+    variant: {
+      control: false,
+    },
+  },
+});
 
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
+export const Primary: Story = createButtonStory('primary', 'Primary Button');
 
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
+export const Secondary: Story = createButtonStory('secondary', 'Secondary Button');
+
+export const Tertiary: Story = createButtonStory('tertiary', 'Tertiary Button');
+
+export const Outline: Story = createButtonStory('outline', 'Outline Button');

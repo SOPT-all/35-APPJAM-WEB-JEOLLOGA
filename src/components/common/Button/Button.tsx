@@ -1,34 +1,28 @@
-import './button.css';
+import buttonStyle from './button.css';
 
-export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
-  /** Button contents */
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline';
+  size?: 'xLarge' | 'large' | 'medium';
+  isDisabled?: boolean;
   label: string;
-  /** Optional click handler */
-  onClick?: () => void;
 }
 
-/** Primary UI component for user interaction */
-export const Button = ({
-  primary = false,
+const Button = ({
+  variant = 'primary',
   size = 'medium',
-  backgroundColor,
+  isDisabled = false,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      className={buttonStyle({ color: variant, size: size })}
+      disabled={isDisabled}
       {...props}>
       {label}
     </button>
   );
 };
+
+export default Button;
