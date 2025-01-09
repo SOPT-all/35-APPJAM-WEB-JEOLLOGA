@@ -33,7 +33,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
         with:
-          comment_tag: ${{ github.event.number }}-storybook
+          comment_tag: ${{ github.event.pull_request.number }}-storybook
           message: |
             🪷 Storybook 확인 🪷
             🔗 ${{ steps.chromatic.outputs.storybookUrl }}
