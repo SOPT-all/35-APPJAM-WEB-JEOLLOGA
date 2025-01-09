@@ -15,7 +15,6 @@ globalStyle('#root', {
   maxWidth: '37.5rem',
   minHeight: '100dvh',
   margin: '0 auto',
-  padding: '0 2rem',
 });
 
 globalStyle('body, button, input, select, table, textarea', {
