@@ -16,21 +16,33 @@ const theme = createGlobalTheme(':root', {
 
     black: '#121212',
     white: '#ffffff',
+    black60: '#121212',
 
-    primary200: '#D3ECD8',
-    primary400: '#6EBE7D',
+    primary200: '#9FECAD',
+    primary400: '#65C677',
+
+    green1: '#F7FFE9',
+    green2: '#D3ECD8',
+    green3: '#ABD6AE',
+    green4: '#6EBE7D',
+    green5: '#779971',
+
+    pink1: '#FF9999',
+    pink2: '#FF8B8B',
+    brown1: '#FFF2EC',
+    brown2: '#E39371',
+    blue1: '#EBEFFF',
+    blue2: '#6A7394',
+    kakao: '#FEE500',
 
     gradient: 'linear-gradient(180deg, #00000000 61.26%, #000000BF 100%)',
+
+    filerDropshadow: '0px 4px 7px 0px #0000000D',
+    reserveBtnDropshadow: '0px -4px 7px 0px #0000000D',
   },
 
   FONTS: {
     //Heading
-    h0B24: {
-      fontSize: '2.4rem',
-      fontFamily: "'Pretendard-Bold', sans-serif",
-      lineHeight: '140%',
-      letterSpacing: '1%',
-    },
     h1Sb24: {
       fontSize: '2.4rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
@@ -137,17 +149,63 @@ const theme = createGlobalTheme(':root', {
       lineHeight: '128%',
       letterSpacing: '2%',
     },
-    c3R12: {
+    c3Sb14: {
+      fontSize: '1.4rem',
+      fontFamily: "'Pretendard-SemiBold', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c4M14: {
+      fontSize: '1.4rem',
+      fontFamily: "'Pretendard-Medium', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c5M13: {
+      fontSize: '1.3rem',
+      fontFamily: "'Pretendard-Medium', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c6R13: {
+      fontSize: '1.3rem',
+      fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    c7R12: {
       fontSize: '1.2rem',
       fontFamily: "'Pretendard-Regular', sans-serif",
       lineHeight: '128%',
       letterSpacing: '2%',
     },
-    c4M12: {
-      fontSize: '1.2rem',
-      fontFamily: "'Pretendard-Medium', sans-serif",
+
+    //footer
+    f1Sb11: {
+      fontSize: '1.1rem',
+      fontFamily: "'Pretendard-SemiBold', sans-serif",
       lineHeight: '128%',
       letterSpacing: '2%',
+    },
+    f2Sb10: {
+      fontSize: '1rem',
+      fontFamily: "'Pretendard-SemiBold', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+    f3R10: {
+      fontSize: '1rem',
+      fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '128%',
+      letterSpacing: '2%',
+    },
+
+    //inform
+    i1R15: {
+      fontSize: '1.5rem',
+      fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '170%',
+      letterSpacing: '1%',
     },
   },
 });
