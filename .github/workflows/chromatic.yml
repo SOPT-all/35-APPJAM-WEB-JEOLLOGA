@@ -1,0 +1,42 @@
+name: 'Chromatic Deployment'
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+permissions: write-all
+
+jobs:
+  chromatic:
+    name: 'Run Chromatic'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run Chromatic
+        id: chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          onlyChanged: true
+          autoAcceptChanges: true
+
+      - name: Create comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+        with:
+          comment_tag: ${{ github.event.pull_request.number }}-storybook
+          message: |
+            🪷 Storybook 확인 🪷
+            🔗 ${{ steps.chromatic.outputs.storybookUrl }}
+          edit_mode: update
