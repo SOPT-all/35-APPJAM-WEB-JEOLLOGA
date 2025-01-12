@@ -1,6 +1,6 @@
+import Button from '@components/common/Button/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonHTMLAttributes } from 'react';
-import Button from '@components/common/Button/Button';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'outline';
@@ -10,10 +10,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const meta = {
-  title: 'Common/Button',
-  component: Button,
+  title: 'Common/Button', // 스토리북에서 컴포넌트가 표시되는 경로 (실제 컴포넌트랑 이름 같게 하기)
+  component: Button, // 스토리를 만들 컴포넌트 이름
   parameters: {
-    layout: 'centered',
+    layout: 'centered', // 스토리를 가운데 정렬하여 표시
   },
   tags: ['autodocs'],
   argTypes: {
