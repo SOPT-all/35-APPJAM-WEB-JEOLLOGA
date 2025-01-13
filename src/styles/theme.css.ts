@@ -39,6 +39,7 @@ const theme = createGlobalTheme(':root', {
 
     filerDropshadow: '0px 4px 7px 0px #0000000D',
     reserveBtnDropshadow: '0px -4px 7px 0px #0000000D',
+    boxArrowBtnDropshadow: '0px 3px 19px 0px rgba(0, 0, 0, 0.08)',
   },
 
   FONTS: {

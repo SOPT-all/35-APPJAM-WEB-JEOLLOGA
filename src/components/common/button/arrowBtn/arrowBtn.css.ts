@@ -5,7 +5,7 @@ const BtnBox = style({
   width: '4.4rem',
   height: '4.4rem',
   backgroundColor: theme.COLORS.white,
-  boxShadow: theme.COLORS.reserveBtnDropshadow,
+  boxShadow: theme.COLORS.boxArrowBtnDropshadow,
   borderRadius: '12px',
   display: 'flex',
   alignItems: 'center',
