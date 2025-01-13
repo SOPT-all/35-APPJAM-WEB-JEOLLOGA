@@ -1,4 +1,4 @@
-import tagBox from '@components/common/whyrano/tag.css';
+import tagBox from '@components/common/tag/tag.css';
 
 interface TagProps {
   label: string;
