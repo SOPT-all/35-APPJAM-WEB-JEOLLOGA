@@ -2,7 +2,7 @@ import Tag from '@components/common/Tag/Tag';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Curation/Tag',
+  title: 'Common/Tag',
   component: Tag,
   parameters: {
     layout: 'centered',
