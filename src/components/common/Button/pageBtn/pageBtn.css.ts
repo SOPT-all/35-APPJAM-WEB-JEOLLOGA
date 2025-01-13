@@ -1,16 +1,23 @@
 import theme from '@styles/theme.css';
-import { style } from '@vanilla-extract/css';
+import { styleVariants } from '@vanilla-extract/css';
 
-export const currentPageNumStyle = style({
-  color: theme.COLORS.white,
-  backgroundColor: theme.COLORS.gray10,
-  borderRadius: 24,
+const commonPageNumStyles = {
   width: '2.6rem',
   height: '2.6rem',
   ...theme.FONTS.c2R14,
+};
+
+const pageBtnStyles = styleVariants({
+  current: {
+    ...commonPageNumStyles,
+    color: theme.COLORS.white,
+    borderRadius: 24,
+    backgroundColor: theme.COLORS.gray10,
+  },
+  default: {
+    ...commonPageNumStyles,
+    color: theme.COLORS.gray10,
+  },
 });
 
-export const pageNumStyle = style({
-  color: theme.COLORS.gray10,
-  ...theme.FONTS.c2R14,
-});
+export default pageBtnStyles;
