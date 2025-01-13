@@ -2,10 +2,10 @@ import tagBox from '@components/common/Tag/tag.css';
 
 interface TagProps {
   label: string;
-  color?: 'brown' | 'blue' | 'gray';
+  color: 'brown' | 'blue' | 'gray';
 }
 
-const Tag = ({ label, color = 'brown' }: TagProps) => {
+const Tag = ({ label, color }: TagProps) => {
   return <p className={tagBox({ color })}>{label}</p>;
 };
 
