@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import BtnBox from '@components/common/ArrowBtn/arrowBtn.css';
+import BtnBox from '@components/common/button/arrowBtn/arrowBtn.css';
 
 interface ArrowBtnProps {
   onClick: () => void;

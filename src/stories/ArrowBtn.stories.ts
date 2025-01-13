@@ -1,4 +1,4 @@
-import ArrowBtn from '@components/common/ArrowBtn/ArrowBtn';
+import ArrowBtn from '@components/common/button/arrowBtn/ArrowBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

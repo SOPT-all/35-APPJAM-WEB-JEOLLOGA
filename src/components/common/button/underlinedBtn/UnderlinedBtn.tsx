@@ -1,4 +1,4 @@
-import ButtonStyle from '@components/common/UnderlinedBtn/underlinedBtn.css';
+import ButtonStyle from '@components/common/button/underlinedBtn/underlinedBtn.css';
 
 interface UnderlinedBtnProps {
   label: string;
