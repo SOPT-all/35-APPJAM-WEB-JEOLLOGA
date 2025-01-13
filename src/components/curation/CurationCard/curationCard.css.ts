@@ -1,7 +1,7 @@
 import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
-export const CardContainer = style({
+export const cardContainer = style({
   width: '28.5rem',
   height: '26.8rem',
   borderRadius: '8px',

@@ -10,7 +10,7 @@ interface CurationCardProps {
 const CurationCard = ({ bgImage, title, subtitle, onClick }: CurationCardProps) => {
   return (
     <button
-      className={styles.CardContainer}
+      className={styles.cardContainer}
       style={{ backgroundImage: `url(${bgImage})` }}
       onClick={onClick}>
       <div className={styles.textbox}>
