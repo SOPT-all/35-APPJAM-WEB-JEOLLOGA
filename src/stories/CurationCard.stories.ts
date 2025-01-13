@@ -1,4 +1,4 @@
-import CurationCard from '@components/curation/CurationCard/CurationCard';
+import CurationCard from '@components/curation/curationCard/CurationCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
