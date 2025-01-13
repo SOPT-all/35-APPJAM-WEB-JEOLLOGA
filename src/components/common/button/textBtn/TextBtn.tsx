@@ -3,13 +3,14 @@ import React from 'react';
 
 import textBtnStyle from './textBtn.css';
 
-interface TextBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface TextBtnProps {
   theme: 'lightGray' | 'gray';
   clicked?: boolean;
   size: 'small' | 'medium';
   leftIcon?: keyof typeof Icon;
   rightIcon?: keyof typeof Icon;
   text: string;
+  onClick: () => void;
 }
 
 const TextBtn = ({
