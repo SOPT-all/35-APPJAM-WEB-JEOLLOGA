@@ -12,12 +12,12 @@ export const OnboardingBtnStyle = recipe({
   },
   variants: {
     active: {
-      '& svg path': {
-        stroke: theme.COLORS.primary200,
-        true: {
-          backgroundColor: theme.COLORS.green1,
-          borderColor: theme.COLORS.primary200,
-          color: theme.COLORS.primary200,
+      true: {
+        backgroundColor: theme.COLORS.green1,
+        borderColor: theme.COLORS.primary200,
+        color: theme.COLORS.primary200,
+        '& svg path': {
+          stroke: theme.COLORS.primary200,
         },
         false: {
           backgroundColor: theme.COLORS.gray1,
