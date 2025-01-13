@@ -1,4 +1,4 @@
-import UnderlinedBtn from '@components/common/UnderlinedBtn/UnderlinedBtn';
+import UnderlinedBtn from '@components/common/button/underlinedBtn/UnderlinedBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
