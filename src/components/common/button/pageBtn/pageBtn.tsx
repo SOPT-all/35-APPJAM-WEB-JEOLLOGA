@@ -1,14 +1,15 @@
 import pageBtnStyles from './pageBtn.css';
 
 interface PageBtnProps {
-  pageNum: number;
+  pageIndex: number;
   currentPageNum: number;
 }
 
-const PageBtn = ({ pageNum, currentPageNum }: PageBtnProps) => {
+const PageBtn = ({ pageIndex, currentPageNum }: PageBtnProps) => {
   return (
-    <button className={pageNum === currentPageNum ? pageBtnStyles.current : pageBtnStyles.default}>
-      {pageNum}
+    <button
+      className={pageIndex === currentPageNum ? pageBtnStyles.current : pageBtnStyles.default}>
+      {pageIndex}
     </button>
   );
 };

@@ -2,18 +2,18 @@ import PageBtn from '@components/common/button/pageBtn/pageBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 interface PageBtnProps {
-  pageNum: number;
+  pageIndex: number;
   currentPageNum: number;
 }
 
 const meta: Meta<typeof PageBtn> = {
-  title: 'Common/PageBtn', // 스토리북에서 표시될 경로
+  title: 'Common/Button/PageBtn',
   component: PageBtn,
   parameters: {
-    layout: 'centered', // 컴포넌트를 가운데 정렬
+    layout: 'centered',
   },
   argTypes: {
-    pageNum: {
+    pageIndex: {
       control: { type: 'number' },
       description: 'The number displayed on the button',
     },
@@ -23,7 +23,7 @@ const meta: Meta<typeof PageBtn> = {
     },
   },
   args: {
-    pageNum: 1,
+    pageIndex: 1,
     currentPageNum: 1,
   },
 };
@@ -36,21 +36,21 @@ export const Default: Story = {};
 
 export const Page1Active: Story = {
   args: {
-    pageNum: 1,
+    pageIndex: 1,
     currentPageNum: 1,
   },
 };
 
 export const Page2Active: Story = {
   args: {
-    pageNum: 2,
+    pageIndex: 2,
     currentPageNum: 2,
   },
 };
 
 export const Page3Inactive: Story = {
   args: {
-    pageNum: 3,
+    pageIndex: 3,
     currentPageNum: 1,
   },
 };
