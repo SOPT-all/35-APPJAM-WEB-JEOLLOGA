@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'grayOutlined' | 'blackOutlined';
+  variant?: 'primary' | 'grayOutlined' | 'blackOutlined' | 'lightGrayOutlined';
   size?: 'large' | 'medium' | 'small';
   label: string;
   leftIcon?: keyof typeof Icon;
@@ -22,7 +22,7 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'grayOutlined', 'blackOutlined'],
+      options: ['primary', 'grayOutlined', 'blackOutlined', 'lightGrayOutlined'],
     },
     size: {
       control: { type: 'radio' },

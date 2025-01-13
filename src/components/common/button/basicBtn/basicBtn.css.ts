@@ -17,16 +17,50 @@ const buttonStyle = recipe({
         backgroundColor: theme.COLORS.white,
         color: theme.COLORS.green5,
         border: `1px solid ${theme.COLORS.green3}`,
+
+        selectors: {
+          '&:hover': {
+            backgroundColor: theme.COLORS.green3,
+            color: theme.COLORS.white,
+          },
+        },
       },
       grayOutlined: {
         backgroundColor: theme.COLORS.white,
         color: theme.COLORS.gray7,
-        border: `1px solid ${theme.COLORS.gray1}`,
+        border: `1px solid ${theme.COLORS.gray2}`,
+
+        selectors: {
+          '&:hover': {
+            backgroundColor: theme.COLORS.gray1,
+            color: theme.COLORS.gray7,
+            border: `1px solid ${theme.COLORS.gray1}`,
+          },
+        },
       },
       blackOutlined: {
         backgroundColor: theme.COLORS.white,
         color: theme.COLORS.gray10,
         border: `1px solid ${theme.COLORS.gray3}`,
+
+        selectors: {
+          '&:hover': {
+            color: theme.COLORS.gray10,
+            border: `1px solid ${theme.COLORS.gray7}`,
+          },
+        },
+      },
+      lightGrayOutlined: {
+        backgroundColor: theme.COLORS.white,
+        color: theme.COLORS.gray10,
+        border: `1px solid ${theme.COLORS.gray3}`,
+
+        selectors: {
+          '&:hover': {
+            backgroundColor: theme.COLORS.gray2,
+            border: `1px solid ${theme.COLORS.gray3}`,
+          },
+        },
       },
     },
 
@@ -77,6 +111,13 @@ const buttonStyle = recipe({
       style: {
         border: `1px solid ${theme.COLORS.gray11}`,
         color: theme.COLORS.gray11,
+      },
+    },
+    {
+      variants: { color: 'lightGrayOutlined', active: true },
+      style: {
+        border: `1px solid ${theme.COLORS.gray7}`,
+        color: theme.COLORS.gray10,
       },
     },
     {

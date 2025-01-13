@@ -2,7 +2,7 @@ import Icon from '@assets/svgs';
 import buttonStyle from '@components/common/button/basicBtn/basicBtn.css';
 
 interface ButtonProps {
-  variant?: 'primary' | 'grayOutlined' | 'blackOutlined';
+  variant?: 'primary' | 'grayOutlined' | 'blackOutlined' | 'lightGrayOutlined';
   size?: 'large' | 'medium' | 'small';
   label: string;
   leftIcon?: keyof typeof Icon;
