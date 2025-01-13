@@ -2,7 +2,7 @@ import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-export const onboardingBtnStyle = recipe({
+export const OnboardingBtnStyle = recipe({
   base: {
     ...theme.FONTS.c1Sb15,
     borderRadius: 40,

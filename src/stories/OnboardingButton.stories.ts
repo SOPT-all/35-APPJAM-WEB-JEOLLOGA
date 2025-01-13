@@ -1,10 +1,10 @@
 import Icon from '@assets/svgs';
-import onboardingBtn from '@components/common/button/onboarding/onboardingBtn';
+import OnboardingBtn from '@components/common/button/onboarding/onboardingBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
   title: 'Components/Button/OnboardingButton',
-  component: onboardingBtn,
+  component: OnboardingBtn,
   parameters: {
     layout: 'centered',
   },
@@ -29,7 +29,7 @@ const meta = {
     isActive: false,
     leftIcon: undefined,
   },
-} satisfies Meta<typeof onboardingBtn>;
+} satisfies Meta<typeof OnboardingBtn>;
 
 export default meta;
 

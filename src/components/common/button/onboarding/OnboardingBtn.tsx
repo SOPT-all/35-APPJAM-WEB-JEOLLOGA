@@ -1,18 +1,18 @@
 import Icon from '@assets/svgs';
 
-import { onboardingBtnStyle, btnContentStyle } from './onboardingBtn.css';
+import { OnboardingBtnStyle, btnContentStyle } from './onboardingBtn.css';
 
-interface onboardingBtnProps {
+interface OnboardingBtnProps {
   btnText: string;
   isActive?: boolean;
   leftIcon?: keyof typeof Icon;
 }
 
-const onboardingBtn = ({ btnText, leftIcon, isActive = false }: onboardingBtnProps) => {
+const OnboardingBtn = ({ btnText, leftIcon, isActive = false }: OnboardingBtnProps) => {
   const SelectedLeftIcon = leftIcon ? Icon[leftIcon] : null;
 
   return (
-    <button className={onboardingBtnStyle({ active: isActive ? true : false })}>
+    <button className={OnboardingBtnStyle({ active: isActive ? true : false })}>
       <div className={btnContentStyle}>
         {SelectedLeftIcon && <SelectedLeftIcon />}
         <p>{btnText}</p>
@@ -21,4 +21,4 @@ const onboardingBtn = ({ btnText, leftIcon, isActive = false }: onboardingBtnPro
   );
 };
 
-export default onboardingBtn;
+export default OnboardingBtn;
