@@ -1,3 +1,5 @@
+// textButton.stories.tsx
+import Icon from '@assets/svgs';
 import TextButton from '@components/common/TextButton/TextButton';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -5,6 +7,8 @@ interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
   theme: 'lightGray' | 'gray';
   state: 'default' | 'pressed';
   size: 'small' | 'medium';
+  leftIcon?: keyof typeof Icon;
+  rightIcon?: keyof typeof Icon;
   text: string;
 }
 
@@ -15,6 +19,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+
   argTypes: {
     theme: {
       control: { type: 'radio' },
@@ -31,12 +36,23 @@ const meta = {
     text: {
       control: { type: 'text' },
     },
+    leftIcon: {
+      control: { type: 'select' },
+      options: Object.keys(Icon),
+    },
+    rightIcon: {
+      control: { type: 'select' },
+      options: Object.keys(Icon),
+    },
   },
+
   args: {
     theme: 'lightGray',
     state: 'default',
     size: 'medium',
     text: 'Sample TextButton',
+    leftIcon: undefined,
+    rightIcon: undefined,
   },
 } satisfies Meta<typeof TextButton>;
 
@@ -51,8 +67,10 @@ const createTextButtonStory = (
   state: TextButtonProps['state'],
   size: TextButtonProps['size'],
   text: string,
+  leftIcon?: keyof typeof Icon,
+  rightIcon?: keyof typeof Icon,
 ) => ({
-  args: { theme, state, size, text },
+  args: { theme, state, size, text, leftIcon, rightIcon },
 });
 
 export const LightGrayDefaultSmall: Story = createTextButtonStory(
@@ -62,23 +80,11 @@ export const LightGrayDefaultSmall: Story = createTextButtonStory(
   'LightGray Default Small',
 );
 
-export const LightGrayPressedMedium: Story = createTextButtonStory(
-  'lightGray',
-  'pressed',
-  'medium',
-  'LightGray Pressed Medium',
-);
-
-export const GrayDefaultSmall: Story = createTextButtonStory(
-  'gray',
-  'default',
-  'small',
-  'Gray Default Small',
-);
-
 export const GrayPressedMedium: Story = createTextButtonStory(
   'gray',
   'pressed',
   'medium',
   'Gray Pressed Medium',
+  'IcnSmallHeart',
+  'IcnSmallHeart',
 );

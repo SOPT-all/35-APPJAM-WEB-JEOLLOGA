@@ -15,9 +15,21 @@ const textButtonStyle = recipe({
     theme: {
       lightGray: {
         ...theme.FONTS.c6R13,
+        '& svg': {
+          width: '1.3rem',
+          height: '1.3rem',
+        },
+        '& svg path': {
+          stroke: 'currentColor',
+        },
       },
       gray: {
         ...theme.FONTS.b8M15,
+        padding: '0 0.7rem',
+        '& svg': {
+          width: '2rem',
+          height: '2rem',
+        },
       },
     },
     state: {
@@ -45,7 +57,9 @@ const textButtonStyle = recipe({
     },
     {
       variants: { theme: 'gray', state: 'pressed' },
-      style: { color: theme.COLORS.gray10 },
+      style: {
+        color: theme.COLORS.gray10,
+      },
     },
   ],
 });
