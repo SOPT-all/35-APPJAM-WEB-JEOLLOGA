@@ -9,10 +9,10 @@ interface PageBottomBtnProps {
 }
 
 const meta: Meta<typeof PageBottomBtn> = {
-  title: 'Common/PageBottomBtn', // 스토리북에서 표시될 경로
+  title: 'Common/Button/PageBottomBtn',
   component: PageBottomBtn,
   parameters: {
-    layout: 'centered', // 컴포넌트를 가운데 정렬
+    layout: 'centered',
   },
   argTypes: {
     btnText: {
