@@ -17,7 +17,7 @@ const bottomBtnStyle = recipe({
         width: '33.5rem',
       },
     },
-    disabled: {
+    isDisabled: {
       true: {
         backgroundColor: theme.COLORS.gray5,
         cursor: 'not-allowed',

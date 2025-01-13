@@ -3,18 +3,18 @@ import bottomBtnStyle from './pageBottomBtn.css';
 interface PageBottomBtnProps {
   btnText: string;
   size: 'small' | 'large';
-  disabled: boolean;
+  isDisabled: boolean;
   onClick: () => void;
 }
 
-const PageBottomBtn = ({ btnText, size, disabled, onClick }: PageBottomBtnProps) => {
+const PageBottomBtn = ({ btnText, size, isDisabled, onClick }: PageBottomBtnProps) => {
   const className = bottomBtnStyle({
     size,
-    disabled,
+    isDisabled,
   });
 
   return (
-    <button className={className} onClick={disabled ? undefined : onClick}>
+    <button className={className} onClick={isDisabled ? undefined : onClick}>
       {btnText}
     </button>
   );
