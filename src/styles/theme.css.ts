@@ -16,7 +16,7 @@ const theme = createGlobalTheme(':root', {
 
     black: '#121212',
     white: '#ffffff',
-    black60: '#121212',
+    black60: 'rgba(18, 18, 18, 0.6)',
 
     primary200: '#9FECAD',
     primary400: '#65C677',
