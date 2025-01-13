@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import PageName from '@components/common/PageName/PageName';
+import PageName from '@components/common/pageName/PageName';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
