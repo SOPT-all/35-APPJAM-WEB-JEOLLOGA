@@ -2,13 +2,14 @@ import Icon from '@assets/svgs';
 import TextBtn from '@components/common/button/textBtn/TextBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
-interface TextBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface TextBtnProps {
   theme: 'lightGray' | 'gray';
   clicked: boolean;
   size: 'small' | 'medium';
   leftIcon?: keyof typeof Icon;
   rightIcon?: keyof typeof Icon;
   text: string;
+  onClick: () => void;
 }
 
 const meta = {
@@ -42,6 +43,7 @@ const meta = {
       control: { type: 'select' },
       options: Object.keys(Icon),
     },
+    onClick: { action: 'clicked' },
   },
 
   args: {
@@ -51,6 +53,7 @@ const meta = {
     text: 'TextButton',
     leftIcon: undefined,
     rightIcon: 'IcnPaste',
+    onClick: () => alert('click !'),
   },
 } satisfies Meta<typeof TextBtn>;
 
