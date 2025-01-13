@@ -1,4 +1,4 @@
-import PageBottomBtn from '@components/common/Button/pageBottom/pageBottomBtn';
+import PageBottomBtn from '@components/common/button/pageBottom/pageBottomBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 interface PageBottomBtnProps {
