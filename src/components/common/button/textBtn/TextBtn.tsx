@@ -1,9 +1,9 @@
 import Icon from '@assets/svgs';
 import React from 'react';
 
-import textButtonStyle from './textButton.css';
+import textBtnStyle from './textBtn.css';
 
-interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface TextBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme: 'lightGray' | 'gray';
   clicked?: boolean;
   size: 'small' | 'medium';
@@ -12,7 +12,7 @@ interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
   text: string;
 }
 
-const TextButton = ({
+const TextBtn = ({
   theme,
   clicked,
   size,
@@ -21,13 +21,13 @@ const TextButton = ({
   rightIcon,
   onClick,
   ...props
-}: TextButtonProps) => {
+}: TextBtnProps) => {
   const LeftIconComponent = leftIcon ? Icon[leftIcon] : null;
   const RightIconComponent = rightIcon ? Icon[rightIcon] : null;
 
   return (
     <button
-      className={textButtonStyle({ theme, state: clicked ? 'pressed' : 'default', size })}
+      className={textBtnStyle({ theme, state: clicked ? 'pressed' : 'default', size })}
       onClick={onClick}
       {...props}>
       {LeftIconComponent && <LeftIconComponent />}
@@ -37,4 +37,4 @@ const TextButton = ({
   );
 };
 
-export default TextButton;
+export default TextBtn;

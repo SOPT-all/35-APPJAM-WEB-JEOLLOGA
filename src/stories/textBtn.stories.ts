@@ -1,8 +1,8 @@
 import Icon from '@assets/svgs';
-import TextButton from '@components/common/button/textButton/TextButton';
+import TextBtn from '@components/common/button/textBtn/TextBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
-interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface TextBtnProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme: 'lightGray' | 'gray';
   clicked: boolean;
   size: 'small' | 'medium';
@@ -12,8 +12,8 @@ interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 }
 
 const meta = {
-  title: 'Common/TextButton',
-  component: TextButton,
+  title: 'Common/TextBtn',
+  component: TextBtn,
   parameters: {
     layout: 'centered',
   },
@@ -52,7 +52,7 @@ const meta = {
     leftIcon: undefined,
     rightIcon: 'IcnPaste',
   },
-} satisfies Meta<typeof TextButton>;
+} satisfies Meta<typeof TextBtn>;
 
 export default meta;
 
@@ -60,10 +60,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-const createTextButtonStory = (
-  theme: TextButtonProps['theme'],
+const createTextBtnStory = (
+  theme: TextBtnProps['theme'],
   clicked: boolean,
-  size: TextButtonProps['size'],
+  size: TextBtnProps['size'],
   text: string,
   leftIcon?: keyof typeof Icon,
   rightIcon?: keyof typeof Icon,
@@ -71,7 +71,7 @@ const createTextButtonStory = (
   args: { theme, clicked, size, text, leftIcon, rightIcon },
 });
 
-export const LightGray: Story = createTextButtonStory(
+export const LightGray: Story = createTextBtnStory(
   'lightGray',
   false,
   'small',
@@ -80,7 +80,7 @@ export const LightGray: Story = createTextButtonStory(
   'IcnPaste',
 );
 
-export const LightGray2: Story = createTextButtonStory(
+export const LightGray2: Story = createTextBtnStory(
   'lightGray',
   true,
   'small',
@@ -89,7 +89,7 @@ export const LightGray2: Story = createTextButtonStory(
   'IcnPaste',
 );
 
-export const Gray: Story = createTextButtonStory(
+export const Gray: Story = createTextBtnStory(
   'gray',
   true,
   'medium',

@@ -1,7 +1,7 @@
 import theme from '@styles/theme.css';
 import { recipe } from '@vanilla-extract/recipes';
 
-const textButtonStyle = recipe({
+const textBtnStyle = recipe({
   base: {
     display: 'flex',
     justifyContent: 'center',
@@ -64,4 +64,4 @@ const textButtonStyle = recipe({
   ],
 });
 
-export default textButtonStyle;
+export default textBtnStyle;
