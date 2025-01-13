@@ -1,42 +1,56 @@
+import Icon from '@assets/svgs';
 import Button from '@components/common/Button/Button';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'outline';
-  size?: 'xLarge' | 'large' | 'medium';
-  isDisabled?: boolean;
+  variant?: 'primary' | 'grayOutlined' | 'blackOutlined';
+  size?: 'large' | 'medium' | 'small';
   label: string;
+  leftIcon?: keyof typeof Icon;
+  rightIcon?: keyof typeof Icon;
+  isActive: boolean;
 }
 
 const meta = {
-  title: 'Common/Button', // 스토리북에서 컴포넌트가 표시되는 경로 (실제 컴포넌트랑 이름 같게 하기)
-  component: Button, // 스토리를 만들 컴포넌트 이름
+  title: 'Common/Button',
+  component: Button,
   parameters: {
-    layout: 'centered', // 스토리를 가운데 정렬하여 표시
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'secondary', 'tertiary', 'outline'],
+      options: ['primary', 'grayOutlined', 'blackOutlined'],
     },
     size: {
       control: { type: 'radio' },
-      options: ['xLarge', 'large', 'medium'],
+      options: ['large', 'medium', 'small'],
     },
-    isDisabled: {
-      control: { type: 'boolean' },
-    },
+
     label: {
       control: { type: 'text' },
+    },
+    isActive: {
+      control: { type: 'boolean' },
+    },
+    leftIcon: {
+      control: { type: 'select' },
+      options: Object.keys(Icon),
+    },
+    rightIcon: {
+      control: { type: 'select' },
+      options: Object.keys(Icon),
     },
   },
   args: {
     variant: 'primary',
     size: 'medium',
-    isDisabled: false,
     label: 'Button',
+    isActive: false,
+    leftIcon: 'IcnCloseLargeGray',
+    rightIcon: 'IcnCloseLargeGray',
   },
 } satisfies Meta<typeof Button>;
 
@@ -46,22 +60,38 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-const createButtonStory = (variant: ButtonProps['variant'], label: string) => ({
+const createButtonStory = (
+  variant: ButtonProps['variant'],
+  label: string,
+  leftIcon?: keyof typeof Icon,
+  rightIcon?: keyof typeof Icon,
+) => ({
   args: {
     variant,
     label,
+    leftIcon,
+    rightIcon,
   },
   argsType: {
     variant: {
       control: false,
     },
+    leftIcon: {
+      control: false,
+    },
+    rightIcon: {
+      control: false,
+    },
   },
 });
 
-export const Primary: Story = createButtonStory('primary', 'Primary Button');
+export const Primary: Story = createButtonStory('primary', 'Primary Button', 'IcnCloseLargeGray');
 
-export const Secondary: Story = createButtonStory('secondary', 'Secondary Button');
+export const grayOutlined: Story = createButtonStory(
+  'grayOutlined',
+  'GrayOutlined Button',
+  undefined,
+  'IcnCloseLargeGray',
+);
 
-export const Tertiary: Story = createButtonStory('tertiary', 'Tertiary Button');
-
-export const Outline: Story = createButtonStory('outline', 'Outline Button');
+export const blackOutlined: Story = createButtonStory('blackOutlined', 'BlackOutlined Button');
