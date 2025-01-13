@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import TextButton from '@components/common/TextButton/TextButton';
+import TextButton from '@components/common/button/textButton/TextButton';
 import type { Meta, StoryObj } from '@storybook/react';
 
 interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
