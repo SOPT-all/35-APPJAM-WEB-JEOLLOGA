@@ -6,7 +6,6 @@ export const cardContainer = style({
   height: '26.8rem',
   borderRadius: '8px',
   overflow: 'hidden',
-  border: 'none',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   display: 'flex',
