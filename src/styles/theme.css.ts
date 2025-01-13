@@ -20,6 +20,7 @@ const theme = createGlobalTheme(':root', {
 
     primary200: '#9FECAD',
     primary400: '#65C677',
+    primary600: '#3EBD55',
 
     green1: '#F7FFE9',
     green2: '#D3ECD8',

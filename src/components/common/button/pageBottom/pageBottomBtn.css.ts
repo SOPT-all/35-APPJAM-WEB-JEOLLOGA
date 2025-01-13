@@ -28,6 +28,16 @@ const bottomBtnStyle = recipe({
       },
     },
   },
+  compoundVariants: [
+    {
+      variants: { isDisabled: false },
+      style: {
+        ':hover': {
+          backgroundColor: theme.COLORS.primary600,
+        },
+      },
+    },
+  ],
 });
 
 export default bottomBtnStyle;

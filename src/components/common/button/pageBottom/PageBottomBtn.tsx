@@ -14,7 +14,7 @@ const PageBottomBtn = ({ btnText, size, isDisabled, onClick }: PageBottomBtnProp
   });
 
   return (
-    <button className={className} onClick={isDisabled ? undefined : onClick}>
+    <button className={className} onClick={isDisabled ? undefined : onClick} disabled={isDisabled}>
       {btnText}
     </button>
   );
