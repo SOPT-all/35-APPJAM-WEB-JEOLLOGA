@@ -5,7 +5,7 @@ import textButtonStyle from './textButton.css';
 
 interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme: 'lightGray' | 'gray';
-  state: 'default' | 'pressed';
+  clicked?: boolean;
   size: 'small' | 'medium';
   leftIcon?: keyof typeof Icon;
   rightIcon?: keyof typeof Icon;
@@ -14,18 +14,22 @@ interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> 
 
 const TextButton = ({
   theme,
-  state,
+  clicked,
   size,
   text,
   leftIcon,
   rightIcon,
+  onClick,
   ...props
 }: TextButtonProps) => {
   const LeftIconComponent = leftIcon ? Icon[leftIcon] : null;
   const RightIconComponent = rightIcon ? Icon[rightIcon] : null;
 
   return (
-    <button className={textButtonStyle({ theme, state, size })} {...props}>
+    <button
+      className={textButtonStyle({ theme, state: clicked ? 'pressed' : 'default', size })}
+      onClick={onClick}
+      {...props}>
       {LeftIconComponent && <LeftIconComponent />}
       <span>{text}</span>
       {RightIconComponent && <RightIconComponent />}

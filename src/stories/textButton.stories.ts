@@ -1,11 +1,10 @@
-// textButton.stories.tsx
 import Icon from '@assets/svgs';
 import TextButton from '@components/common/TextButton/TextButton';
 import type { Meta, StoryObj } from '@storybook/react';
 
 interface TextButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   theme: 'lightGray' | 'gray';
-  state: 'default' | 'pressed';
+  clicked: boolean;
   size: 'small' | 'medium';
   leftIcon?: keyof typeof Icon;
   rightIcon?: keyof typeof Icon;
@@ -25,9 +24,8 @@ const meta = {
       control: { type: 'radio' },
       options: ['lightGray', 'gray'],
     },
-    state: {
-      control: { type: 'radio' },
-      options: ['default', 'pressed'],
+    clicked: {
+      control: { type: 'boolean' },
     },
     size: {
       control: { type: 'radio' },
@@ -48,11 +46,11 @@ const meta = {
 
   args: {
     theme: 'lightGray',
-    state: 'default',
-    size: 'medium',
-    text: 'Sample TextButton',
+    clicked: false,
+    size: 'small',
+    text: 'TextButton',
     leftIcon: undefined,
-    rightIcon: undefined,
+    rightIcon: 'IcnPaste',
   },
 } satisfies Meta<typeof TextButton>;
 
@@ -64,27 +62,38 @@ export const Default: Story = {};
 
 const createTextButtonStory = (
   theme: TextButtonProps['theme'],
-  state: TextButtonProps['state'],
+  clicked: boolean,
   size: TextButtonProps['size'],
   text: string,
   leftIcon?: keyof typeof Icon,
   rightIcon?: keyof typeof Icon,
 ) => ({
-  args: { theme, state, size, text, leftIcon, rightIcon },
+  args: { theme, clicked, size, text, leftIcon, rightIcon },
 });
 
-export const LightGrayDefaultSmall: Story = createTextButtonStory(
+export const LightGray: Story = createTextButtonStory(
   'lightGray',
-  'default',
+  false,
   'small',
-  'LightGray Default Small',
+  'LightGray',
+  undefined,
+  'IcnPaste',
 );
 
-export const GrayPressedMedium: Story = createTextButtonStory(
+export const LightGray2: Story = createTextButtonStory(
+  'lightGray',
+  true,
+  'small',
+  'LightGray2',
+  'IcnPaste',
+  'IcnPaste',
+);
+
+export const Gray: Story = createTextButtonStory(
   'gray',
-  'pressed',
+  true,
   'medium',
-  'Gray Pressed Medium',
+  'Gray',
   'IcnSmallHeart',
   'IcnSmallHeart',
 );
