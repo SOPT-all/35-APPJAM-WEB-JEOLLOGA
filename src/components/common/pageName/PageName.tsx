@@ -4,26 +4,22 @@ import React from 'react';
 import * as PageNameStyle from './pageName.css';
 
 interface PageNameProps {
-  leftIcon: keyof typeof Icon;
   onLeftClick: () => void;
   title: string;
-  rightIcon?: keyof typeof Icon;
   onRightClick?: () => void;
+  isLikeBtn?: boolean;
 }
 
-const PageName = ({ leftIcon, onLeftClick, title, rightIcon, onRightClick }: PageNameProps) => {
-  const LeftIconComponent = Icon[leftIcon];
-  const RightIconComponent = rightIcon ? Icon[rightIcon] : null;
-
+const PageName = ({ onLeftClick, title, onRightClick, isLikeBtn = true }: PageNameProps) => {
   return (
     <nav className={PageNameStyle.container}>
       <button className={PageNameStyle.buttonLayout} onClick={onLeftClick}>
-        <LeftIconComponent />
+        <Icon.IcnArrowBlackLeft />
       </button>
       <span className={PageNameStyle.titleStyle}>{title}</span>
-      {RightIconComponent && (
+      {isLikeBtn && (
         <button className={PageNameStyle.buttonLayout} onClick={onRightClick}>
-          <RightIconComponent />
+          <Icon.IcnWish />
         </button>
       )}
     </nav>

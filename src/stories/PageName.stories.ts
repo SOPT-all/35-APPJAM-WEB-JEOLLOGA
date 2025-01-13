@@ -1,4 +1,3 @@
-import Icon from '@assets/svgs';
 import PageName from '@components/common/pageName/PageName';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -10,24 +9,20 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    leftIcon: {
-      control: { type: 'select' },
-      options: Object.keys(Icon),
-    },
-    rightIcon: {
-      control: { type: 'select' },
-      options: Object.keys(Icon),
-    },
     title: {
       control: { type: 'text' },
     },
     onLeftClick: { action: 'left button clicked' },
     onRightClick: { action: 'right button clicked' },
+    isLikeBtn: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
-    leftIcon: 'IcnArrowBlackLeft',
     title: 'GoToJeol',
-    rightIcon: 'IcnWish',
+    isLikeBtn: true,
+    onLeftClick: () => alert('click !'),
+    onRightClick: () => alert('click !'),
   },
 } satisfies Meta<typeof PageName>;
 
@@ -37,19 +32,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    leftIcon: 'IcnArrowBlackLeft',
     title: 'GoToJeol',
-    rightIcon: 'IcnWish',
-    onLeftClick: () => {},
-    onRightClick: () => {},
   },
 };
 
 export const NoHeart: Story = {
   args: {
-    leftIcon: 'IcnArrowBlackLeft',
-    onLeftClick: () => {},
-    rightIcon: undefined,
     title: 'Left Only',
+    isLikeBtn: false,
   },
 };
