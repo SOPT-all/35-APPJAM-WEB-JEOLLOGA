@@ -3,7 +3,7 @@ import onboardingBtn from '@components/common/button/onboarding/onboardingBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Components/OnboardingButton',
+  title: 'Components/Button/OnboardingButton',
   component: onboardingBtn,
   parameters: {
     layout: 'centered',
@@ -27,7 +27,7 @@ const meta = {
   args: {
     btnText: '이슬람교',
     isActive: false,
-    leftIcon: undefined, // No icon by default
+    leftIcon: undefined,
   },
 } satisfies Meta<typeof onboardingBtn>;
 
