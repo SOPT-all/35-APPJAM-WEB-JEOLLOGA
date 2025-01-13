@@ -29,7 +29,7 @@ const Button = ({
       className={buttonStyle({ color: variant, size, active: isActive ? true : false })}
       onClick={onClick}>
       {SelectedLeftIcon && <SelectedLeftIcon />}
-      {label}
+      <p>{label}</p>
       {SelectedRightIcon && <SelectedRightIcon />}
     </button>
   );
