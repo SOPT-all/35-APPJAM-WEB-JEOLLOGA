@@ -3,7 +3,7 @@ import OnboardingBtn from '@components/common/button/onboarding/OnboardingBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Components/Button/OnboardingButton',
+  title: 'Common/Button/OnboardingButton',
   component: OnboardingBtn,
   parameters: {
     layout: 'centered',

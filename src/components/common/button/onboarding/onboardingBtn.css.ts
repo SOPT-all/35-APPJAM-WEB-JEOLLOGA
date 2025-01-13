@@ -19,11 +19,11 @@ export const OnboardingBtnStyle = recipe({
           borderColor: theme.COLORS.primary200,
           color: theme.COLORS.primary200,
         },
-      },
-      false: {
-        backgroundColor: theme.COLORS.gray1,
-        borderColor: theme.COLORS.gray2,
-        color: theme.COLORS.gray10,
+        false: {
+          backgroundColor: theme.COLORS.gray1,
+          borderColor: theme.COLORS.gray2,
+          color: theme.COLORS.gray10,
+        },
       },
     },
   },
