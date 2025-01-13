@@ -6,77 +6,80 @@ const buttonStyle = recipe({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    ...theme.FONTS.b9R15,
-
-    border: 'none',
-    borderRadius: '8px',
-
-    whiteSpace: 'nowrap',
-
+    borderRadius: '40px',
     cursor: 'pointer',
-
-    ':disabled': {
-      backgroundColor: theme.COLORS.gray3,
-      color: theme.COLORS.white,
-
-      cursor: 'default',
-    },
+    transition: 'background-color 0.2s, color 0.2s, border 0.2s', // 임시로 넣어놓은 transition
   },
 
   variants: {
     color: {
       primary: {
-        color: theme.COLORS.white,
-        backgroundColor: theme.COLORS.primary400,
-
-        '&:hover': {
-          backgroundColor: theme.COLORS.primary400,
-        },
+        backgroundColor: theme.COLORS.white,
+        color: theme.COLORS.green5,
+        border: `1px solid ${theme.COLORS.green3}`,
       },
-      secondary: {
-        color: '#6D77FF',
-        backgroundColor: '#F3F5FF',
-
-        '&:hover': {
-          backgroundColor: '#E3E8FF',
-        },
+      grayOutlined: {
+        backgroundColor: theme.COLORS.white,
+        color: theme.COLORS.gray7,
+        border: `1px solid ${theme.COLORS.gray1}`,
       },
-      tertiary: {
-        color: '#525866',
-        backgroundColor: '#F8F8FB',
-
-        '&:hover': {
-          backgroundColor: '#ECECF1',
-        },
-      },
-      outline: {
-        color: '#525866',
-        backgroundColor: '#FFFFFF',
-
-        '&:hover': {
-          backgroundColor: '#F8F8FB',
-        },
+      blackOutlined: {
+        backgroundColor: theme.COLORS.white,
+        color: theme.COLORS.gray10,
+        border: `1px solid ${theme.COLORS.gray3}`,
       },
     },
 
     size: {
-      xLarge: {
-        padding: '1.6rem 1.4rem',
-      },
-
       large: {
-        padding: '1.4rem',
+        padding: '1rem 1.4rem',
+        ...theme.FONTS.b8M15,
+        gap: '0.4rem',
       },
-
       medium: {
-        padding: '1.2rem 1.4rem',
+        padding: '0.8rem 1.2rem',
+        ...theme.FONTS.c4M14,
+        gap: '0.2rem',
       },
+      small: {
+        padding: '0.6rem 0.8rem',
+        ...theme.FONTS.c2R14,
+        gap: '0.1rem',
+      },
+    },
+
+    active: {
+      true: {},
+      false: {},
     },
   },
 
+  compoundVariants: [
+    {
+      variants: { color: 'primary', active: true },
+      style: {
+        backgroundColor: theme.COLORS.green4,
+        color: theme.COLORS.white,
+      },
+    },
+    {
+      variants: { color: 'grayOutlined', active: true },
+      style: {
+        border: `1px solid ${theme.COLORS.gray8}`,
+        color: theme.COLORS.gray11,
+      },
+    },
+    {
+      variants: { color: 'blackOutlined', active: true },
+      style: {
+        border: `1px solid ${theme.COLORS.gray11}`,
+        color: theme.COLORS.gray11,
+      },
+    },
+  ],
+
   defaultVariants: {
-    color: 'primary',
-    size: 'medium',
+    active: false,
   },
 });
 
