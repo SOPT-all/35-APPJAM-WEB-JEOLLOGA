@@ -1,6 +1,5 @@
 import Icon from '@assets/svgs';
-
-import buttonStyle from './button.css';
+import buttonStyle from '@components/common/button/basicBtn/basicBtn.css';
 
 interface ButtonProps {
   variant?: 'primary' | 'grayOutlined' | 'blackOutlined';
@@ -12,7 +11,7 @@ interface ButtonProps {
   isActive?: boolean;
 }
 
-const Button = ({
+const BasicBtn = ({
   variant = 'primary',
   size = 'medium',
   label,
@@ -35,4 +34,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default BasicBtn;

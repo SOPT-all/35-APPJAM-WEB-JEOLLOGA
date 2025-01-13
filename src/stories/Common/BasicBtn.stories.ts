@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import Button from '@components/common/Button/Button';
+import BasicBtn from '@components/common/button/basicBtn/BasicBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ButtonHTMLAttributes } from 'react';
 
@@ -13,8 +13,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const meta = {
-  title: 'Common/Button',
-  component: Button,
+  title: 'Common/Button/BasicBtn',
+  component: BasicBtn,
   parameters: {
     layout: 'centered',
   },
@@ -52,7 +52,7 @@ const meta = {
     leftIcon: 'IcnCloseLargeGray',
     rightIcon: 'IcnCloseLargeGray',
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof BasicBtn>;
 
 export default meta;
 
