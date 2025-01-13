@@ -13,7 +13,7 @@ interface TextBtnProps {
 }
 
 const meta = {
-  title: 'Common/TextBtn',
+  title: 'Common/Button/TextBtn',
   component: TextBtn,
   parameters: {
     layout: 'centered',
