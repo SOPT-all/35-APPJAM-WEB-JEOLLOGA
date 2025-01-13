@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 interface PageBottomBtnProps {
   btnText: string;
   size: 'small' | 'large';
-  disabled: boolean;
+  isDisabled: boolean;
   onClick: () => void;
 }
 
@@ -24,7 +24,7 @@ const meta: Meta<typeof PageBottomBtn> = {
       options: ['small', 'large'],
       description: 'The size of the button',
     },
-    disabled: {
+    isDisabled: {
       control: { type: 'boolean' },
       description: 'Indicates whether the button is disabled',
     },
@@ -36,7 +36,7 @@ const meta: Meta<typeof PageBottomBtn> = {
   args: {
     btnText: 'Click Me',
     size: 'large',
-    disabled: false,
+    isDisabled: false,
   },
 };
 
@@ -50,7 +50,7 @@ export const LargeEnabled: Story = {
   args: {
     btnText: '절로가 시작하기',
     size: 'large',
-    disabled: false,
+    isDisabled: false,
   },
 };
 
@@ -58,7 +58,7 @@ export const SmallEnabled: Story = {
   args: {
     btnText: '예약하기',
     size: 'small',
-    disabled: false,
+    isDisabled: false,
   },
 };
 
@@ -66,7 +66,7 @@ export const LargeDisabled: Story = {
   args: {
     btnText: '다음',
     size: 'large',
-    disabled: true,
+    isDisabled: true,
   },
 };
 
@@ -74,6 +74,6 @@ export const SmallDisabled: Story = {
   args: {
     btnText: '예약하기',
     size: 'small',
-    disabled: true,
+    isDisabled: true,
   },
 };
