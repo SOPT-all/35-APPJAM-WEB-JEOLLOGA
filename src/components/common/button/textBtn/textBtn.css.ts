@@ -7,8 +7,6 @@ const textBtnStyle = recipe({
     justifyContent: 'center',
     alignItems: 'center',
     gap: '0.3rem',
-    backgroundColor: 'transparent',
-    border: 'none',
   },
 
   variants: {
