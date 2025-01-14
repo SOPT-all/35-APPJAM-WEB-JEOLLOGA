@@ -27,4 +27,5 @@ export const barContainer = style({
 export const barStyle = style({
   height: '100%',
   backgroundColor: theme.COLORS.primary400,
+  transition: 'width 0.3s ease-in-out',
 });
