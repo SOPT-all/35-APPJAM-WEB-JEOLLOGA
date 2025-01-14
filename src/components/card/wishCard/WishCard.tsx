@@ -1,5 +1,5 @@
+import WishInfoSection from '@components/card/wishCard/WishInfoSection';
 import FlowerIcon from '@components/common/icon/flowerIcon/FlowerIcon';
-import Tag from '@components/common/tag/Tag';
 import { useState } from 'react';
 
 import * as styles from './wishCard.css';
@@ -38,16 +38,14 @@ const WishCard = ({
           <FlowerIcon isActive={isWished} />
         </button>
       </section>
-      <section className={styles.infoBox}>
-        <h2 className={styles.hashTag}>#{tag}</h2>
-        <h2 className={styles.title}>
-          {templeName} {templestayName}
-        </h2>
-        <div className={styles.tagBpx}>
-          <Tag color="brown" label={region} />
-          <Tag color="blue" label={type} />
-        </div>
-      </section>
+
+      <WishInfoSection
+        templeName={templeName}
+        templestayName={templestayName}
+        tag={tag}
+        region={region}
+        type={type}
+      />
     </article>
   );
 };
