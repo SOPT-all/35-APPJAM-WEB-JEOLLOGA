@@ -15,7 +15,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
   const isRightDisabled = currentPage === totalPages;
 
   const renderPageNumbers = () => {
-    if (totalPages <= 8) {
+    if (totalPages < 8) {
       return Array.from({ length: totalPages }, (_, index) => (
         <PageBtn
           key={index + 1}
