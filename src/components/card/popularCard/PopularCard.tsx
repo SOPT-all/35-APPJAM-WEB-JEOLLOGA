@@ -1,4 +1,5 @@
 import Icon from '@assets/svgs';
+import RankBtn from '@components/card/popularCard/RankBtn';
 import { useState } from 'react';
 
 import * as styles from './popularCard.css';
@@ -42,7 +43,7 @@ const PopularCard = ({
       }}>
       <div>
         <div className={styles.imgBox} style={{ backgroundImage: `url(${templeImg})` }}>
-          <span className={styles.rankBox}>{ranking}</span>
+          <RankBtn ranking={ranking} />
         </div>
         <div className={styles.bottomWrapper}>
           <div className={styles.bottomContainer}>
