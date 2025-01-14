@@ -12,6 +12,7 @@ export const infoBox = style({
 
 export const title = style({
   ...theme.FONTS.c3Sb14,
+  color: theme.COLORS.gray11,
 });
 
 export const content = style({
