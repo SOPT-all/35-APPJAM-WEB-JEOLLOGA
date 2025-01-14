@@ -37,7 +37,7 @@ const meta = {
     templeLoc: '서울',
     templeImg:
       'https://img.danawa.com/images/descFiles/6/110/5109431_agiLaciMHn_1659098198501.jpeg',
-    tag: '#방긋방긋',
+    tag: '방긋방긋',
     onClick: () => alert('click !'),
     isLiked: false,
   },

@@ -50,7 +50,7 @@ const PopularCard = ({
             <div className={styles.bottomBox}>
               <span>{templeLoc}</span>
               <Icon.IcnDivider />
-              <span>{tag}</span>
+              <span>#{tag}</span>
             </div>
           </div>
           <button className={styles.likeBtn} onClick={handleLikeClick}>
