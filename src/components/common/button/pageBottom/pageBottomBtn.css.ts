@@ -6,7 +6,6 @@ const bottomBtnStyle = recipe({
     ...theme.FONTS.h5Sb16,
     color: theme.COLORS.white,
     borderRadius: 8,
-    height: '5.2rem',
   },
   variants: {
     size: {
