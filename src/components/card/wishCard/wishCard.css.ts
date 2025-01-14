@@ -21,8 +21,15 @@ export const image = style({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-
   borderRadius: '4px',
+
+  transition: '0.15s ease-out',
+
+  selectors: {
+    [`${wishCardContainer}:hover &`]: {
+      filter: 'brightness(88%)',
+    },
+  },
 });
 
 export const wishBtn = style({
