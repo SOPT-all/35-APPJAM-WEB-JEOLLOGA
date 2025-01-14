@@ -1,14 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
-export const topBarContainer = style({
+export const headerContainer = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
 
   width: '33.1rem',
   height: '4rem',
-
-  border: '1px solid black',
 });
 
 export const logoImage = style({

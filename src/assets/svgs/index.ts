@@ -5,6 +5,7 @@ import IcnArrowGrayUp from './icn_arrow_gray_up.svg';
 import IcnBackBlackLeft from './icn_back_black_left.svg';
 import IcnCloseLargeGray from './icn_close_large_gray.svg';
 import IcnCloseSmallGray from './icn_close_small_gray.svg';
+import IcnDivder from './icn_divider.svg';
 import IcnFilter from './icn_filter.svg';
 import IcnHome from './icn_home.svg';
 import IcnInsta from './icn_insta.svg';
@@ -48,6 +49,7 @@ const Icon = {
   IcnWish,
   IcnX,
   IcnBackBlackLeft,
+  IcnDivder,
 };
 
 export default Icon;

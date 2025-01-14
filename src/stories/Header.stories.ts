@@ -1,14 +1,13 @@
-import Topbar from '@components/topBottomBar/topBar/TopBar';
+import Header from '@components/topBottomBar/header/Header';
 import type { Meta, StoryObj } from '@storybook/react';
-
 const meta = {
-  title: 'Common/TopBar',
-  component: Topbar,
+  title: 'Common/Header',
+  component: Header,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Topbar>;
+} satisfies Meta<typeof Header>;
 
 export default meta;
 
