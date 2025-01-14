@@ -2,7 +2,7 @@ import ScheduleCard from '@components/schedule/ScheduleCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof ScheduleCard> = {
-  title: 'Components/ScheduleCard',
+  title: 'Schedule/ScheduleCard',
   component: ScheduleCard,
   parameters: {
     layout: 'centered',
