@@ -1,6 +1,8 @@
 import Icon from '@assets/svgs';
+import { useState } from 'react';
 
 import * as styles from './popularCard.css';
+
 interface PopularCardProps {
   ranking: number;
   templeName: string;
@@ -18,10 +20,26 @@ const PopularCard = ({
   templeImg,
   tag,
   onClick,
-  isLiked,
+  isLiked = false,
 }: PopularCardProps) => {
+  const [liked, setLiked] = useState(isLiked);
+
+  const handleLikeClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLiked((prev) => !prev);
+  };
+
   return (
-    <button className={styles.cardWrapper} onClick={onClick}>
+    <div
+      className={styles.cardWrapper}
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onClick();
+        }
+      }}>
       <div>
         <div className={styles.imgBox} style={{ backgroundImage: `url(${templeImg})` }}>
           <span className={styles.rankBox}>{ranking}</span>
@@ -35,12 +53,12 @@ const PopularCard = ({
               <span>{tag}</span>
             </div>
           </div>
-          <button className={styles.likeBtn}>
-            {isLiked ? <Icon.IcnFlowerPink /> : <Icon.IncFlowerGray />}
+          <button className={styles.likeBtn} onClick={handleLikeClick}>
+            {liked ? <Icon.IcnFlowerPink /> : <Icon.IncFlowerGray />}
           </button>
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 
