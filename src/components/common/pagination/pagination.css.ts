@@ -7,18 +7,22 @@ export const paginationContainer = style({
   gap: '0.3rem',
   height: '3.7rem',
   padding: '0.6rem 0.8rem',
+  backgroundColor: theme.COLORS.gray1,
+  borderRadius: '2.4rem',
 });
 
 export const leftArrowStyle = style({
   width: '3.6rem',
   paddingLeft: '0.4rem',
   paddingRight: '1,6rem',
+  display: 'flex',
 });
 
 export const rightArrowStyle = style({
   width: '3.6rem',
   paddingLeft: '1.6rem',
   paddingRight: '0.4rem',
+  display: 'flex',
 });
 
 export const iconStyle = style({
@@ -33,6 +37,7 @@ export const disabledIcon = style({
 export const dotStyle = style({
   width: '2.6rem',
   height: '2.6rem',
+  padding: '0 0.8rem',
   ...theme.FONTS.c2R14,
   color: theme.COLORS.gray10,
 });

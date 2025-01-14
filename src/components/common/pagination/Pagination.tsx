@@ -49,7 +49,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
     return pages.map((page, index) => {
       if (typeof page === 'string') {
         return (
-          <span key={index + 1} className={styles.dotStyle}>
+          <span key={`dot-${index}`} className={styles.dotStyle}>
             ...
           </span>
         );
@@ -80,7 +80,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
         onClick={() => !isRightDisabled && onPageChange(currentPage + 1)}
         disabled={isRightDisabled}>
         <Icon.IcnLineArrowSmallRight
-          className={isLeftDisabled ? styles.disabledIcon : styles.iconStyle}
+          className={isRightDisabled ? styles.disabledIcon : styles.iconStyle}
         />
       </button>
     </nav>
