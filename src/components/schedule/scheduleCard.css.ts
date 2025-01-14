@@ -22,10 +22,9 @@ export const dayStyle = style({
 
 export const programItem = style({
   display: 'flex',
-  alignItems: 'center',
   gap: '1.2rem',
+  padding: '0.6rem 0',
   width: '30.7rem',
-  height: '3.3rem',
   borderBottom: `0.1rem solid ${theme.COLORS.gray3}`,
 });
 
@@ -33,9 +32,12 @@ export const timeStyle = style({
   ...theme.FONTS.b9R15,
   color: theme.COLORS.gray10,
   width: '9rem',
+  fontFeatureSettings: "'tnum'",
+  fontVariantNumeric: 'tabular-nums',
 });
 
 export const description = style({
   ...theme.FONTS.b8M15,
   color: theme.COLORS.black,
+  width: '20.5rem',
 });
