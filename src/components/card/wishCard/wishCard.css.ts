@@ -60,6 +60,9 @@ export const hashTag = style({
 
   color: theme.COLORS.gray5,
   ...theme.FONTS.c5M13,
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 });
 
 export const title = style({
@@ -69,6 +72,9 @@ export const title = style({
   color: theme.COLORS.black,
   ...theme.FONTS.h5Sb16,
   alignContent: 'center',
+
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 });
 
 export const tagBpx = style({
@@ -77,6 +83,5 @@ export const tagBpx = style({
 
   width: '100%',
   height: '2.1rem',
-
   marginTop: '0.8rem',
 });
