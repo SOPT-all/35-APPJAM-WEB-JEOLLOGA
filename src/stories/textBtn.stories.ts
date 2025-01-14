@@ -2,16 +2,6 @@ import Icon from '@assets/svgs';
 import TextBtn from '@components/common/button/textBtn/TextBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
-interface TextBtnProps {
-  theme: 'lightGray' | 'gray';
-  clicked: boolean;
-  size: 'small' | 'medium';
-  leftIcon?: keyof typeof Icon;
-  rightIcon?: keyof typeof Icon;
-  text: string;
-  onClick: () => void;
-}
-
 const meta = {
   title: 'Common/Button/TextBtn',
   component: TextBtn,
@@ -21,10 +11,6 @@ const meta = {
   tags: ['autodocs'],
 
   argTypes: {
-    theme: {
-      control: { type: 'radio' },
-      options: ['lightGray', 'gray'],
-    },
     clicked: {
       control: { type: 'boolean' },
     },
@@ -47,7 +33,6 @@ const meta = {
   },
 
   args: {
-    theme: 'lightGray',
     clicked: false,
     size: 'small',
     text: 'TextButton',
@@ -64,39 +49,27 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 const createTextBtnStory = (
-  theme: TextBtnProps['theme'],
-  clicked: boolean,
-  size: TextBtnProps['size'],
   text: string,
+  clicked?: boolean,
+  size?: 'small' | 'medium',
   leftIcon?: keyof typeof Icon,
   rightIcon?: keyof typeof Icon,
 ) => ({
-  args: { theme, clicked, size, text, leftIcon, rightIcon },
+  args: { clicked, size, text, leftIcon, rightIcon },
 });
 
-export const LightGray: Story = createTextBtnStory(
-  'lightGray',
-  false,
-  'small',
-  'LightGray',
+export const GoToJeol: Story = createTextBtnStory(
+  'GoToJeol',
+  undefined,
+  undefined,
   undefined,
   'IcnPaste',
 );
 
-export const LightGray2: Story = createTextBtnStory(
-  'lightGray',
+export const Clicked: Story = createTextBtnStory(
+  'Clicked',
   true,
-  'small',
-  'LightGray2',
+  undefined,
   'IcnPaste',
   'IcnPaste',
-);
-
-export const Gray: Story = createTextBtnStory(
-  'gray',
-  true,
-  'medium',
-  'Gray',
-  'IcnSmallHeart',
-  'IcnSmallHeart',
 );
