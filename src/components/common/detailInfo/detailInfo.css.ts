@@ -18,4 +18,8 @@ export const title = style({
 export const content = style({
   ...theme.FONTS.c2R14,
   color: theme.COLORS.gray10,
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  wordBreak: 'break-all',
+  overflow: 'hidden',
 });
