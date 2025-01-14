@@ -1,5 +1,7 @@
+import Icon from '@assets/svgs';
 import React from 'react';
 
+import * as styles from './pagination.css';
 import PageBtn from '../button/pageBtn/PageBtn';
 
 interface PaginationProps {
@@ -9,6 +11,9 @@ interface PaginationProps {
 }
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+  const isLeftDisabled = currentPage === 1;
+  const isRightDisabled = currentPage === totalPages;
+
   const renderPageNumbers = () => {
     if (totalPages <= 8) {
       return Array.from({ length: totalPages }, (_, index) => (
@@ -43,7 +48,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
     }
     return pages.map((page, index) => {
       if (typeof page === 'string') {
-        return <span key={index + 1}>...</span>;
+        return (
+          <span key={index + 1} className={styles.dotStyle}>
+            ...
+          </span>
+        );
       }
       return (
         <PageBtn
@@ -55,7 +64,27 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
       );
     });
   };
-  return <div>Pagination</div>;
+  return (
+    <nav className={styles.paginationContainer}>
+      <button
+        className={styles.leftArrowStyle}
+        onClick={() => !isLeftDisabled && onPageChange(currentPage - 1)}
+        disabled={isLeftDisabled}>
+        <Icon.IcnLineArrowSmallLeft
+          className={isLeftDisabled ? styles.disabledIcon : styles.iconStyle}
+        />
+      </button>
+      {renderPageNumbers()}
+      <button
+        className={styles.rightArrowStyle}
+        onClick={() => !isRightDisabled && onPageChange(currentPage + 1)}
+        disabled={isRightDisabled}>
+        <Icon.IcnLineArrowSmallRight
+          className={isLeftDisabled ? styles.disabledIcon : styles.iconStyle}
+        />
+      </button>
+    </nav>
+  );
 };
 
 export default Pagination;
