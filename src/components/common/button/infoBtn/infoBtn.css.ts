@@ -13,7 +13,7 @@ const buttonStyle = recipe({
   variants: {
     hasDivider: {
       true: {
-        boxShadow: '0px 1px 0px 0px #EBEDEF',
+        boxShadow: `0px 1px 0px 0px ${theme.COLORS.gray2}`,
       },
       false: {},
     },
