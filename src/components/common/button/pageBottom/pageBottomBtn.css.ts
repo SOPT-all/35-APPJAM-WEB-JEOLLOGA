@@ -4,8 +4,9 @@ import { recipe } from '@vanilla-extract/recipes';
 const bottomBtnStyle = recipe({
   base: {
     ...theme.FONTS.h5Sb16,
-    color: theme.COLORS.white,
     borderRadius: 8,
+    height: '5.2rem',
+    color: theme.COLORS.white,
   },
   variants: {
     size: {
