@@ -1,6 +1,6 @@
 import Tag from '@components/common/tag/Tag';
 
-import * as styles from './wishCard.css';
+import * as styles from './wishInfoSection.css';
 
 interface WishInfoSectionProps {
   templeName: string;
@@ -19,11 +19,13 @@ const WishInfoSection = ({
 }: WishInfoSectionProps) => {
   return (
     <section className={styles.infoBox}>
-      <h2 className={styles.hashTag}>#{tag}</h2>
-      <h2 className={styles.title}>
-        {templeName} {templestayName}
-      </h2>
-      <div className={styles.tagBpx}>
+      <div>
+        <h2 className={styles.hashTag}>#{tag}</h2>
+        <h2 className={styles.title}>
+          {templeName} {templestayName}
+        </h2>
+      </div>
+      <div className={styles.tagBox}>
         <Tag color="brown" label={region} />
         <Tag color="blue" label={type} />
       </div>

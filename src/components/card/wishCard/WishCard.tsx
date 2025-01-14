@@ -13,6 +13,7 @@ interface WishCardProps {
   type: string;
   imgUrl: string;
   liked: boolean;
+  layout: 'vertical' | 'horizontal';
 }
 
 const WishCard = ({
@@ -23,17 +24,23 @@ const WishCard = ({
   type,
   imgUrl,
   liked,
+  layout,
 }: WishCardProps) => {
   const [isWished, setIsWished] = useState(liked);
+  const isHorizontal = layout === 'horizontal';
 
   const onClickWishBtn = () => {
     setIsWished((prev) => !prev);
   };
 
   return (
-    <article className={styles.wishCardContainer}>
-      <section className={styles.imageContainer}>
-        <img className={styles.image} src={imgUrl} alt={templeName + ' 대표사진'} />
+    <article className={isHorizontal ? styles.horizontalContainer : styles.verticalContainer}>
+      <section className={isHorizontal ? styles.horizontalImgSection : styles.verticalImgSection}>
+        <img
+          className={isHorizontal ? styles.horizontalImage : styles.verticalImage}
+          src={imgUrl}
+          alt={templeName + ' 대표사진'}
+        />
         <button className={styles.wishBtn} onClick={onClickWishBtn}>
           <FlowerIcon isActive={isWished} />
         </button>

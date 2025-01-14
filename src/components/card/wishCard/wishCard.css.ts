@@ -1,23 +1,42 @@
-import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
-export const wishCardContainer = style({
+export const verticalContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.7rem',
-
+  gap: '0.8rem',
   width: '16.3rem',
   height: '27.7rem',
 });
 
-export const imageContainer = style({
+export const horizontalContainer = style({
   position: 'relative',
-  width: '16.3rem',
-  height: '17.2rem',
+  display: 'flex',
+  gap: '1.2rem',
+  width: '33.5rem',
+  height: '13.5rem',
+
   borderRadius: '4px',
 });
 
-export const image = style({
+export const horizontalImgSection = style({
+  width: '12rem',
+  height: '13.5rem',
+});
+
+export const verticalImgSection = style({
+  position: 'relative',
+  width: '16.3rem',
+  height: '17.2rem',
+});
+
+export const infoContainerHorizontal = style({
+  padding: '1rem',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+});
+
+export const verticalImage = style({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
@@ -26,7 +45,22 @@ export const image = style({
   transition: '0.15s ease-out',
 
   selectors: {
-    [`${wishCardContainer}:hover &`]: {
+    [`${verticalContainer}:hover &`]: {
+      filter: 'brightness(88%)',
+    },
+  },
+});
+
+export const horizontalImage = style({
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  borderRadius: '4px 0 0 4px',
+
+  transition: '0.15s ease-out',
+
+  selectors: {
+    [`${horizontalContainer}:hover &`]: {
       filter: 'brightness(88%)',
     },
   },
@@ -51,44 +85,4 @@ export const flowerBtnStyle = style({
   bottom: '1rem',
   right: '1rem',
   zIndex: '2',
-});
-
-export const infoBox = style({
-  display: 'flex',
-  flexDirection: 'column',
-
-  width: '16.3rem',
-  height: '9.7rem',
-});
-
-export const hashTag = style({
-  width: '100%',
-  height: '1.7rem',
-
-  color: theme.COLORS.gray5,
-  ...theme.FONTS.c5M13,
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-});
-
-export const title = style({
-  width: '100%',
-  height: '4.9rem',
-
-  color: theme.COLORS.black,
-  ...theme.FONTS.h5Sb16,
-  alignContent: 'center',
-
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-});
-
-export const tagBpx = style({
-  display: 'flex',
-  gap: '0.6rem',
-
-  width: '100%',
-  height: '2.1rem',
-  marginTop: '0.8rem',
 });
