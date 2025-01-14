@@ -8,6 +8,8 @@ import IcnCloseSmallGray from './icn_close_small_gray.svg';
 import IcnFilter from './icn_filter.svg';
 import IcnHome from './icn_home.svg';
 import IcnInsta from './icn_insta.svg';
+import IcnFlowerGray from './icn_large_flower_gray.svg';
+import IcnFlowerPink from './icn_large_flower_pink.svg';
 import IcnLargeHeartPink from './icn_large_heart_pink.svg';
 import IcnLineArrowLargeRight from './icn_linearrow_large_right.svg';
 import IcnLineArrowSmallLeft from './icn_linearrow_small_left.svg';
@@ -48,6 +50,8 @@ const Icon = {
   IcnWish,
   IcnX,
   IcnBackBlackLeft,
+  IcnFlowerGray,
+  IcnFlowerPink,
 };
 
 export default Icon;
