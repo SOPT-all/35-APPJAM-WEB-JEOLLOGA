@@ -7,7 +7,6 @@ export const titleContainerStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  border: '1px solid black',
 });
 
 export const titleStyle = style({
