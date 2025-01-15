@@ -1,4 +1,4 @@
-import WishInfoSection from '@components/card/templeStayCard/InfoSection';
+import InfoSection from '@components/card/templeStayCard/InfoSection';
 import FlowerIcon from '@components/common/icon/flowerIcon/FlowerIcon';
 import { useState } from 'react';
 
@@ -46,7 +46,7 @@ const TempleStayCard = ({
         </button>
       </section>
 
-      <WishInfoSection
+      <InfoSection
         templeName={templeName}
         templestayName={templestayName}
         tag={tag}

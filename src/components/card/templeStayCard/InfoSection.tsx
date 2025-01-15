@@ -10,7 +10,7 @@ interface InfoSectionProps {
   type: string;
 }
 
-const WishInfoSection = ({ templeName, templestayName, tag, region, type }: InfoSectionProps) => {
+const InfoSection = ({ templeName, templestayName, tag, region, type }: InfoSectionProps) => {
   return (
     <section className={styles.infoBox}>
       <div>
@@ -27,4 +27,4 @@ const WishInfoSection = ({ templeName, templestayName, tag, region, type }: Info
   );
 };
 
-export default WishInfoSection;
+export default InfoSection;
