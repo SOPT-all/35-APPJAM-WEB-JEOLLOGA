@@ -1,8 +1,8 @@
-import SmallReview from '@components/reviewComponent/smallReview/SmallReview';
+import SmallReview from '@components/card/reviewCard/smallReview/SmallReview';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/ReviewComponent/SmallReview',
+  title: 'Card/ReviewCard/SmallReview',
   component: SmallReview,
   parameters: {
     layout: 'centered',

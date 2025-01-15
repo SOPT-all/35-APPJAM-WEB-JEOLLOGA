@@ -1,8 +1,8 @@
-import LargeReview from '@components/reviewComponent/largeReview/LargeReview';
+import LargeReview from '@components/card/reviewCard/largeReview/LargeReview';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/ReviewComponent/LargeReview',
+  title: 'Card/ReviewCard/LargeReview',
   component: LargeReview,
   parameters: {
     layout: 'centered',

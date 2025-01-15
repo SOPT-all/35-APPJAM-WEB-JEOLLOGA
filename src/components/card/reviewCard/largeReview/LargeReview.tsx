@@ -1,4 +1,5 @@
 import * as styles from './largeReview.css';
+import CardInfo from '../cardInfo/cardInfo';
 
 interface LargeReviewProps {
   reviewTitle: string;
@@ -33,10 +34,7 @@ const LargeReview = ({
           <p className={styles.cardTitle}>{reviewTitle}</p>
           <p className={styles.cardBody}>{reviewDescription}</p>
         </div>
-        <div className={styles.cardInfo}>
-          <p className={styles.reviewerName}>{reviewName}</p>
-          <p>{reviewDate}</p>
-        </div>
+        <CardInfo reviewName={reviewName} reviewDate={reviewDate} />
       </div>
     </button>
   );

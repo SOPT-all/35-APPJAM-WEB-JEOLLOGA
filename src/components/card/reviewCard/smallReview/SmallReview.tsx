@@ -1,4 +1,5 @@
 import * as styles from './smallReview.css';
+import CardInfo from '../cardInfo/cardInfo';
 
 interface SmallReviewProps {
   reviewTitle: string;
@@ -28,10 +29,7 @@ const SmallReview = ({
       )}
       <div className={styles.cardContent}>
         <p className={styles.cardTitle}>{reviewTitle}</p>
-        <div className={styles.cardInfo}>
-          <p className={styles.reviewerName}>{reviewName}</p>
-          <p>{reviewDate}</p>
-        </div>
+        <CardInfo reviewName={reviewName} reviewDate={reviewDate} />
       </div>
     </button>
   );
