@@ -41,6 +41,11 @@ export const textBtnStyle = recipe({
         color: theme.COLORS.gray7,
         padding: '0 0.8rem',
         ...theme.FONTS.b8M15,
+        selectors: {
+          '&:active': {
+            color: theme.COLORS.gray10,
+          },
+        },
       },
     },
   },
@@ -53,15 +58,6 @@ export const textBtnStyle = recipe({
       },
       style: {
         color: theme.COLORS.gray9,
-      },
-    },
-    {
-      variants: {
-        clicked: true,
-        size: 'medium',
-      },
-      style: {
-        color: theme.COLORS.gray10,
       },
     },
   ],
