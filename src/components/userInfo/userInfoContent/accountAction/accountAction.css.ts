@@ -6,7 +6,6 @@ export const accountActionBoxStyle = style({
   justifyContent: 'center',
   alignItems: 'center',
   gap: '1.8rem',
-  width: '33.5rem',
 });
 
 export const accountActionButtonStyle = style({
