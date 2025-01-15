@@ -1,4 +1,3 @@
-// reviewComponent.css.ts
 import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
@@ -11,7 +10,7 @@ export const cardContainer = style({
 
   selectors: {
     '&:hover': {
-      opacity: '80%',
+      filter: 'brightness(96%)',
     },
   },
 
