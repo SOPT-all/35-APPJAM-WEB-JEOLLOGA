@@ -59,3 +59,8 @@ globalStyle('input, textarea', {
   outline: 'none',
   border: 'none',
 });
+
+globalStyle('a', {
+  textDecoration: 'none',
+  color: 'inherit',
+});
