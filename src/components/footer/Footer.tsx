@@ -34,7 +34,7 @@ const Footer = () => {
           rel="noreferrer">
           개인정보처리방침
         </a>
-        <Icon.IcnDivder />
+        <Icon.IcnDivider />
         <a
           href="https://www.instagram.com/nami_amu_tabul?igsh=MTA3OHhkcmh1NDVkdQ%3D%3D&utm_source=qr"
           target="_blank"
