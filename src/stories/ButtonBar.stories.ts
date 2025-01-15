@@ -16,6 +16,7 @@ const meta = {
   },
   args: {
     type: 'wish',
+    label: '예약하기',
   },
 } satisfies Meta<typeof ButtonBar>;
 

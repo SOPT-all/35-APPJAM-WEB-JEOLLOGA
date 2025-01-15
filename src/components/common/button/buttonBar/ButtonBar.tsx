@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 interface ButtonBarProps {
   type: 'reset' | 'wish';
+  label: string;
 }
 
-const ButtonBar = ({ type }: ButtonBarProps) => {
+const ButtonBar = ({ type, label }: ButtonBarProps) => {
   const [isActive, setIsActive] = useState(false);
-  const label = type === 'wish' ? '예약하기' : 'NN개의 템플스테이 보기';
 
   const onClickLefthBtn = () => {
     setIsActive((prev) => !prev);
