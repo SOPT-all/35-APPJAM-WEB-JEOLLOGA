@@ -3,6 +3,7 @@ import { style } from '@vanilla-extract/css';
 
 export const cardWrapper = style({
   width: '33.5rem',
+  cursor: 'pointer',
 });
 
 export const cardContainer = style({
