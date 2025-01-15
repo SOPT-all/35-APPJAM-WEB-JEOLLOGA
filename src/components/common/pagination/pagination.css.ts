@@ -1,5 +1,5 @@
 import theme from '@styles/theme.css';
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 export const paginationContainer = style({
   display: 'flex',
@@ -7,8 +7,16 @@ export const paginationContainer = style({
   gap: '0.3rem',
   height: '3.7rem',
   padding: '0.6rem 0.8rem',
-  backgroundColor: theme.COLORS.gray1,
   borderRadius: '2.4rem',
+});
+
+export const containerColors = styleVariants({
+  gray: {
+    backgroundColor: theme.COLORS.gray1,
+  },
+  white: {
+    backgroundColor: theme.COLORS.white,
+  },
 });
 
 export const leftArrowStyle = style({
@@ -16,6 +24,11 @@ export const leftArrowStyle = style({
   paddingLeft: '0.4rem',
   paddingRight: '1,6rem',
   display: 'flex',
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
+  },
 });
 
 export const rightArrowStyle = style({
@@ -23,6 +36,11 @@ export const rightArrowStyle = style({
   paddingLeft: '1.6rem',
   paddingRight: '0.4rem',
   display: 'flex',
+  selectors: {
+    '&:disabled': {
+      cursor: 'not-allowed',
+    },
+  },
 });
 
 export const iconStyle = style({

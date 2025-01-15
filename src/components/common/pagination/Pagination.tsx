@@ -8,9 +8,10 @@ interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  color: 'gray' | 'white';
 }
 
-const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
+const Pagination = ({ currentPage, totalPages, onPageChange, color }: PaginationProps) => {
   const calculatePageRange = () => {
     const rangeStart = Math.floor((currentPage - 1) / 5) * 5 + 1;
     const rangeEnd = Math.min(rangeStart + 4, totalPages);
@@ -36,7 +37,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
   };
 
   return (
-    <nav className={styles.paginationContainer}>
+    <nav className={`${styles.paginationContainer} ${styles.containerColors[color]}`}>
       <button
         className={styles.leftArrowStyle}
         onClick={() => onPageChange(Math.max(1, rangeStart - 5))}
