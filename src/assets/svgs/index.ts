@@ -5,7 +5,7 @@ import IcnArrowGrayUp from './icn_arrow_gray_up.svg';
 import IcnBackBlackLeft from './icn_back_black_left.svg';
 import IcnCloseLargeGray from './icn_close_large_gray.svg';
 import IcnCloseSmallGray from './icn_close_small_gray.svg';
-import IcnDivder from './icn_divider.svg';
+import IcnDivider from './icn_divider.svg';
 import IcnFilter from './icn_filter.svg';
 import IcnFlowerGray from './icn_flower_gray.svg';
 import IcnFlowerPink from './icn_flower_pink.svg';
@@ -55,9 +55,9 @@ const Icon = {
   IcnWish,
   IcnX,
   IcnBackBlackLeft,
-  IcnFlowerGray,
   IcnFlowerPink,
-  IcnDivder,
+  IcnFlowerGray,
+  IcnDivider,
 };
 
 export default Icon;
