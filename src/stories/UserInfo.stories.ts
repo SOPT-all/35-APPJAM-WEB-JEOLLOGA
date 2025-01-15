@@ -1,4 +1,4 @@
-import UserInfo from '@components/myPage/userInfo';
+import UserInfo from '@components/userInfo/userInfo';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

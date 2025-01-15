@@ -1,10 +1,10 @@
-import UserInfo from '@components/userInfo/userInfo';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
-    <div>
-      <UserInfo />
-    </div>
+    <main style={{ margin: '0 auto' }}>
+      <Outlet />
+    </main>
   );
 };
 

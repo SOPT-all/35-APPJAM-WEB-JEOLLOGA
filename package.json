@@ -20,7 +20,8 @@
     "@vanilla-extract/vite-plugin": "^4.0.19",
     "axios": "^1.7.9",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
