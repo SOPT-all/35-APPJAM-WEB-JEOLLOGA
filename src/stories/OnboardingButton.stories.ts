@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import OnboardingBtn from '@components/common/button/onboarding/OnboardingBtn';
+import OnboardingBtn from '@components/common/button/onboardingBtn/OnboardingBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
