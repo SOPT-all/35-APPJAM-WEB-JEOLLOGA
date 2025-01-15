@@ -12,7 +12,7 @@ interface PaginationProps {
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const calculatePageRange = () => {
-    const rangeStart = Math.max(1, Math.min(currentPage - ((currentPage - 1) % 5), totalPages - 4));
+    const rangeStart = Math.max(1, currentPage - ((currentPage - 1) % 5));
     const rangeEnd = Math.min(rangeStart + 4, totalPages);
     return { rangeStart, rangeEnd };
   };
@@ -37,10 +37,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
 
   const handleLeftArrowClick = () => {
     const newRangePage = Math.max(1, currentPage - 5);
-    const newRangeStart = Math.max(
-      1,
-      Math.min(newRangePage - ((newRangePage - 1) % 5), totalPages - 4),
-    );
+    const newRangeStart = Math.max(1, newRangePage - ((newRangePage - 1) % 5));
     onPageChange(newRangeStart);
   };
 
