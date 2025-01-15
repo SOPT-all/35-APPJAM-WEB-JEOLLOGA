@@ -1,7 +1,6 @@
 import Icon from '@assets/svgs';
-import React from 'react';
 
-import textBtnStyle, { iconStyle } from './textBtn.css';
+import * as styles from './textBtn.css';
 
 interface TextBtnProps {
   clicked?: boolean;
@@ -24,10 +23,10 @@ const TextBtn = ({
   const RightIconComponent = rightIcon ? Icon[rightIcon] : null;
 
   return (
-    <button className={textBtnStyle({ clicked, size })} onClick={onClick}>
-      {LeftIconComponent && <LeftIconComponent className={iconStyle} />}
+    <button className={styles.textBtnStyle({ clicked, size })} onClick={onClick}>
+      {LeftIconComponent && <LeftIconComponent className={styles.iconStyle({ size })} />}
       <span>{text}</span>
-      {RightIconComponent && <RightIconComponent className={iconStyle} />}
+      {RightIconComponent && <RightIconComponent className={styles.iconStyle({ size })} />}
     </button>
   );
 };
