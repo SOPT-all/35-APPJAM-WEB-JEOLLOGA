@@ -7,7 +7,7 @@ interface MemberInfoProps {
 }
 
 const MemberInfo = ({ ageRange, gender, religion }: MemberInfoProps) => (
-  <div className={styles.infoDetailContainer}>
+  <section className={styles.infoDetailContainer}>
     <div className={styles.infoDetailBox}>
       <p className={styles.infoDetailTitle}>연령대</p>
       <p className={styles.infoDetailData}>{ageRange}</p>
@@ -22,7 +22,7 @@ const MemberInfo = ({ ageRange, gender, religion }: MemberInfoProps) => (
       <p className={styles.infoDetailTitle}>종교</p>
       <p className={styles.infoDetailData}>{religion}</p>
     </div>
-  </div>
+  </section>
 );
 
 export default MemberInfo;

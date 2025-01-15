@@ -1,12 +1,4 @@
-export interface UserInfoType {
-  nickname: string;
-  email: string;
-  ageRange: string;
-  gender: string;
-  religion: string;
-}
-
-const USER_INFO: UserInfoType = {
+const USER_INFO = {
   nickname: '김태욱',
   email: 'taewook@naver.com',
   ageRange: '20대',
