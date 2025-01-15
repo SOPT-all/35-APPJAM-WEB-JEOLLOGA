@@ -1,16 +1,15 @@
-import logoSmall from '@assets/images/logo_small.png';
 import Icon from '@assets/svgs';
 
 import * as styles from './footer.css';
 
 const Footer = () => {
   return (
-    <nav className={styles.footerContainer}>
+    <footer className={styles.footerContainer}>
       <div className={styles.topBox}>
-        <img className={styles.logoImage} src={logoSmall} alt="logo" />
+        <Icon.XSmallLogo />
         <p className={styles.topBoxText}>Copyright 2025. Jeolloga. All rights reserved.</p>
       </div>
-      <main>
+      <nav>
         <a
           href="https://www.instagram.com/nami_amu_tabul?igsh=MTA3OHhkcmh1NDVkdQ%3D%3D&utm_source=qr"
           target="_blank"
@@ -27,7 +26,7 @@ const Footer = () => {
             <li>qq4807@naver.com</li>
           </ul>
         </div>
-      </main>
+      </nav>
       <nav className={styles.bottomContainer}>
         <a
           href="https://www.instagram.com/nami_amu_tabul?igsh=MTA3OHhkcmh1NDVkdQ%3D%3D&utm_source=qr"
@@ -43,7 +42,7 @@ const Footer = () => {
           이용약관
         </a>
       </nav>
-    </nav>
+    </footer>
   );
 };
 

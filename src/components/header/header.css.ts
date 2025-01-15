@@ -9,11 +9,6 @@ export const headerContainer = style({
   height: '4rem',
 });
 
-export const logoImage = style({
-  width: '5.5rem',
-  height: '1.9rem',
-});
-
 export const iconBox = style({
   display: 'flex',
   justifyContent: 'center',

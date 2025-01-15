@@ -15,11 +15,6 @@ export const topBox = style({
   marginBottom: '4.8rem',
 });
 
-export const logoImage = style({
-  width: '5.5rem',
-  height: '1.9rem',
-});
-
 export const topBoxText = style({
   ...theme.FONTS.f3R10,
   color: theme.COLORS.gray6,

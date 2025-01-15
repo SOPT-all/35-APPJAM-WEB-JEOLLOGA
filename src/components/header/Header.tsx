@@ -1,4 +1,3 @@
-import logoSmall from '@assets/images/logo_small.png';
 import Icon from '@assets/svgs';
 
 import * as styles from './header.css';
@@ -9,7 +8,7 @@ const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <button onClick={handleClick}>
-        <img className={styles.logoImage} src={logoSmall} alt="logo" />
+        <Icon.SmallLogo />
       </button>
       <nav className={styles.iconBox}>
         <Icon.IcnSearchLargeBlack className={styles.iconStyle} onClick={() => handleClick()} />
