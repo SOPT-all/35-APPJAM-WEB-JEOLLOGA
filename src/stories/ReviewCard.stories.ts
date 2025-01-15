@@ -1,9 +1,9 @@
-import LargeReview from '@components/card/reviewCard/largeReview/LargeReview';
+import ReviewCard from '@components/card/reviewCard/reviewCard/reviewCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Card/ReviewCard/LargeReview',
-  component: LargeReview,
+  title: 'Card/ReviewCard',
+  component: ReviewCard,
   parameters: {
     layout: 'centered',
   },
@@ -33,16 +33,21 @@ const meta = {
       control: 'text',
       description: 'URL of the review thumbnail image.',
     },
+    size: {
+      control: 'radio',
+      options: ['small', 'large'],
+      description: 'Size of the review card.',
+    },
   },
   args: {
-    reviewTitle: 'I am 배영경이다',
+    reviewTitle: '배영경배영경배영경',
     reviewDate: '2025.01.15',
     reviewName: 'Bae Young Kyoung',
     reviewLink: 'https://san.chosun.com/news/articleView.html?idxno=15686',
-    reviewDescription: '아아아아아아',
     blogImage: 'https://ifh.cc/g/YwlKhp.jpg',
+    size: 'small',
   },
-} satisfies Meta<typeof LargeReview>;
+} satisfies Meta<typeof ReviewCard>;
 
 export default meta;
 
@@ -50,22 +55,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const longContent: Story = {
+export const LargeCard: Story = {
   args: {
-    reviewTitle: 'I am 배영경이다',
-    reviewDate: '2025.01.15',
-    reviewName: 'Bae Young Kyoung',
-    reviewLink: 'https://san.chosun.com/news/articleView.html?idxno=15686',
-    reviewDescription:
-      '나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타',
-    blogImage: 'https://ifh.cc/g/YwlKhp.jpg',
-  },
-};
-
-export const longTitle: Story = {
-  args: {
-    reviewTitle:
-      'I am 배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다',
+    size: 'large',
+    reviewTitle: '김가현김가현김가현',
     reviewDate: '2025.01.15',
     reviewName: 'Bae Young Kyoung',
     reviewLink: 'https://san.chosun.com/news/articleView.html?idxno=15686',
@@ -74,7 +67,18 @@ export const longTitle: Story = {
   },
 };
 
-export const longContentTitle: Story = {
+export const SmallLongTitle: Story = {
+  args: {
+    reviewTitle: 'I am 배영경이다I am 배영경이다I am 배영경이다I am 배영경이다',
+    reviewDate: '2025.01.15',
+    reviewName: 'Bae Young Kyoung',
+    reviewLink: 'https://san.chosun.com/news/articleView.html?idxno=15686',
+    blogImage: 'https://ifh.cc/g/YwlKhp.jpg',
+    size: 'small',
+  },
+};
+
+export const LargeLongContentAndTitle: Story = {
   args: {
     reviewTitle:
       'I am 배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다배영경이다',
@@ -82,7 +86,8 @@ export const longContentTitle: Story = {
     reviewName: 'Bae Young Kyoung Kyoung',
     reviewLink: 'https://san.chosun.com/news/articleView.html?idxno=15686',
     reviewDescription:
-      '나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타',
+      '나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불나무아미타불',
     blogImage: 'https://ifh.cc/g/YwlKhp.jpg',
+    size: 'large',
   },
 };
