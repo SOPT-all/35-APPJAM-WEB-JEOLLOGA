@@ -7,7 +7,7 @@ export const cardContainer = style({
   padding: '0.6rem 1.4rem',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  borderRadius: '0.8rem',
+  borderRadius: 8,
   backgroundColor: theme.COLORS.gray1,
 });
 
