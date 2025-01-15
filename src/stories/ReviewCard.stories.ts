@@ -1,4 +1,4 @@
-import ReviewCard from '@components/card/reviewCard/reviewCard/reviewCard';
+import ReviewCard from '@components/card/reviewCard/reviewCard/ReviewCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
