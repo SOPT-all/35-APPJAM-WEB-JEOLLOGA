@@ -12,7 +12,7 @@ interface PaginationProps {
 
 const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) => {
   const calculatePageRange = () => {
-    const rangeStart = Math.max(1, currentPage - ((currentPage - 1) % 5));
+    const rangeStart = Math.floor((currentPage - 1) / 5) * 5 + 1;
     const rangeEnd = Math.min(rangeStart + 4, totalPages);
     return { rangeStart, rangeEnd };
   };
@@ -35,22 +35,11 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
     ));
   };
 
-  const handleLeftArrowClick = () => {
-    const newRangePage = Math.max(1, currentPage - 5);
-    const newRangeStart = Math.max(1, newRangePage - ((newRangePage - 1) % 5));
-    onPageChange(newRangeStart);
-  };
-
-  const handleRightArrowClick = () => {
-    const newRangeStart = Math.min(rangeStart + 5, totalPages);
-    onPageChange(newRangeStart);
-  };
-
   return (
     <nav className={styles.paginationContainer}>
       <button
         className={styles.leftArrowStyle}
-        onClick={handleLeftArrowClick}
+        onClick={() => onPageChange(Math.max(1, rangeStart - 5))}
         disabled={isLeftDisabled}>
         <Icon.IcnLineArrowSmallLeft
           className={isLeftDisabled ? styles.disabledIcon : styles.iconStyle}
@@ -59,7 +48,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
       {renderPageNumbers()}
       <button
         className={styles.rightArrowStyle}
-        onClick={handleRightArrowClick}
+        onClick={() => onPageChange(Math.min(totalPages, rangeStart + 5))}
         disabled={isRightDisabled}>
         <Icon.IcnLineArrowSmallRight
           className={isRightDisabled ? styles.disabledIcon : styles.iconStyle}
