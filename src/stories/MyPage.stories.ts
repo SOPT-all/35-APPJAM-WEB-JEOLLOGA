@@ -1,14 +1,14 @@
-import UserInfo from '@components/userInfo/userInfo';
+import MyPage from '@pages/myPage/MyPage';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Page/Mypage/UserInfo',
-  component: UserInfo,
+  title: 'Page/Mypage',
+  component: MyPage,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof UserInfo>;
+} satisfies Meta<typeof MyPage>;
 
 export default meta;
 
