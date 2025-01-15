@@ -28,6 +28,9 @@ export const title = style({
   ...theme.FONTS.h5Sb16,
 
   overflow: 'hidden',
+  display: '-webkit-box',
+  WebkitBoxOrient: 'vertical',
+  WebkitLineClamp: 2,
   textOverflow: 'ellipsis',
 });
 
