@@ -25,9 +25,13 @@ import IcnSmallHeart from './icn_small_heart.svg';
 import IcnWish from './icn_wish.svg';
 import IcnX from './icn_x.svg';
 import Logo from './logo.svg';
+import SmallLogo from './logo_small.svg';
+import XSmallLogo from './logo_xsmall.svg';
 
 const Icon = {
   Logo,
+  SmallLogo,
+  XSmallLogo,
   IcnArrowBlackLeft,
   IcnArrowGrayDown,
   IcnArrowGrayRight,
