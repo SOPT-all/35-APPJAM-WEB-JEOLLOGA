@@ -1,5 +1,5 @@
 import * as styles from './reviewCard.css';
-import CardInfo from '../cardInfo/cardInfo';
+import CardInfo from '../cardInfo/CardInfo';
 
 interface ReviewCardProps {
   reviewTitle: string;
