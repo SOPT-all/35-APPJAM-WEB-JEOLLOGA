@@ -2,8 +2,8 @@ import theme from '@styles/theme.css';
 import { styleVariants } from '@vanilla-extract/css';
 
 const commonPageNumStyles = {
-  width: '2.6rem',
-  height: '2.6rem',
+  width: '2.5rem',
+  height: '2.5rem',
   ...theme.FONTS.c2R14,
 };
 
