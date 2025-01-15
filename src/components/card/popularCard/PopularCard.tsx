@@ -55,7 +55,7 @@ const PopularCard = ({
             </div>
           </div>
           <button className={styles.likeBtn} onClick={handleLikeClick}>
-            {liked ? <Icon.IcnFlowerPink /> : <Icon.IncFlowerGray />}
+            {liked ? <Icon.IcnFlowerPink /> : <Icon.IcnFlowerGray />}
           </button>
         </div>
       </div>

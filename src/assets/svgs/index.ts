@@ -7,7 +7,7 @@ import IcnCloseLargeGray from './icn_close_large_gray.svg';
 import IcnCloseSmallGray from './icn_close_small_gray.svg';
 import IcnDivider from './icn_divider.svg';
 import IcnFilter from './icn_filter.svg';
-import IncFlowerGray from './icn_flower_gray.svg';
+import IcnFlowerGray from './icn_flower_gray.svg';
 import IcnFlowerPink from './icn_flower_pink.svg';
 import IcnHome from './icn_home.svg';
 import IcnInsta from './icn_insta.svg';
@@ -56,7 +56,7 @@ const Icon = {
   IcnX,
   IcnBackBlackLeft,
   IcnFlowerPink,
-  IncFlowerGray,
+  IcnFlowerGray,
   IcnDivider,
 };
 
