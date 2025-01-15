@@ -6,7 +6,7 @@ interface ReviewCardProps {
   reviewDate: string;
   reviewName: string | null;
   reviewLink: string;
-  reviewDescription: string | null;
+  reviewDescription?: string | null;
   blogImage: string | null;
   size: 'small' | 'large';
 }
