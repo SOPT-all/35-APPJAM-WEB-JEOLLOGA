@@ -1,9 +1,9 @@
-import WishCard from '@components/card/wishCard/WishCard';
+import TempleStayCard from '@components/card/templeStayCard/TempleStayCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/card/WishCard',
-  component: WishCard,
+  title: 'Common/card/TempleStayCard',
+  component: TempleStayCard,
   parameters: {
     layout: 'centered',
   },
@@ -51,7 +51,7 @@ const meta = {
     liked: false,
     layout: 'horizontal',
   },
-} satisfies Meta<typeof WishCard>;
+} satisfies Meta<typeof TempleStayCard>;
 
 export default meta;
 

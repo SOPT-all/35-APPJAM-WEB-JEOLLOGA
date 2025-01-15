@@ -1,10 +1,10 @@
-import WishInfoSection from '@components/card/wishCard/WishInfoSection';
+import WishInfoSection from '@components/card/templeStayCard/InfoSection';
 import FlowerIcon from '@components/common/icon/flowerIcon/FlowerIcon';
 import { useState } from 'react';
 
-import * as styles from './wishCard.css';
+import * as styles from './templeStayCard.css';
 
-interface WishCardProps {
+interface TempleStayCardProps {
   id: number;
   templeName: string;
   templestayName: string;
@@ -16,7 +16,7 @@ interface WishCardProps {
   layout: 'vertical' | 'horizontal';
 }
 
-const WishCard = ({
+const TempleStayCard = ({
   templeName,
   templestayName,
   tag,
@@ -25,7 +25,7 @@ const WishCard = ({
   imgUrl,
   liked,
   layout,
-}: WishCardProps) => {
+}: TempleStayCardProps) => {
   const [isWished, setIsWished] = useState(liked);
   const isHorizontal = layout === 'horizontal';
 
@@ -57,4 +57,4 @@ const WishCard = ({
   );
 };
 
-export default WishCard;
+export default TempleStayCard;

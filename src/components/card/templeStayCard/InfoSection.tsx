@@ -1,8 +1,8 @@
 import Tag from '@components/common/tag/Tag';
 
-import * as styles from './wishInfoSection.css';
+import * as styles from './InfoSection.css';
 
-interface WishInfoSectionProps {
+interface InfoSectionProps {
   templeName: string;
   templestayName: string;
   tag: string;
@@ -10,13 +10,7 @@ interface WishInfoSectionProps {
   type: string;
 }
 
-const WishInfoSection = ({
-  templeName,
-  templestayName,
-  tag,
-  region,
-  type,
-}: WishInfoSectionProps) => {
+const WishInfoSection = ({ templeName, templestayName, tag, region, type }: InfoSectionProps) => {
   return (
     <section className={styles.infoBox}>
       <div>
