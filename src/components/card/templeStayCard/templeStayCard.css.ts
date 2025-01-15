@@ -29,13 +29,6 @@ export const verticalImgSection = style({
   height: '17.2rem',
 });
 
-export const infoContainerHorizontal = style({
-  padding: '1rem',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-});
-
 export const verticalImage = style({
   width: '100%',
   height: '100%',
@@ -77,12 +70,5 @@ export const wishBtn = style({
   width: '4rem',
   height: '4rem',
 
-  zIndex: '2',
-});
-
-export const flowerBtnStyle = style({
-  position: 'absolute',
-  bottom: '1rem',
-  right: '1rem',
   zIndex: '2',
 });
