@@ -1,6 +1,6 @@
 import buttonBarContainer from '@components/common/button/buttonBar/buttonBar.css';
 import FlowerBtn from '@components/common/button/flowerBtn/FlowerBtn';
-import PageBottomBtn from '@components/common/button/pageBottom/PageBottomBtn';
+import PageBottomBtn from '@components/common/button/pageBottomBtn/PageBottomBtn';
 import TextBtn from '@components/common/button/textBtn/TextBtn';
 import { useState } from 'react';
 
