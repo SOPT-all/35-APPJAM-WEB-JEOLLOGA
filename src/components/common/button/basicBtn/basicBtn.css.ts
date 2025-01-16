@@ -62,6 +62,16 @@ const buttonStyle = recipe({
           },
         },
       },
+      green: {
+        backgroundColor: theme.COLORS.green4,
+        color: theme.COLORS.white,
+
+        selectors: {
+          '&:hover': {
+            backgroundColor: theme.COLORS.primary600,
+          },
+        },
+      },
     },
 
     size: {

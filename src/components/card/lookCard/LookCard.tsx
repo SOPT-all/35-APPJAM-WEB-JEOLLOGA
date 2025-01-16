@@ -19,6 +19,7 @@ const LookCard = ({ name }: LookCardProps) => {
         </span>
         <div>
           <BasicBtn
+            variant="green"
             label="둘러보기"
             size="large"
             isActive={true}
