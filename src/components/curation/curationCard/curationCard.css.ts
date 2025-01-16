@@ -10,6 +10,7 @@ export const cardContainer = style({
   backgroundPosition: 'center',
   display: 'flex',
   alignItems: 'flex-end',
+  flexShrink: 0,
 
   padding: '1.6rem',
   color: theme.COLORS.white,
