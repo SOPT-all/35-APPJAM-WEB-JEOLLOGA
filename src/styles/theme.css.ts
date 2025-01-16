@@ -27,6 +27,7 @@ const theme = createGlobalTheme(':root', {
     green3: '#ABD6AE',
     green4: '#6EBE7D',
     green5: '#779971',
+    green6: '#EDF7F3',
 
     pink1: '#FF9999',
     pink2: '#FF8B8B',
