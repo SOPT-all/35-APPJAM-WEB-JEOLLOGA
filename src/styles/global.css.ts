@@ -19,7 +19,7 @@ globalStyle('#root', {
   maxWidth: '37.5rem',
   minHeight: '100dvh',
   margin: '0 auto',
-  paddingTop: '1.2rem',
+  padding: '1.2rem 2rem 0',
 });
 
 globalStyle('body, button, input, select, table, textarea', {

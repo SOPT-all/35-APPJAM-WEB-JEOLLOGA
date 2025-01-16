@@ -1,14 +1,14 @@
-import NaverMap from '@components/templeDetail/naverMap/NaverMap';
+import SmallMap from '@components/templeDetail/naverMap/smallMap/SmallMap';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/Temple/TempleDetail/Map',
-  component: NaverMap,
+  title: 'Common/Temple/TempleDetail/SmallMap',
+  component: SmallMap,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof NaverMap>;
+} satisfies Meta<typeof SmallMap>;
 
 export default meta;
 

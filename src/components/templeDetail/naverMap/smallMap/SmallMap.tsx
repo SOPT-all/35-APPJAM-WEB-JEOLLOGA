@@ -1,8 +1,9 @@
 import TextBtn from '@components/common/button/textBtn/TextBtn';
 import DetailTitle from '@components/detailTitle/DetailTitle';
-import { useEffect } from 'react';
+import useNavigateTo from '@hooks/useNavigateTo';
 
-import * as styles from './naverMap.css';
+import * as styles from './smallMap.css';
+import MapContainer from '../mapContainer/MapContainer';
 
 const mapData = {
   address: '서울 용산구 청파로 387',
@@ -10,27 +11,15 @@ const mapData = {
   longitude: 126.9686,
 };
 
-const NaverMap = () => {
+const SmallMap = () => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(mapData.address);
     alert('주소가 복사되었습니다.');
   };
 
-  useEffect(() => {
-    const { naver } = window;
-
-    const mapOptions = {
-      center: new naver.maps.LatLng(mapData.latitude, mapData.longitude),
-      zoom: 16,
-    };
-
-    const map = new naver.maps.Map('map', mapOptions);
-
-    new naver.maps.Marker({
-      position: new naver.maps.LatLng(mapData.latitude, mapData.longitude),
-      map,
-    });
-  }, []);
+  const navigateToHome = useNavigateTo(
+    `/detail/map?latitude=${mapData.latitude}&longitude=${mapData.longitude}`,
+  );
 
   return (
     <>
@@ -40,10 +29,12 @@ const NaverMap = () => {
           <p>{mapData.address}</p>
           <TextBtn text="복사하기" leftIcon="IcnPaste" onClick={copyToClipboard} />
         </div>
-        <div id="map" className={styles.mapStyle}></div>
+        <button className={styles.mapStyle} onClick={navigateToHome}>
+          <MapContainer latitude={mapData.latitude} longitude={mapData.longitude} size="small" />
+        </button>
       </div>
     </>
   );
 };
 
-export default NaverMap;
+export default SmallMap;
