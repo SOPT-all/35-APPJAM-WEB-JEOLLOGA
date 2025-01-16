@@ -1,4 +1,4 @@
-import smallMarker from '@assets/images/icn_map_small.png';
+import smallMarker from '@assets/images/icn_map.png';
 import { useEffect } from 'react';
 
 interface MapContainerProps {
@@ -30,9 +30,9 @@ const MapContainer = ({ latitude, longitude, size }: MapContainerProps) => {
       map,
       icon: {
         url: smallMarker,
-        size: new naver.maps.Size(48, 48),
-        scaledSize: new naver.maps.Size(48, 48),
-        anchor: new naver.maps.Point(24, 24),
+        size: isSmall ? new naver.maps.Size(53, 53) : new naver.maps.Size(63, 63),
+        scaledSize: isSmall ? new naver.maps.Size(53, 53) : new naver.maps.Size(63, 63),
+        anchor: isSmall ? new naver.maps.Point(26.5, 26.5) : new naver.maps.Size(31.5, 31.5),
       },
     });
   }, [latitude, longitude, size]);
