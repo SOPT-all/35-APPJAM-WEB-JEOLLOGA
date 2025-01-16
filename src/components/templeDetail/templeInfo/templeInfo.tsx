@@ -1,5 +1,6 @@
 import DetailTitle from '@components/detailTitle/DetailTitle';
-import React, { useRef, useState, useEffect } from 'react';
+import useExpandHook from '@hooks/useExpandHook/useExpandHook';
+import { useRef } from 'react';
 
 import ContentCollapse from './contentCollapse/ContentCollapse';
 import * as styles from './templeInfo.css';
@@ -13,19 +14,7 @@ const TEMPLEINFODATA = {
 
 const TempleInfo = () => {
   const contentRef = useRef<HTMLParagraphElement>(null);
-  const [isAppeared, setIsAppeared] = useState(false);
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    const contentElement = contentRef.current;
-    if (contentElement) {
-      setIsAppeared(contentElement.scrollHeight > contentElement.clientHeight);
-    }
-  }, []);
-
-  const handleToggleExpand = () => {
-    setIsExpanded((prev) => !prev);
-  };
+  const { isAppeared, isExpanded, handleToggleExpand } = useExpandHook(contentRef);
 
   return (
     <div className={styles.templeInfoContainer}>
