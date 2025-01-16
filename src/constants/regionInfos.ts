@@ -1,5 +1,5 @@
 const REGION_INFOS = [
-  { region: '서울', top: 41, left: 90 },
+  { region: '서울', top: 40, left: 90 },
   { region: '인천', top: 50, left: 20 },
   { region: '경기', top: 88, left: 98 },
   { region: '강원', top: 48, left: 180 },
