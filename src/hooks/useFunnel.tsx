@@ -1,46 +1,97 @@
+import React, { ReactElement, ReactNode, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-interface FunnelProps<Steps extends readonly string[]> {
-  steps: Steps;
-  stepQueryKey?: string;
-  initialStep?: Steps[number];
+interface StepProps {
+  name: string;
+  onNext?: () => void;
+  children: ReactNode;
+}
+
+interface FunnelProps {
+  steps: string[];
+  children: ReactElement<StepProps>[];
 }
 
 type SetStepOptions = {
-  stepChangeType?: 'push' | 'replace';
   preserveQuery?: boolean;
-  query?: Record<string, string | number>;
+  stepChangeType?: 'push' | 'replace';
+  query?: Record<string, unknown>;
 };
 
-const useFunnel = <Steps extends readonly string[]>(steps: Steps, options?: FunnelProps<Steps>) => {
+const useFunnel = (steps: string[], completePath: string) => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const stepQueryKey = options?.stepQueryKey || 'onboarding-step';
-  const initialStep = options?.initialStep || steps[0];
+  const currentStep = searchParams.get('step') || steps[0];
 
-  const currentStep = (searchParams.get(stepQueryKey) as Steps[number]) || initialStep;
+  const setStep = (newStep: string, options?: SetStepOptions) => {
+    const { preserveQuery = true, stepChangeType = 'push', query = {} } = options || {};
 
-  const setStep = (step: Steps[number], opts?: SetStepOptions) => {
-    const { preserveQuery = true, query = {}, stepChangeType = 'push' } = opts || {};
+    if (!steps.includes(newStep)) {
+      throw new Error(`Invalid step: ${newStep}`);
+    }
 
-    const updatedParams = new URLSearchParams(preserveQuery ? searchParams : undefined);
-    updatedParams.set(stepQueryKey, step);
+    const updatedQuery = {
+      ...(preserveQuery ? Object.fromEntries(searchParams) : {}),
+      ...query,
+      step: newStep,
+    };
 
-    Object.entries(query).forEach(([keyframes, value]) => {
-      updatedParams.set(keyframes, String(value));
-    });
-
-    const path = `?${updatedParams.toString()}`;
-
+    setSearchParams(updatedQuery);
     if (stepChangeType === 'replace') {
-      navigate(path, { replace: true });
+      navigate(
+        { pathname: '/', search: `?${new URLSearchParams(updatedQuery)}` },
+        { replace: true },
+      );
     } else {
-      navigate(path);
+      navigate({ pathname: '/', search: `?${new URLSearchParams(updatedQuery)}` });
     }
   };
 
-  return { currentStep, setStep };
+  const nextStep = () => {
+    const currentIndex = steps.indexOf(currentStep);
+    const nextIndex = currentIndex + 1;
+    if (nextIndex < steps.length) {
+      setStep(steps[nextIndex]);
+    } else {
+      navigate(completePath);
+    }
+  };
+
+  const prevStep = () => {
+    const currentIndex = steps.indexOf(currentStep);
+    const prevIndex = currentIndex - 1;
+    if (prevIndex >= 0) {
+      setStep(steps[prevIndex]);
+    } else {
+      navigate(-1);
+    }
+  };
+
+  const Funnel = ({ children }: FunnelProps) => {
+    const stepsMap = React.Children.toArray(children).reduce(
+      (map, child) => {
+        if (React.isValidElement(child)) {
+          map[child.props.name] = child;
+        }
+        return map;
+      },
+      {} as Record<string, ReactElement>,
+    );
+
+    const activeStep = stepsMap[currentStep];
+    if (!activeStep) throw new Error(`Step "${currentStep}" not found`);
+    return activeStep;
+  };
+
+  const Step = ({ onNext, children }: StepProps) => {
+    useEffect(() => {
+      onNext?.();
+    }, [onNext]);
+    return <>{children}</>;
+  };
+
+  return { Funnel, Step, currentStep, setStep, nextStep, prevStep };
 };
 
 export default useFunnel;
