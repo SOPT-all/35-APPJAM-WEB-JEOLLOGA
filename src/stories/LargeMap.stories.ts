@@ -2,7 +2,7 @@ import LargeMap from '@components/templeDetail/naverMap/largeMap/LargeMap';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/Temple/TempleDetail/SmallMap',
+  title: 'Common/Temple/TempleDetail/LargeMap',
   component: LargeMap,
   parameters: {
     layout: 'centered',
