@@ -10,7 +10,7 @@ const REGION_INFOS = [
   { region: '전북', top: 188, left: 102 },
   { region: '광주', top: 234, left: 76 },
   { region: '전남', top: 286, left: 66 },
-  { region: '대구', top: 180, left: 193 },
+  { region: '대구', top: 179, left: 196 },
   { region: '부산', top: 235, left: 232 },
   { region: '제주', top: 357, left: 10 },
 ];
