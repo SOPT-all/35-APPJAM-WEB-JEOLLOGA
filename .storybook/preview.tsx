@@ -3,6 +3,7 @@ import '../src/styles/fonts.css';
 import '../src/styles/global.css';
 import '../src/styles/reset.css';
 import React from 'react';
+import { withRouter } from 'storybook-addon-react-router-v6';
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +12,9 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
+      },
+      reactRouter: {
+        routePath: '/',
       },
     },
   },
@@ -27,6 +31,7 @@ const preview: Preview = {
         <Story />
       </>
     ),
+    withRouter,
   ],
 };
 
