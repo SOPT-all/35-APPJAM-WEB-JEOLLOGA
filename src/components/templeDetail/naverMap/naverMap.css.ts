@@ -1,6 +1,12 @@
 import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
+export const mapContainerStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.8rem',
+});
+
 export const addressDetailStyle = style({
   display: 'flex',
   justifyContent: 'space-between',
@@ -13,7 +19,7 @@ export const addressDetailStyle = style({
   color: theme.COLORS.gray11,
 });
 
-export const addressDetailStyle2 = style({
+export const mapStyle = style({
   width: '33.5rem',
-  height: '3.4rem',
+  height: '21.2rem',
 });
