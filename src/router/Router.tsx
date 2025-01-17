@@ -5,6 +5,7 @@ import App from 'src/App';
 const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
+const FilterPage = lazy(() => import('@pages/FilterPage'));
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchPage />,
+      },
+      {
+        path: 'filter',
+        element: <FilterPage />,
       },
     ],
   },
