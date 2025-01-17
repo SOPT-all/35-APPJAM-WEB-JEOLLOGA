@@ -2,7 +2,7 @@ import OnboardingSection from '@components/onboarding/OnboardingSection';
 import BUTTON_TEXTS from '@constants/onboarding/buttonTexts';
 import { ONBOARDING_STEPS, COMMON_DESCRIPTION } from '@constants/onboarding/onboardingSteps';
 import useFunnel from '@hooks/useFunnel';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const OnboardingPage: React.FC = () => {
   const { Funnel, Step, nextStep } = useFunnel(
@@ -10,19 +10,23 @@ const OnboardingPage: React.FC = () => {
     '/welcome',
   );
 
-  const [selections, setSelections] = useState<Record<string, string | null>>({
-    나이: null,
-    성별: null,
-    종교: null,
-    이용경험: null,
+  const [selections, setSelections] = useState<Record<string, string | null>>(() => {
+    const savedSelections = localStorage.getItem('onboardingSelections');
+    return savedSelections
+      ? JSON.parse(savedSelections)
+      : { 나이: null, 성별: null, 종교: null, 이용경험: null };
   });
+
+  useEffect(() => {
+    localStorage.setItem('onboardingSelections', JSON.stringify(selections));
+  }, [selections]);
 
   const handleSelectionChange = (stepId: string, selected: string | null) => {
     setSelections((prev) => ({ ...prev, [stepId]: selected }));
   };
 
   const handleFinalSubmit = () => {
-    console.log('온보딩 완료 데이터:', selections);
+    localStorage.removeItem('onboardingSelections');
   };
 
   return (
