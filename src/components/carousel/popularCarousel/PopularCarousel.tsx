@@ -41,7 +41,7 @@ const PopularCarousel = () => {
   const [transX, setTransX] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const moveDistance = 335;
+  const moveDistance = 355;
 
   return (
     <section ref={carouselRef} className={styles.carouselWrapper}>
@@ -71,18 +71,20 @@ const PopularCarousel = () => {
           },
         })}>
         {stayData.rankings.map((data, id) => (
-          <PopularCard
-            key={id}
-            ranking={data.ranking}
-            templeName={data.templeName}
-            templeLoc={data.region}
-            templeImg={data.imgUrl}
-            isLiked={data.liked}
-            tag={data.tag}
-            onClick={() => {
-              console.log(`${data.templeName} 클릭됨!`);
-            }}
-          />
+          <>
+            <PopularCard
+              key={id}
+              ranking={data.ranking}
+              templeName={data.templeName}
+              templeLoc={data.region}
+              templeImg={data.imgUrl}
+              isLiked={data.liked}
+              tag={data.tag}
+              onClick={() => {
+                alert(`${data.templeName} 클릭됨!`);
+              }}
+            />
+          </>
         ))}
       </div>
     </section>

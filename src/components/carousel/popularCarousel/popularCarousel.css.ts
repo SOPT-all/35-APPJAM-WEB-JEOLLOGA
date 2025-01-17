@@ -8,8 +8,15 @@ export const carouselWrapper = style({
 
 export const carouselContainer = style({
   display: 'flex',
+  gap: '2rem',
 });
 
 export const carouselItem = style({
+  flexShrink: 0,
+});
+
+export const emptyBox = style({
+  width: '2rem',
+  height: '100%',
   flexShrink: 0,
 });
