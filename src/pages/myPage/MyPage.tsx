@@ -1,17 +1,13 @@
 import PageName from '@components/common/pageName/PageName';
 import Footer from '@components/footer/Footer';
 import UserInfo from '@components/userInfo/userInfo';
-import { useNavigate } from 'react-router-dom';
+import useNavigateTo from '@hooks/useNavigateTo';
 
 const MyPage = () => {
-  const navigate = useNavigate();
-
-  const handleBackClick = () => {
-    navigate('/HomePage');
-  };
+  const handleToBack = useNavigateTo(-1);
   return (
     <div>
-      <PageName title="마이페이지" onLeftClick={handleBackClick} isLikeBtn={false} />
+      <PageName title="마이페이지" onLeftClick={handleToBack} isLikeBtn={false} />
       <UserInfo />
       <Footer />
     </div>
