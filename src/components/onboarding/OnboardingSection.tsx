@@ -1,10 +1,11 @@
 import OnboardingBtn from '@components/common/button/onboardingBtn/OnboardingBtn';
 import PageBottomBtn from '@components/common/button/pageBottomBtn/PageBottomBtn';
-import React from 'react';
+import React, { ReactNode } from 'react';
+
+import * as styles from './onboardingSection.css';
 
 interface OnboardingSectionProps {
-  stepId: string;
-  title: string;
+  title: ReactNode;
   description: string;
   options?: string[];
   isNextDisabledInitially?: boolean;
@@ -33,11 +34,14 @@ const OnboardingSection: React.FC<OnboardingSectionProps> = ({
   const isNextDisabled = isNextDisabledInitially && !selectedOption;
 
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+    <div className={styles.container}>
+      <div className={styles.titleLayout}>
+        <h1 className={styles.titleStyle}>{title}</h1>
+        <p className={styles.descriptionStyle}>{description}</p>
+      </div>
+
       {options && (
-        <div>
+        <div className={styles.selectContainer}>
           {options.map((option) => (
             <OnboardingBtn
               key={option}
