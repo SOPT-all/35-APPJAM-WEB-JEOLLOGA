@@ -5,6 +5,9 @@ export const footerContainer = style({
   width: '37.5rem',
   height: '18.7rem',
   padding: '2rem',
+  marginLeft: '-2rem',
+  position: 'absolute',
+  bottom: 0,
   backgroundColor: theme.COLORS.gray1,
 });
 
