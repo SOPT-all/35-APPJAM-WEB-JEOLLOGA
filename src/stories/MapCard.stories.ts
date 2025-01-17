@@ -8,14 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  //   argTypes: {
-  //     onClick: {
-  //       action: 'clicked',
-  //     },
-  //   },
-  //   args: {
-  //     onClick: () => alert('click !'),
-  //   },
 } satisfies Meta<typeof MapCard>;
 
 export default meta;
