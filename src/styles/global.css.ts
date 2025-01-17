@@ -19,8 +19,6 @@ globalStyle('#root', {
   minHeight: '100dvh',
   margin: '0 auto',
   padding: '1.2rem 2rem 0',
-  background: 'beige',
-  paddingTop: '1.2rem',
 });
 
 globalStyle('body, button, input, select, table, textarea', {
