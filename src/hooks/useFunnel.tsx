@@ -20,7 +20,7 @@ type SetStepOptions = {
 
 const useFunnel = (steps: string[], completePath: string) => {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const currentStep = searchParams.get('step') || steps[0];
 
@@ -37,14 +37,15 @@ const useFunnel = (steps: string[], completePath: string) => {
       step: newStep,
     };
 
-    setSearchParams(updatedQuery);
+    const updatedPath = {
+      pathname: '/onboarding',
+      search: `?${new URLSearchParams(updatedQuery)}`,
+    };
+
     if (stepChangeType === 'replace') {
-      navigate(
-        { pathname: '/', search: `?${new URLSearchParams(updatedQuery)}` },
-        { replace: true },
-      );
+      navigate(updatedPath, { replace: true });
     } else {
-      navigate({ pathname: '/', search: `?${new URLSearchParams(updatedQuery)}` });
+      navigate(updatedPath);
     }
   };
 
