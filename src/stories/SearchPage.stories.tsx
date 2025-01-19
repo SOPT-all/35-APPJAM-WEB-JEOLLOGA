@@ -1,14 +1,14 @@
-import SearchBar from '@components/search/searchBar/SearchBar';
+import SearchPage from '@pages/searchPage/SearchPage';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/SearchBar',
-  component: SearchBar,
+  title: 'Page/SearchPage',
+  component: SearchPage,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<typeof SearchPage>;
 
 export default meta;
 
