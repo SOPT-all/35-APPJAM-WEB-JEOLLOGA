@@ -1,4 +1,4 @@
-import FilterPage from '@pages/FilterPage';
+import FilterPage from '@pages/filterPage/FilterPage';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
