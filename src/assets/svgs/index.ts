@@ -11,6 +11,7 @@ import IcnFlowerGray from './icn_flower_gray.svg';
 import IcnFlowerPink from './icn_flower_pink.svg';
 import IcnHome from './icn_home.svg';
 import IcnInsta from './icn_insta.svg';
+import IcnKakaoLogo from './icn_kakao_logo.svg';
 import IcnLargeHeartPink from './icn_large_heart_pink.svg';
 import IcnLineArrowLargeRight from './icn_linearrow_large_right.svg';
 import IcnLineArrowSmallLeft from './icn_linearrow_small_left.svg';
@@ -58,6 +59,7 @@ const Icon = {
   IcnFlowerPink,
   IcnFlowerGray,
   IcnDivider,
+  IcnKakaoLogo,
 };
 
 export default Icon;
