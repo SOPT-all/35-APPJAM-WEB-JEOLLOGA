@@ -1,6 +1,6 @@
 export const ONBOARDING_STEPS = [
-  { id: '나이', title: '나이를 알려주세요' },
-  { id: '성별', title: '성별을 알려주세요' },
+  { id: '나이', title: '\n나이를 알려주세요' },
+  { id: '성별', title: '\n성별을 알려주세요' },
   { id: '종교', title: '종교가\n있으신가요?' },
   { id: '이용경험', title: '템플스테이 이용경험이\n있으신가요?' },
 ];

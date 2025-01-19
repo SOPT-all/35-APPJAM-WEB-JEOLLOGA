@@ -3,6 +3,7 @@ import OnboardingSection from '@components/onboarding/OnboardingSection';
 import BUTTON_TEXTS from '@constants/onboarding/buttonTexts';
 import { ONBOARDING_STEPS, COMMON_DESCRIPTION } from '@constants/onboarding/onboardingSteps';
 import useFunnel from '@hooks/useFunnel';
+import formatText from '@utils/formatText';
 import React, { useState, useEffect } from 'react';
 
 const OnboardingPage: React.FC = () => {
@@ -51,33 +52,27 @@ const OnboardingPage: React.FC = () => {
         onBackClick={prevStep}
       />
       <Funnel steps={ONBOARDING_STEPS.map((step) => step.id)}>
-        {ONBOARDING_STEPS.map(({ id, title }) => (
-          <Step key={id} name={id}>
-            <OnboardingSection
-              id={id}
-              /* eslint-disable */
-              title={
-                id === '나이' || id === '성별'
-                  ? [`${userName}님의`, <br key="line-break" />, title]
-                  : title.includes('\n')
-                    ? title.split('\n').map((line, index) => (
-                        <React.Fragment key={index}>
-                          {line}
-                          <br />
-                        </React.Fragment>
-                      ))
-                    : title
-              }
-              /* eslint-enable */
-              description={COMMON_DESCRIPTION}
-              options={BUTTON_TEXTS[id as keyof typeof BUTTON_TEXTS]}
-              isNextDisabledInitially={id === '나이' || id === '성별'}
-              selectedOption={selections[id]}
-              onSelectionChange={(selected) => handleSelectionChange(id, selected)}
-              onNextClick={id === '이용경험' ? handleFinalSubmit : nextStep}
-            />
-          </Step>
-        ))}
+        {ONBOARDING_STEPS.map(({ id, title }) => {
+          const formattedTitle = formatText(title);
+          return (
+            <Step key={id} name={id}>
+              <OnboardingSection
+                id={id}
+                title={
+                  id === '나이' || id === '성별'
+                    ? [`${userName}님의`, ...formattedTitle]
+                    : formattedTitle
+                }
+                description={COMMON_DESCRIPTION}
+                options={BUTTON_TEXTS[id as keyof typeof BUTTON_TEXTS]}
+                isNextDisabledInitially={id === '나이' || id === '성별'}
+                selectedOption={selections[id]}
+                onSelectionChange={(selected) => handleSelectionChange(id, selected)}
+                onNextClick={id === '이용경험' ? handleFinalSubmit : nextStep}
+              />
+            </Step>
+          );
+        })}
       </Funnel>
     </div>
   );
