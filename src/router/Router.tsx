@@ -1,3 +1,4 @@
+import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import App from 'src/App';
@@ -34,9 +35,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-// TODO: 로딩 화면 추가
 const Router = () => (
-  <Suspense fallback={<div>로딩 화면 추가</div>}>
+  <Suspense fallback={<ExceptLayout type="loading" />}>
     <RouterProvider router={router} />
   </Suspense>
 );
