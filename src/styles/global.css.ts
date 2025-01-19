@@ -19,7 +19,6 @@ globalStyle('#root', {
   maxWidth: '37.5rem',
   minHeight: '100dvh',
   margin: '0 auto',
-  // padding: '1.2rem 2rem 0',
   paddingTop: '1.2rem',
 });
 
