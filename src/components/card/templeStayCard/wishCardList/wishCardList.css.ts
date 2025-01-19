@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 const container = style({
   marginTop: '1rem',
+  marginBottom: '6rem',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   justifyContent: 'space-between',

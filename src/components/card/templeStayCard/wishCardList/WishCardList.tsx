@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TempleStayCard from '../TempleStayCard';
-import * as styles from './wishCardList.css';
+import container from './wishCardList.css';
 
 interface WishCardListProps {
   data: {
@@ -18,7 +18,7 @@ interface WishCardListProps {
 }
 const WishCardList = ({ data, layout = 'vertical' }: WishCardListProps) => {
   return (
-    <section className={styles.default}>
+    <section className={container}>
       {data.map((temple) => (
         <TempleStayCard
           key={temple.id}
