@@ -1,15 +1,22 @@
 import KakaoBtn from '@components/common/button/kakaoBtn/KaKaoBtn';
+import PageName from '@components/common/pageName/PageName';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import * as styles from './loginPage.css';
 
 const LoginPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const type = location.state?.type || 'my';
 
   return (
     <section className={styles.loginWrapper}>
+      <PageName
+        title={type === 'my' ? '마이페이지' : '위시리스트'}
+        onLeftClick={() => navigate(-1)}
+        isLikeBtn={false}
+      />
       <div className={styles.contentWrapper}>
         <h2 className={styles.textStyle}>
           {type === 'my'
@@ -24,6 +31,8 @@ const LoginPage = () => {
               : 'src/assets/images/img_pink_light_smile.png'
           }
           alt={type === 'my' ? '마이페이지 로그인' : '위시리스트 로그인'}
+          className={styles.imgStyle}
+          width={270}
         />
       </div>
       <KakaoBtn />

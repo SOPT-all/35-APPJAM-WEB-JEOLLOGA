@@ -20,18 +20,18 @@ export const loginWrapper = style({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '4.4rem 0',
-  gap: '9.3rem',
   width: '33.5rem',
 });
 
 export const contentWrapper = style({
+  margin: '8.4rem 0 9.3rem 0',
   display: 'flex',
   flexDirection: 'column',
   gap: '0.4rem',
 });
 
-export const imgContainer = style({
-  width: '27rem',
-  height: '28.8rem',
+export const imgStyle = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
