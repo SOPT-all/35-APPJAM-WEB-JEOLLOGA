@@ -1,3 +1,4 @@
+import WishListPage from '@pages/WishListPage';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import App from 'src/App';
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'myPage',
         element: <MyPage />,
+      },
+      {
+        path: 'wishList',
+        element: <WishListPage />,
       },
     ],
   },
