@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import React from 'react';
+import { useState } from 'react';
 
 import * as PageNameStyle from './pageName.css';
 
@@ -11,6 +11,12 @@ interface PageNameProps {
 }
 
 const PageName = ({ onLeftClick, title, onRightClick, isLikeBtn = true }: PageNameProps) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const handleLikeClick = () => {
+    setIsLiked((prev) => !prev);
+    if (onRightClick) onRightClick();
+  };
+
   return (
     <nav className={PageNameStyle.container}>
       <button className={PageNameStyle.buttonLayout} onClick={onLeftClick}>
@@ -18,8 +24,8 @@ const PageName = ({ onLeftClick, title, onRightClick, isLikeBtn = true }: PageNa
       </button>
       <span className={PageNameStyle.titleStyle}>{title}</span>
       {isLikeBtn && (
-        <button className={PageNameStyle.buttonLayout} onClick={onRightClick}>
-          <Icon.IcnWish />
+        <button className={PageNameStyle.buttonLayout} onClick={handleLikeClick}>
+          {isLiked ? <Icon.IcnFlowerPink /> : <Icon.IcnFlowerGray />}
         </button>
       )}
     </nav>
