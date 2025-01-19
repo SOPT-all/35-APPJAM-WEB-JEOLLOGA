@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import container from './wishListPage.css';
 
 const mockData = {
-  page: 1,
+  page: 3,
   pageSize: 10,
   totalPages: 13,
   wishlist: [
@@ -106,7 +106,7 @@ const mockData = {
 };
 
 const WishListPage = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(mockData.page);
   const [wishlist] = useState(mockData.wishlist);
 
   const handleToBack = useNavigateTo(-1);
