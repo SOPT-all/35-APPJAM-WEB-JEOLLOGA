@@ -11,7 +11,7 @@ const LoginPage = () => {
           <Icon.Logo />
           <h2 className={styles.subtitleStyle}>템플스테이를 만나는 가장 쉬운 방법</h2>
         </div>
-        <div className={styles.imgContainer}>그래픽</div>
+        <img src="src/assets/images/img_login_start.png" alt="jeologa" />
       </div>
       <button className={styles.loginBtn}>
         <Icon.IcnKakaoLogo />
