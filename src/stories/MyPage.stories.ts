@@ -1,0 +1,17 @@
+import MyPage from '@pages/myPage/MyPage';
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta = {
+  title: 'Page/Mypage',
+  component: MyPage,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+} satisfies Meta<typeof MyPage>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {};
