@@ -1,4 +1,5 @@
 import WishCardList from '@components/card/templeStayCard/wishCardList/WishCardList';
+import WishEmpty from '@components/common/empty/wishEmpty/WishEmpty';
 import PageName from '@components/common/pageName/PageName';
 import Pagination from '@components/common/pagination/Pagination';
 import useNavigateTo from '@hooks/useNavigateTo';
@@ -106,6 +107,7 @@ const mockData = {
 
 const WishListPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [wishlist] = useState(mockData.wishlist);
 
   const handleToBack = useNavigateTo(-1);
   const handlePageChange = (page: number) => {
@@ -115,16 +117,21 @@ const WishListPage = () => {
   return (
     <div className={container}>
       <PageName onLeftClick={handleToBack} title="위시리스트" isLikeBtn={false} />
-      <div>
-        <WishCardList data={mockData.wishlist} layout="vertical" />
-      </div>
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={mockData.totalPages}
-        onPageChange={handlePageChange}
-        color="gray"
-      />
+      {wishlist.length === 0 ? (
+        <WishEmpty />
+      ) : (
+        <>
+          <div>
+            <WishCardList data={mockData.wishlist} layout="vertical" />
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={mockData.totalPages}
+            onPageChange={handlePageChange}
+            color="gray"
+          />
+        </>
+      )}
     </div>
   );
 };

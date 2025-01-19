@@ -1,5 +1,5 @@
+import emptyImage from '@assets/images/img_gray_light_leaf_large.png';
 import PageBottomBtn from '@components/common/button/pageBottomBtn/PageBottomBtn';
-import emptyImage from '@images/img_gray_light_leaf_large.png';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import * as styles from './wishEmpty.css';
 const WishEmpty = () => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    navigate('');
+    navigate('/');
   };
   return (
     <div className={styles.container}>
