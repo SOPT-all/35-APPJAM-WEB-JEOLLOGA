@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import { withRouter } from 'storybook-addon-react-router-v6';
 import '../src/styles/fonts.css';
 import '../src/styles/global.css';
 import '../src/styles/reset.css';

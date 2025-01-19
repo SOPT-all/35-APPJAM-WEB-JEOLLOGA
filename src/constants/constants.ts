@@ -1,3 +1,4 @@
+
 export const HEADER_HEIGHT = 94;
 
-export const extraOffsetValue = 200;
+export const PAGINATION_UNIT = 5;
