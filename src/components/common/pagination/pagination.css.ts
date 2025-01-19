@@ -1,5 +1,6 @@
 import theme from '@styles/theme.css';
 import { style, styleVariants } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 export const paginationContainer = style({
   display: 'flex',
@@ -19,26 +20,57 @@ export const containerColors = styleVariants({
   },
 });
 
-export const leftArrowStyle = style({
-  width: '3.6rem',
-  paddingLeft: '0.4rem',
-  paddingRight: '1,6rem',
-  display: 'flex',
-  selectors: {
-    '&:disabled': {
-      cursor: 'not-allowed',
+// export const leftArrowStyle = style({
+//   width: '3.6rem',
+//   paddingLeft: '0.4rem',
+//   paddingRight: '1,6rem',
+//   display: 'flex',
+//   selectors: {
+//     '&:disabled': {
+//       cursor: 'not-allowed',
+//     },
+//   },
+// });
+
+// export const rightArrowStyle = style({
+//   width: '3.6rem',
+//   paddingLeft: '1.6rem',
+//   paddingRight: '0.4rem',
+//   display: 'flex',
+//   selectors: {
+//     '&:disabled': {
+//       cursor: 'not-allowed',
+//     },
+//   },
+// });
+
+export const arrowStyle = recipe({
+  base: {
+    width: '3.6rem',
+    display: 'flex',
+    cursor: 'pointer',
+    selectors: {
+      '&:disabled': {
+        cursor: 'not-allowed',
+      },
     },
   },
-});
-
-export const rightArrowStyle = style({
-  width: '3.6rem',
-  paddingLeft: '1.6rem',
-  paddingRight: '0.4rem',
-  display: 'flex',
-  selectors: {
-    '&:disabled': {
-      cursor: 'not-allowed',
+  variants: {
+    direction: {
+      left: {
+        paddingLeft: '0.4rem',
+        paddingRight: '1.6rem',
+      },
+      right: {
+        paddingLeft: '1.6rem',
+        paddingRight: '0.4rem',
+      },
+    },
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed',
+      },
+      false: {},
     },
   },
 });

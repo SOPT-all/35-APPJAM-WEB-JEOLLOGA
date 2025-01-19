@@ -4,6 +4,8 @@ import React from 'react';
 import * as styles from './pagination.css';
 import PageBtn from '../button/pageBtn/PageBtn';
 
+const PAGINATION_UNIT = 5;
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -13,8 +15,8 @@ interface PaginationProps {
 
 const Pagination = ({ currentPage, totalPages, onPageChange, color }: PaginationProps) => {
   const calculatePageRange = () => {
-    const rangeStart = Math.floor((currentPage - 1) / 5) * 5 + 1;
-    const rangeEnd = Math.min(rangeStart + 4, totalPages);
+    const rangeStart = Math.floor((currentPage - 1) / PAGINATION_UNIT) * PAGINATION_UNIT + 1;
+    const rangeEnd = Math.min(rangeStart + PAGINATION_UNIT - 1, totalPages);
     return { rangeStart, rangeEnd };
   };
 
@@ -39,8 +41,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange, color }: Pagination
   return (
     <nav className={`${styles.paginationContainer} ${styles.containerColors[color]}`}>
       <button
-        className={styles.leftArrowStyle}
-        onClick={() => onPageChange(Math.max(1, rangeStart - 5))}
+        className={styles.arrowStyle({ direction: 'left', isDisabled: isLeftDisabled })}
+        onClick={() => onPageChange(Math.max(1, rangeStart - PAGINATION_UNIT))}
         disabled={isLeftDisabled}>
         <Icon.IcnLineArrowSmallLeft
           className={isLeftDisabled ? styles.disabledIcon : styles.iconStyle}
@@ -48,8 +50,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange, color }: Pagination
       </button>
       {renderPageNumbers()}
       <button
-        className={styles.rightArrowStyle}
-        onClick={() => onPageChange(Math.min(totalPages, rangeStart + 5))}
+        className={styles.arrowStyle({ direction: 'right', isDisabled: isRightDisabled })}
+        onClick={() => onPageChange(Math.min(totalPages, rangeStart + PAGINATION_UNIT))}
         disabled={isRightDisabled}>
         <Icon.IcnLineArrowSmallRight
           className={isRightDisabled ? styles.disabledIcon : styles.iconStyle}
