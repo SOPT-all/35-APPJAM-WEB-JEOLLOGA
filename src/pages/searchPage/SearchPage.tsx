@@ -2,6 +2,8 @@ import DetailTitle from '@components/detailTitle/DetailTitle';
 import RecentBtnBox from '@components/search/recentBtn/RecentBtnBox';
 import SearchHeader from '@components/search/searchHeader/SearchHeader';
 
+import * as styles from './searchPage.css';
+
 const recentData = [
   { id: 1, content: '불ㅇ사' },
   { id: 2, content: '봉인사' },
@@ -19,8 +21,12 @@ const SearchPage = () => {
   return (
     <>
       <SearchHeader />
-      <DetailTitle title="최근 검색" isTotal size="small" rightBtnLable="전체 삭제" />
-      <RecentBtnBox data={recentData} />
+      <div className={styles.paddingStyle}>
+        <DetailTitle title="최근 검색" isTotal size="small" rightBtnLable="전체 삭제" />
+      </div>
+      <div className={styles.leftPaddingStyle}>
+        <RecentBtnBox data={recentData} />
+      </div>
     </>
   );
 };
