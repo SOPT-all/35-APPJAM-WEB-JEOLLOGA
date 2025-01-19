@@ -42,6 +42,7 @@ const FILTERS = {
     '요가',
     '기타',
   ],
+  price: [],
   etc: [
     '절밥이 맛있는',
     'TV에 나온',
