@@ -27,6 +27,25 @@ const registDragEvent = ({
     document.addEventListener('mousemove', mouseMoveHandler);
     document.addEventListener('mouseup', mouseUpHandler, { once: true });
   },
+  onTouchStart: (touchEvent: React.TouchEvent<Element>) => {
+    if (stopPropagation) touchEvent.stopPropagation();
+
+    const touchMoveHandler = (moveEvent: TouchEvent) => {
+      const dx = moveEvent.touches[0].pageX - touchEvent.touches[0].pageX;
+      const dy = moveEvent.touches[0].pageY - touchEvent.touches[0].pageY;
+      onDragChange?.(dx, dy);
+    };
+
+    const touchEndHandler = (endEvent: TouchEvent) => {
+      const dx = endEvent.changedTouches[0].pageX - touchEvent.touches[0].pageX;
+      const dy = endEvent.changedTouches[0].pageY - touchEvent.touches[0].pageY;
+      onDragEnd?.(dx, dy);
+      document.removeEventListener('touchmove', touchMoveHandler);
+    };
+
+    document.addEventListener('touchmove', touchMoveHandler);
+    document.addEventListener('touchend', touchEndHandler, { once: true });
+  },
 });
 
 export default registDragEvent;
