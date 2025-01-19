@@ -1,14 +1,13 @@
-import { extraOffsetValue } from '@constants/constants';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const useScrollTracker = (
-  sections: string[],
-  headerHeight: number = 0,
-  activeIndex: number,
-  setActiveIndex: (index: number) => void,
-) => {
+const useScrollTracker = (sections: string[], headerHeight: number = 0) => {
+  const [scrollIndex, setScrollIndex] = useState(0);
+  const isClicked = useRef(false);
+
   useEffect(() => {
     const handleScroll = () => {
+      if (isClicked.current) return;
+
       const scrollPosition = window.scrollY + headerHeight;
       let newIndex = -1;
 
@@ -16,10 +15,10 @@ const useScrollTracker = (
         const element = document.getElementById(sectionId);
         if (!element) return;
 
-        const extraOffset = index === sections.length - 2 ? extraOffsetValue : 0; // 마지막에서 2번째 앞일때 위치 조정 추가
-        const elementTop = element.offsetTop - extraOffset;
+        const elementTop = element.offsetTop;
         const elementBottom = elementTop + element.offsetHeight;
 
+        // 현재 스크롤 위치에 완전히 포함된 섹션을 찾음
         if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
           newIndex = index;
         }
@@ -30,16 +29,28 @@ const useScrollTracker = (
         newIndex = sections.length - 1;
       }
 
-      if (newIndex !== -1 && newIndex !== activeIndex) {
-        setActiveIndex(newIndex);
+      if (newIndex !== -1 && newIndex !== scrollIndex) {
+        setScrollIndex(newIndex);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [sections, headerHeight, activeIndex, setActiveIndex]);
+  }, [sections, headerHeight, scrollIndex]);
+
+  const handleClick = (index: number) => {
+    isClicked.current = true;
+    setScrollIndex(index);
+
+    setTimeout(() => {
+      isClicked.current = false;
+    }, 1000);
+  };
+
+  return { scrollIndex, handleClick };
 };
 
 export default useScrollTracker;

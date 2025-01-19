@@ -3,7 +3,6 @@ import tapBarContainer from '@components/common/tapBar/tapBar.css';
 import { HEADER_HEIGHT } from '@constants/constants';
 import FILTERS from '@constants/filters';
 import { TapType, TAPS } from '@constants/taps';
-import { useState } from 'react';
 import useMoveScroll from 'src/hook/useMoveScroll';
 import useScrollTracker from 'src/hook/useScrollTrack';
 
@@ -13,14 +12,15 @@ interface TapBarProps {
 
 const TapBar = ({ type }: TapBarProps) => {
   const taplist = TAPS[type];
-  const sectionIds = Object.keys(FILTERS);
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  useScrollTracker(sectionIds, HEADER_HEIGHT, activeIndex, setActiveIndex);
+  const sectionIds = Object.keys(FILTERS);
+
+  const { scrollIndex, handleClick } = useScrollTracker(sectionIds, HEADER_HEIGHT);
   const scrollToElement = useMoveScroll(HEADER_HEIGHT);
 
-  const handleTabClick = (activeIndex: number) => {
-    scrollToElement(sectionIds, activeIndex);
+  const handleTabClick = (index: number) => {
+    handleClick(index);
+    scrollToElement(sectionIds, index);
   };
 
   return (
@@ -29,7 +29,7 @@ const TapBar = ({ type }: TapBarProps) => {
         <UnderlinedBtn
           key={index}
           label={label}
-          isActive={activeIndex === index}
+          isActive={scrollIndex === index}
           onClick={() => handleTabClick(index)}
         />
       ))}

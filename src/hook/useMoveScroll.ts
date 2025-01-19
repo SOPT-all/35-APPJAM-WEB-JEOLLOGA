@@ -1,19 +1,21 @@
-import { extraOffsetValue } from '@constants/constants';
 import { useCallback } from 'react';
 
 const useMoveScroll = (headerHeight: number = 0) => {
   const scrollToElement = useCallback(
-    (sectionIds: string[], activeIndex: number) => {
+    async (sectionIds: string[], activeIndex: number): Promise<void> => {
       const targetElement = document.getElementById(sectionIds[activeIndex]);
 
       if (targetElement) {
         const elementPosition = targetElement.getBoundingClientRect().top; // 요소의 현재 화면 내 위치
-        const extraOffset = activeIndex === sectionIds.length - 2 ? extraOffsetValue : 0; // 마지막에서 2번째 앞일때 위치 조정 추가
-        const offsetPosition = window.scrollY + elementPosition - headerHeight - extraOffset;
+        const offsetPosition = window.scrollY + elementPosition - headerHeight; // 동일한 위치 계산
 
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth',
+        });
+
+        await new Promise<void>((resolve) => {
+          setTimeout(resolve, 500);
         });
       }
     },
