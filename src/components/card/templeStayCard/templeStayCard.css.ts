@@ -6,6 +6,7 @@ export const verticalContainer = style({
   gap: '0.8rem',
   width: '16.3rem',
   height: '27.7rem',
+  cursor: 'pointer',
 });
 
 export const horizontalContainer = style({
@@ -16,6 +17,7 @@ export const horizontalContainer = style({
   height: '13.5rem',
 
   borderRadius: '4px',
+  cursor: 'pointer',
 });
 
 export const horizontalImgSection = style({
