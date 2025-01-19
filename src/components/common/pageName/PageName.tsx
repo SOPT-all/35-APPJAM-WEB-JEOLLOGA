@@ -1,5 +1,5 @@
 import Icon from '@assets/svgs';
-import useNavigateToPrev from 'src/hook/useNavigateToPrev';
+import useNavigateTo from '@hooks/useNavigateTo';
 
 import * as PageNameStyle from './pageName.css';
 
@@ -10,9 +10,11 @@ interface PageNameProps {
 }
 
 const PageName = ({ title, onRightClick, isLikeBtn = true }: PageNameProps) => {
+  const handleToBack = useNavigateTo(-1);
+
   return (
     <nav className={PageNameStyle.container}>
-      <button className={PageNameStyle.buttonLayout} onClick={useNavigateToPrev()}>
+      <button className={PageNameStyle.buttonLayout} onClick={handleToBack}>
         <Icon.IcnArrowBlackLeft />
       </button>
       <span className={PageNameStyle.titleStyle}>{title}</span>
