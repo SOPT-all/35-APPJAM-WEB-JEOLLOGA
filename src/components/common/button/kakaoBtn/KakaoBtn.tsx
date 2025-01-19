@@ -4,9 +4,7 @@ import React from 'react';
 
 const KakaoBtn = () => {
   const handleLogin = () => {
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${
-      import.meta.env.VITE_REST_API_KEY
-    }&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=code`;
+    window.location.href = 'http://127.0.0.1:8080/oauth2/authorization/kakao';
   };
 
   return (
