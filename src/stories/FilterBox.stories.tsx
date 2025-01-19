@@ -20,6 +20,7 @@ export const Default: Story = {
   args: {
     title: titleMap.region,
     items: FILTERS.region,
+    id: '1',
   },
 };
 
@@ -27,6 +28,7 @@ export const Purpose: Story = {
   args: {
     title: titleMap.purpose,
     items: FILTERS.purpose,
+    id: '1',
   },
 };
 
@@ -34,5 +36,6 @@ export const Activity: Story = {
   args: {
     title: titleMap.activity,
     items: FILTERS.activity,
+    id: '1',
   },
 };
