@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-export const mapStyle = style({
+const mapStyle = style({
   width: '28.9rem',
   height: '40.8rem',
   backgroundImage: 'url(src/assets/images/home_card_map.png)',
@@ -9,4 +9,4 @@ export const mapStyle = style({
   position: 'relative',
 });
 
-export const seoul = style({});
+export default mapStyle;
