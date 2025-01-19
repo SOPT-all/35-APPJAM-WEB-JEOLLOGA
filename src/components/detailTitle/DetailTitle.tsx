@@ -5,7 +5,7 @@ interface DetailTitleProps {
   isTotal?: boolean;
   onClick?: () => void;
   size?: 'small' | 'medium';
-  rightBtnLable?: string;
+  rigntBtnLabel?: string;
 }
 
 const DetailTitle = ({
@@ -13,14 +13,14 @@ const DetailTitle = ({
   isTotal = false,
   onClick,
   size = 'medium',
-  rightBtnLable = '젠체보기',
+  rigntBtnLabel = '젠체보기',
 }: DetailTitleProps) => {
   return (
     <div className={titleContainerStyle}>
       <p className={titleStyle({ size })}>{title}</p>
       {isTotal && (
         <button className={buttonStyle} onClick={onClick}>
-          {rightBtnLable}
+          {rigntBtnLabel}
         </button>
       )}
     </div>

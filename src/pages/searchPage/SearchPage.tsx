@@ -22,7 +22,7 @@ const SearchPage = () => {
     <>
       <SearchHeader />
       <div className={styles.paddingStyle}>
-        <DetailTitle title="최근 검색" isTotal size="small" rightBtnLable="전체 삭제" />
+        <DetailTitle title="최근 검색" isTotal size="small" rigntBtnLabel="전체 삭제" />
       </div>
       <div className={styles.leftPaddingStyle}>
         <RecentBtnBox data={recentData} />
