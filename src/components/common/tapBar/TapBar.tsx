@@ -3,8 +3,8 @@ import tapBarContainer from '@components/common/tapBar/tapBar.css';
 import { HEADER_HEIGHT } from '@constants/constants';
 import FILTERS from '@constants/filters';
 import { TapType, TAPS } from '@constants/taps';
-import useMoveScroll from 'src/hook/useMoveScroll';
-import useScrollTracker from 'src/hook/useScrollTrack';
+import useMoveScroll from '@hooks/useMoveScroll';
+import useScrollTracker from '@hooks/useScrollTrack';
 
 interface TapBarProps {
   type: TapType;
