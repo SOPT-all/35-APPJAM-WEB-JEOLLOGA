@@ -1,3 +1,4 @@
+import ImgHookCard from '@assets/images/home_card_look.png';
 import BasicBtn from '@components/common/button/basicBtn/BasicBtn';
 import { useNavigate } from 'react-router-dom';
 
@@ -15,7 +16,11 @@ const LookCard = ({ name }: LookCardProps) => {
   };
 
   return (
-    <section className={styles.cardWrapper}>
+    <section
+      className={styles.cardWrapper}
+      style={{
+        backgroundImage: `url(${ImgHookCard})`,
+      }}>
       <div className={styles.textBox}>
         <span>
           <span className={styles.name}>{name}</span> 님은

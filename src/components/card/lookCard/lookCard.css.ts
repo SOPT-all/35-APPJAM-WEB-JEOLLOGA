@@ -2,7 +2,6 @@ import theme from '@styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
 export const cardWrapper = style({
-  backgroundImage: 'url(src/assets/images/home_card_look.png)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   width: '33.5rem',
