@@ -1,5 +1,6 @@
+import TemplePrice from '@components/templeDetail/templePrice/templePrice';
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return <TemplePrice />;
 };
 
 export default HomePage;
