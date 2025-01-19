@@ -11,7 +11,7 @@ const PrivateRoute = ({ children, redirectPath, state }: PrivateRouteProps) => {
   const isAuthenticated = localStorage.getItem('accessToken');
 
   if (!isAuthenticated) {
-    return <Navigate to={redirectPath} state={state} replace />;
+    return <Navigate to={redirectPath} state={state} />;
   }
 
   return <>{children}</>;
