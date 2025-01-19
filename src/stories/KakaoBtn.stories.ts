@@ -1,4 +1,4 @@
-import KakaoBtn from '@components/common/button/kakaoBtn/KaKaoBtn';
+import KakaoBtn from '@components/common/button/kakaoBtn/KakaoBtn';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {

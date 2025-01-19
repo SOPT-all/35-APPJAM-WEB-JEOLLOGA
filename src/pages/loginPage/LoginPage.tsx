@@ -1,4 +1,4 @@
-import KakaoBtn from '@components/common/button/kakaoBtn/KaKaoBtn';
+import KakaoBtn from '@components/common/button/kakaoBtn/KakaoBtn';
 import PageName from '@components/common/pageName/PageName';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
