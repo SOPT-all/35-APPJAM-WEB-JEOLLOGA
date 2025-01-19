@@ -5,7 +5,7 @@ import App from 'src/App';
 const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
-const FilterPage = lazy(() => import('@pages/FilterPage'));
+const FilterPage = lazy(() => import('@pages/filterPage/FilterPage'));
 
 const router = createBrowserRouter([
   {
