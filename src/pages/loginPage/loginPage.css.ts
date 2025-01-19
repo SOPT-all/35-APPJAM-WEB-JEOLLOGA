@@ -9,8 +9,10 @@ export const logoContainer = style({
   alignItems: 'center',
 });
 
-export const subtitleStyle = style({
-  ...theme.FONTS.b7R16,
+export const textStyle = style({
+  ...theme.FONTS.h3Sb18,
+  whiteSpace: 'pre-line',
+  textAlign: 'center',
 });
 
 export const loginWrapper = style({
@@ -19,31 +21,17 @@ export const loginWrapper = style({
   justifyContent: 'center',
   alignItems: 'center',
   padding: '4.4rem 0',
-  gap: '6.6rem',
+  gap: '9.3rem',
   width: '33.5rem',
 });
 
 export const contentWrapper = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '4.3rem',
-});
-
-export const loginBtn = style({
-  display: 'flex',
-  gap: '1rem',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: '1.6rem',
-  width: '33.5rem',
-  backgroundColor: theme.COLORS.kakao,
-  borderRadius: 8,
-
-  ...theme.FONTS.h4Sb17,
+  gap: '0.4rem',
 });
 
 export const imgContainer = style({
-  width: '33.5rem',
-  height: '34.8rem',
-  backgroundColor: 'gray',
+  width: '27rem',
+  height: '28.8rem',
 });
