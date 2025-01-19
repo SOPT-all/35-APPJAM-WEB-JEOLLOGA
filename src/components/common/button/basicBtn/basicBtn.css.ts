@@ -20,8 +20,9 @@ const buttonStyle = recipe({
 
         selectors: {
           '&:hover': {
-            backgroundColor: theme.COLORS.green3,
-            color: theme.COLORS.white,
+            backgroundColor: theme.COLORS.green1,
+            color: theme.COLORS.green5,
+            border: `1px solid ${theme.COLORS.green4}`,
           },
         },
       },
