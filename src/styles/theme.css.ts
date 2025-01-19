@@ -45,6 +45,12 @@ const theme = createGlobalTheme(':root', {
 
   FONTS: {
     //Heading
+    h0Sb22: {
+      fontSize: '2.2rem',
+      fontFamily: "'Pretendard-SemiBold', sans-serif",
+      lineHeight: '138%',
+      letterSpacing: '1%',
+    },
     h1Sb24: {
       fontSize: '2.4rem',
       fontFamily: "'Pretendard-SemiBold', sans-serif",
@@ -83,6 +89,13 @@ const theme = createGlobalTheme(':root', {
     },
 
     //Body
+    b0R22: {
+      fontSize: '2.2rem',
+      fontFamily: "'Pretendard-Regular', sans-serif",
+      lineHeight: '138%',
+      letterSpacing: '1%',
+    },
+
     b1M20: {
       fontSize: '2rem',
       fontFamily: "'Pretendard-Medium', sans-serif",
