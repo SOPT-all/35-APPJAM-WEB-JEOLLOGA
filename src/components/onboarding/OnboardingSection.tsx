@@ -2,9 +2,11 @@ import OnboardingBtn from '@components/common/button/onboardingBtn/OnboardingBtn
 import PageBottomBtn from '@components/common/button/pageBottomBtn/PageBottomBtn';
 import React, { ReactNode } from 'react';
 
+import ExperienceBtn from './ExperienceBtn';
 import * as styles from './onboardingSection.css';
 
 interface OnboardingSectionProps {
+  id: string;
   title: ReactNode;
   description: string;
   options?: string[];
@@ -15,6 +17,7 @@ interface OnboardingSectionProps {
 }
 
 const OnboardingSection: React.FC<OnboardingSectionProps> = ({
+  id,
   title,
   description,
   options,
@@ -42,14 +45,24 @@ const OnboardingSection: React.FC<OnboardingSectionProps> = ({
 
       {options && (
         <div className={styles.selectContainer}>
-          {options.map((option) => (
-            <OnboardingBtn
-              key={option}
-              btnText={option}
-              isActive={selectedOption === option}
-              onClick={() => handleOptionClick(option)}
-            />
-          ))}
+          {options.map((option) =>
+            id === '이용경험' ? (
+              <ExperienceBtn
+                key={option}
+                btnText={option}
+                optionType={option as '있음' | '없음'}
+                isActive={selectedOption === option}
+                onClick={() => handleOptionClick(option)}
+              />
+            ) : (
+              <OnboardingBtn
+                key={option}
+                btnText={option}
+                isActive={selectedOption === option}
+                onClick={() => handleOptionClick(option)}
+              />
+            ),
+          )}
         </div>
       )}
       <PageBottomBtn

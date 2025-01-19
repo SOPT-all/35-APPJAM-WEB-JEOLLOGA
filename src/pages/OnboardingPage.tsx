@@ -20,6 +20,17 @@ const OnboardingPage: React.FC = () => {
 
   const [userName] = useState<string>('');
 
+  const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true);
+  useEffect(() => {
+    if (isInitialLoad) {
+      setSelections((prev) => ({
+        ...prev,
+        [currentStep]: null,
+      }));
+      setIsInitialLoad(false);
+    }
+  }, [isInitialLoad, currentStep]);
+
   useEffect(() => {
     localStorage.setItem('onboardingSelections', JSON.stringify(selections));
   }, [selections]);
@@ -43,14 +54,11 @@ const OnboardingPage: React.FC = () => {
         {ONBOARDING_STEPS.map(({ id, title }) => (
           <Step key={id} name={id}>
             <OnboardingSection
+              id={id}
               /* eslint-disable */
               title={
                 id === '나이' || id === '성별'
-                  ? [
-                      `${userName}님의`,
-                      <br />,
-                      title,
-                    ]
+                  ? [`${userName}님의`, <br key="line-break" />, title]
                   : title.includes('\n')
                     ? title.split('\n').map((line, index) => (
                         <React.Fragment key={index}>
@@ -60,7 +68,6 @@ const OnboardingPage: React.FC = () => {
                       ))
                     : title
               }
-            
               /* eslint-enable */
               description={COMMON_DESCRIPTION}
               options={BUTTON_TEXTS[id as keyof typeof BUTTON_TEXTS]}
