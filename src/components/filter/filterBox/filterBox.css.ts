@@ -7,7 +7,7 @@ export const filterBoxContainer = style({
   gap: '2.4rem',
 
   width: '29.2rem',
-  margin: '3.6rem 0 3.2rem',
+  padding: '3.6rem 0 3.2rem',
 });
 
 export const titleStyle = style({
