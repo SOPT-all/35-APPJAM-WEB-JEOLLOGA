@@ -6,6 +6,8 @@ import useFunnel from '@hooks/useFunnel';
 import formatText from '@utils/formatText';
 import React, { useState, useEffect } from 'react';
 
+import container from './onboardingPage.css';
+
 const OnboardingPage: React.FC = () => {
   const { Funnel, Step, nextStep, prevStep, currentStep } = useFunnel(
     ONBOARDING_STEPS.map((step) => step.id),
@@ -45,7 +47,7 @@ const OnboardingPage: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={container}>
       <ProgressBar
         currentStep={ONBOARDING_STEPS.findIndex((step) => step.id === currentStep) + 1}
         totalSteps={ONBOARDING_STEPS.length}

@@ -6,7 +6,7 @@ const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
-const OnboardingPage = lazy(() => import('@pages/OnboardingPage'));
+const OnboardingPage = lazy(() => import('@pages/onboardingPage/OnboardingPage'));
 
 const router = createBrowserRouter([
   {

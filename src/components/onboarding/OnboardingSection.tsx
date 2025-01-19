@@ -42,29 +42,30 @@ const OnboardingSection: React.FC<OnboardingSectionProps> = ({
         <h1 className={styles.titleStyle}>{title}</h1>
         <p className={styles.descriptionStyle}>{description}</p>
       </div>
-
-      {options && (
-        <div className={styles.selectContainer}>
-          {options.map((option) =>
-            id === '이용경험' ? (
-              <ExperienceBtn
-                key={option}
-                btnText={option}
-                optionType={option as '있음' | '없음'}
-                isActive={selectedOption === option}
-                onClick={() => handleOptionClick(option)}
-              />
-            ) : (
-              <OnboardingBtn
-                key={option}
-                btnText={option}
-                isActive={selectedOption === option}
-                onClick={() => handleOptionClick(option)}
-              />
-            ),
-          )}
-        </div>
-      )}
+      <div>
+        {options && (
+          <div className={styles.selectContainer}>
+            {options.map((option) =>
+              id === '이용경험' ? (
+                <ExperienceBtn
+                  key={option}
+                  btnText={option}
+                  optionType={option as '있음' | '없음'}
+                  isActive={selectedOption === option}
+                  onClick={() => handleOptionClick(option)}
+                />
+              ) : (
+                <OnboardingBtn
+                  key={option}
+                  btnText={option}
+                  isActive={selectedOption === option}
+                  onClick={() => handleOptionClick(option)}
+                />
+              ),
+            )}
+          </div>
+        )}
+      </div>
       <PageBottomBtn
         btnText="다음"
         size="large"

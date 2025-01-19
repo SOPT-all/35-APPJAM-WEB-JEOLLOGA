@@ -30,5 +30,5 @@ export const selectContainer = style({
   width: '31.9rem',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
-  gap: '0.9rem',
+  gap: '1.1rem 0.9rem',
 });
