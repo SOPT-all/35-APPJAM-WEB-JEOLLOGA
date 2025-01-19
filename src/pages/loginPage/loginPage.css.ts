@@ -18,8 +18,15 @@ export const loginWrapper = style({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  padding: '4.4rem 0',
+  gap: '6.6rem',
+  width: '33.5rem',
+});
+
+export const contentWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
   gap: '4.3rem',
-  padding: '6.7rem 0 4.4rem 0',
 });
 
 export const loginBtn = style({
