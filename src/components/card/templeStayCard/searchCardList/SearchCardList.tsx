@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TempleStayCard from '../TempleStayCard';
+import container from './searchCardList.css';
 
 interface SearchCardListProps {
   data: {
@@ -18,7 +19,7 @@ interface SearchCardListProps {
 
 const SearchCardList = ({ data, layout = 'horizontal' }: SearchCardListProps) => {
   return (
-    <section>
+    <section className={container}>
       {data.map((temple) => (
         <TempleStayCard
           key={temple.id}

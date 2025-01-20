@@ -32,6 +32,66 @@ const mockSearchData = {
       imgUrl: 'http://noms.templestay.com/images/RsImage/S_28469.png',
       liked: false,
     },
+    // {
+    //   id: 1,
+    //   templeName: '봉은사',
+    //   templestayName: '명상 차담 템플스테이',
+    //   tag: '연예인이 다녀간',
+    //   region: '서울',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images//RsImage/L_28471.png',
+    //   liked: true,
+    // },
+    // {
+    //   id: 2,
+    //   templeName: '불국사',
+    //   templestayName: '쉼. 멈춤. 비우기.',
+    //   tag: '연예인이 다녀간',
+    //   region: '경기',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images/RsImage/S_28469.png',
+    //   liked: false,
+    // },
+    // {
+    //   id: 1,
+    //   templeName: '봉은사',
+    //   templestayName: '명상 차담 템플스테이',
+    //   tag: '연예인이 다녀간',
+    //   region: '서울',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images//RsImage/L_28471.png',
+    //   liked: true,
+    // },
+    // {
+    //   id: 2,
+    //   templeName: '불국사',
+    //   templestayName: '쉼. 멈춤. 비우기.',
+    //   tag: '연예인이 다녀간',
+    //   region: '경기',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images/RsImage/S_28469.png',
+    //   liked: false,
+    // },
+    // {
+    //   id: 1,
+    //   templeName: '봉은사',
+    //   templestayName: '명상 차담 템플스테이',
+    //   tag: '연예인이 다녀간',
+    //   region: '서울',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images//RsImage/L_28471.png',
+    //   liked: true,
+    // },
+    // {
+    //   id: 2,
+    //   templeName: '불국사',
+    //   templestayName: '쉼. 멈춤. 비우기.',
+    //   tag: '연예인이 다녀간',
+    //   region: '경기',
+    //   type: '체험형',
+    //   imgUrl: 'http://noms.templestay.com/images/RsImage/S_28469.png',
+    //   liked: false,
+    // },
   ],
 };
 
@@ -59,7 +119,7 @@ const SearchResultPage = () => {
       {templestays.length === 0 ? (
         <SearchEmpty text={searchText} />
       ) : (
-        <>
+        <div className={styles.bodyContainer}>
           <SearchCardList data={templestays} layout="horizontal" />
           <Pagination
             currentPage={currentPage}
@@ -67,7 +127,7 @@ const SearchResultPage = () => {
             onPageChange={handlePageChange}
             color="gray"
           />
-        </>
+        </div>
       )}
     </div>
   );

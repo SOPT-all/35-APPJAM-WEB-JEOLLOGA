@@ -7,12 +7,14 @@ export const container = style({
 
 export const headerContainer = style({
   boxShadow: theme.COLORS.filerDropshadow,
+  marginBottom: '2rem',
 });
 
-export const scrollContainer = style({
-  display: 'flex',
-  gap: '0.8rem',
-  overflowX: 'auto',
-  whiteSpace: 'nowrap',
-  scrollbarWidth: 'none',
+export const bodyContainer = style({
+  display: 'grid',
+  gridTemplateRows: '1fr auto',
+  justifyItems: 'center',
+  minHeight: 'calc(100vh - 14.2rem)',
+  paddingBottom: '4.4rem',
+  gap: '3.2rem',
 });
