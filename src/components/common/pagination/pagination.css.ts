@@ -20,30 +20,6 @@ export const containerColors = styleVariants({
   },
 });
 
-// export const leftArrowStyle = style({
-//   width: '3.6rem',
-//   paddingLeft: '0.4rem',
-//   paddingRight: '1,6rem',
-//   display: 'flex',
-//   selectors: {
-//     '&:disabled': {
-//       cursor: 'not-allowed',
-//     },
-//   },
-// });
-
-// export const rightArrowStyle = style({
-//   width: '3.6rem',
-//   paddingLeft: '1.6rem',
-//   paddingRight: '0.4rem',
-//   display: 'flex',
-//   selectors: {
-//     '&:disabled': {
-//       cursor: 'not-allowed',
-//     },
-//   },
-// });
-
 export const arrowStyle = recipe({
   base: {
     width: '3.6rem',

@@ -1,6 +1,7 @@
 import InfoSection from '@components/card/templeStayCard/InfoSection';
 import FlowerIcon from '@components/common/icon/flowerIcon/FlowerIcon';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import * as styles from './templeStayCard.css';
 
@@ -27,14 +28,22 @@ const TempleStayCard = ({
   layout,
 }: TempleStayCardProps) => {
   const [isWished, setIsWished] = useState(liked);
+  const navigate = useNavigate();
   const isHorizontal = layout === 'horizontal';
 
-  const onClickWishBtn = () => {
+  const onClickWishBtn = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsWished((prev) => !prev);
+  };
+  const handleCardClick = () => {
+    navigate('/');
   };
 
   return (
-    <article className={isHorizontal ? styles.horizontalContainer : styles.verticalContainer}>
+    <article
+      className={isHorizontal ? styles.horizontalContainer : styles.verticalContainer}
+      onClick={handleCardClick}
+      role="presentation">
       <section className={isHorizontal ? styles.horizontalImgSection : styles.verticalImgSection}>
         <img
           className={isHorizontal ? styles.horizontalImage : styles.verticalImage}
