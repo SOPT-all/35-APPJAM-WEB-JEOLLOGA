@@ -45,6 +45,7 @@ privateInstance.interceptors.response.use(
 
   async (error) => {
     const {
+      config,
       response: { status },
     } = error;
 
@@ -53,8 +54,15 @@ privateInstance.interceptors.response.use(
         const response = await postRefreshToken();
 
         if (response.status === 200) {
+          const originRequest = config;
           const newAccessToken = response.headers.Authorization;
           localStorage.setItem('accessToken', newAccessToken);
+
+          axios.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
+          //진행중이던 요청 이어서 하기
+          originRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+
+          return axios(originRequest);
         }
       } catch (error) {
         localStorage.removeItem('accessToken');
