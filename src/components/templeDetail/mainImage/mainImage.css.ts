@@ -5,6 +5,7 @@ export const imageWrapper = style({
   height: '21rem',
   width: '33.5rem',
   overflow: 'hidden',
+  touchAction: 'none',
 });
 
 export const imageContainer = style({
