@@ -1,6 +1,6 @@
 import Tag from '@components/common/tag/Tag';
 
-import * as styles from './InfoSection.css';
+import * as styles from './infoSection.css';
 
 interface InfoSectionProps {
   templeName: string;
