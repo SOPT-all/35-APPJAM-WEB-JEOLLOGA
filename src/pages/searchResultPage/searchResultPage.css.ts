@@ -3,10 +3,12 @@ import { style } from '@vanilla-extract/css';
 
 export const container = style({
   minHeight: '100vh',
+  backgroundColor: theme.COLORS.gray1,
 });
 
 export const headerContainer = style({
   boxShadow: theme.COLORS.filerDropshadow,
+  backgroundColor: theme.COLORS.white,
 });
 
 export const bodyContainer = style({
@@ -17,5 +19,4 @@ export const bodyContainer = style({
   paddingTop: '2rem',
   paddingBottom: '4.4rem',
   gap: '3.2rem',
-  backgroundColor: theme.COLORS.gray1,
 });
