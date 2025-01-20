@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 export const imageWrapper = style({
   display: 'flex',
+  marginLeft: '2rem',
   height: '21rem',
   width: '33.5rem',
   overflow: 'hidden',
@@ -25,6 +26,7 @@ export const imageStyle = style({
   overflow: 'hidden',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
+  cursor: 'pointer',
   borderRadius: 4,
 });
 
