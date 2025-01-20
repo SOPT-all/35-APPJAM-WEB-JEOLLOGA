@@ -1,7 +1,7 @@
 import MainImage from '@components/templeDetail/mainImage/MainImage';
 import type { Meta, StoryObj } from '@storybook/react';
 const meta = {
-  title: 'Carousel/MainImage',
+  title: 'Carousel/DetailCarousel',
   component: MainImage,
   parameters: {
     layout: 'centered',
