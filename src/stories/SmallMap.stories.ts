@@ -2,7 +2,7 @@ import SmallMap from '@components/templeDetail/naverMap/smallMap/SmallMap';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/Temple/TempleDetail/SmallMap',
+  title: 'Common/Map/SmallMap',
   component: SmallMap,
   parameters: {
     layout: 'centered',

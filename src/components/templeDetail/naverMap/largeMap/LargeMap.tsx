@@ -3,7 +3,7 @@ import useNavigateTo from '@hooks/useNavigateTo';
 import { useLocation } from 'react-router-dom';
 
 import * as styles from './largeMap.css';
-import MapContainer from '../mapContainer/MapContainer';
+import MapContainer from '../MapContainer';
 
 const LargeMap = () => {
   const handleToBack = useNavigateTo(-1);

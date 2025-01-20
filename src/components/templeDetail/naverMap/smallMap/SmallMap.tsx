@@ -3,7 +3,7 @@ import DetailTitle from '@components/detailTitle/DetailTitle';
 import useNavigateTo from '@hooks/useNavigateTo';
 
 import * as styles from './smallMap.css';
-import MapContainer from '../mapContainer/MapContainer';
+import MapContainer from '../MapContainer';
 
 const mapData = {
   address: '서울 용산구 청파로 387',

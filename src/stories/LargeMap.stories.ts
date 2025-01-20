@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 
 const meta = {
-  title: 'Common/Temple/TempleDetail/LargeMap',
+  title: 'Common/Map/LargeMap',
   component: LargeMap,
   parameters: {
     layout: 'centered',
