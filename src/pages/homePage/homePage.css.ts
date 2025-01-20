@@ -5,6 +5,7 @@ export const homeWrapper = style({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+  touchAction: 'none',
 });
 
 export const curationCarouselStyle = style({
