@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import App from 'src/App';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
-const SearchPage = lazy(() => import('@pages/SearchPage'));
+const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
 
