@@ -10,10 +10,10 @@ const btnStyle = recipe({
 
     borderRadius: '8px',
     boxSizing: 'border-box',
-
     padding: '1.4rem 1rem',
 
     ...theme.FONTS.h5Sb16,
+    cursor: 'pointer',
   },
 
   variants: {
