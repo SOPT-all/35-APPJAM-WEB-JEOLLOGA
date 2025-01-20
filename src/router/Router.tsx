@@ -1,6 +1,4 @@
 import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
-import LoginPage from '@pages/loginPage/LoginPage';
-
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import App from 'src/App';
@@ -11,6 +9,7 @@ const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
 const WishListPage = lazy(() => import('@pages/wishList/WishListPage'));
+const LoginPage = lazy(() => import('@pages/loginPage/LoginPage'));
 
 const router = createBrowserRouter([
   {
@@ -38,7 +37,7 @@ const router = createBrowserRouter([
         path: 'wishList',
         element: (
           <PrivateRoute redirectPath="/login" state={{ type: 'wish' }}>
-            <WishPage />
+            <WishListPage />
           </PrivateRoute>
         ),
       },
