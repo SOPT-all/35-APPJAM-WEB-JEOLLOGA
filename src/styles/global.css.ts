@@ -11,10 +11,15 @@ globalStyle('html, body', {
 });
 
 globalStyle('#root', {
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative',
+
   width: '100%',
   maxWidth: '37.5rem',
   minHeight: '100dvh',
   margin: '0 auto',
+  paddingTop: '1.2rem',
 });
 
 globalStyle('body, button, input, select, table, textarea', {

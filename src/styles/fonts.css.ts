@@ -17,9 +17,3 @@ globalFontFace('Pretendard-SemiBold', {
   fontStyle: 'normal',
   src: "url('/src/assets/fonts/Pretendard-SemiBold.woff2') format('woff2')",
 });
-
-globalFontFace('Pretendard-Bold', {
-  fontWeight: 700,
-  fontStyle: 'normal',
-  src: "url('/src/assets/fonts/Pretendard-Bold.woff2') format('woff2')",
-});
