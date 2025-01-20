@@ -6,6 +6,7 @@ export const sliderContainer = style({
   position: 'relative',
   width: '33.5rem',
   height: '3.2rem',
+  overflow: 'hidden',
 });
 
 export const track = style({
@@ -37,6 +38,7 @@ export const thumb = style({
   appearance: 'none',
   background: 'none',
   margin: 0,
+  touchAction: 'none',
 
   selectors: {
     '&::-webkit-slider-thumb': {
