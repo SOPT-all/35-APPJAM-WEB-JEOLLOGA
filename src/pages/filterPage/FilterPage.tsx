@@ -4,7 +4,7 @@ import PageName from '@components/common/pageName/PageName';
 import TapBar from '@components/common/tapBar/TapBar';
 import FilterBox from '@components/filter/filterBox/FilterBox';
 import FILTERS from '@constants/filters';
-import titleMap from 'src/type/titileMap';
+import titleMap from 'src/type/titleMap';
 
 import * as styles from './filterPage.css';
 

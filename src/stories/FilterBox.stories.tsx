@@ -1,7 +1,7 @@
 import FilterBox from '@components/filter/filterBox/FilterBox';
 import FILTERS from '@constants/filters';
 import type { Meta, StoryObj } from '@storybook/react';
-import titleMap from 'src/type/titileMap';
+import titleMap from 'src/type/titleMap';
 
 const meta = {
   title: 'Filter/FilterBox',
