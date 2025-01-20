@@ -18,6 +18,7 @@ export const Default: Story = {
   args: {
     color: 'green',
     label: '로그인하기',
+    onClick: () => {},
   },
 };
 
@@ -25,5 +26,6 @@ export const NoHeart: Story = {
   args: {
     color: 'gray',
     label: '취소',
+    onClick: () => {},
   },
 };
