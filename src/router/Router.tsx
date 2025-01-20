@@ -1,5 +1,4 @@
-import LoginPage from '@pages/loginPage/LoginPage';
-import WishListPage from '@pages/wishList/WishListPage';
+import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import App from 'src/App';
@@ -9,7 +8,8 @@ const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
-const WishPage = lazy(() => import('@pages/WishPage'));
+const WishListPage = lazy(() => import('@pages/wishList/WishListPage'));
+const LoginPage = lazy(() => import('@pages/loginPage/LoginPage'));
 
 const router = createBrowserRouter([
   {
@@ -34,20 +34,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'wish',
+        path: 'wishList',
         element: (
           <PrivateRoute redirectPath="/login" state={{ type: 'wish' }}>
-            <WishPage />
+            <WishListPage />
           </PrivateRoute>
         ),
       },
       {
         path: 'login',
         element: <LoginPage />,
-      },
-      {
-        path: 'wishList',
-        element: <WishListPage />,
       },
     ],
   },
@@ -57,9 +53,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-// TODO: 로딩 화면 추가
 const Router = () => (
-  <Suspense fallback={<div>로딩 화면 추가</div>}>
+  <Suspense fallback={<ExceptLayout type="loading" />}>
     <RouterProvider router={router} />
   </Suspense>
 );
