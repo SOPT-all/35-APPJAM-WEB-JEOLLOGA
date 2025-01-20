@@ -20,8 +20,9 @@ const buttonStyle = recipe({
 
         selectors: {
           '&:hover': {
-            backgroundColor: theme.COLORS.green3,
-            color: theme.COLORS.white,
+            backgroundColor: theme.COLORS.green1,
+            color: theme.COLORS.green5,
+            border: `1px solid ${theme.COLORS.green4}`,
           },
         },
       },
@@ -59,6 +60,16 @@ const buttonStyle = recipe({
           '&:hover': {
             backgroundColor: theme.COLORS.gray2,
             border: `1px solid ${theme.COLORS.gray3}`,
+          },
+        },
+      },
+      green: {
+        backgroundColor: theme.COLORS.green4,
+        color: theme.COLORS.white,
+
+        selectors: {
+          '&:hover': {
+            backgroundColor: theme.COLORS.primary600,
           },
         },
       },

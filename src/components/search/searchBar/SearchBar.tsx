@@ -17,7 +17,9 @@ const SearchBar = () => {
   return (
     <div className={styles.searchBarContainer}>
       <div className={styles.searchBarLayout}>
-        <Icon.IcnSearchMediumGray />
+        <div className={styles.pointer}>
+          <Icon.IcnSearchMediumGray />
+        </div>
         <input
           className={styles.inputStyle}
           placeholder="텍스트 텍스트"
@@ -25,7 +27,9 @@ const SearchBar = () => {
           onChange={handleChangeInput}
         />
       </div>
-      <Icon.IcnCloseLargeGray onClick={handleClearInput} />
+      <div className={styles.pointer}>
+        <Icon.IcnCloseLargeGray onClick={handleClearInput} />
+      </div>
     </div>
   );
 };

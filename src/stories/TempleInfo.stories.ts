@@ -1,14 +1,14 @@
-import SearchBar from '@components/search/searchBar/SearchBar';
+import TempleInfo from '@components/templeDetail/templeInfo/templeInfo';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/SearchBar',
-  component: SearchBar,
+  title: 'Common/Temple/TempleDetail/TempleInfo',
+  component: TempleInfo,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<typeof TempleInfo>;
 
 export default meta;
 
