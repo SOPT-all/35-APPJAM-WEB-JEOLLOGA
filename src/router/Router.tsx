@@ -7,6 +7,7 @@ const SearchPage = lazy(() => import('@pages/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
 const OnboardingPage = lazy(() => import('@pages/onboardingPage/OnboardingPage'));
+const WelcomePage = lazy(() => import('@pages/welcomePage/WelcomePage'));
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'onboarding',
         element: <OnboardingPage />,
+      },
+      {
+        path: 'welcome',
+        element: <WelcomePage />,
       },
     ],
   },

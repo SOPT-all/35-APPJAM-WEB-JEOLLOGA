@@ -6,3 +6,5 @@ export const ONBOARDING_STEPS = [
 ];
 
 export const COMMON_DESCRIPTION = '서비스 발전 이외의 목적으로는 사용하지 않아요!';
+
+export const WELCOME_TEXT = '님,\n절로가에 오신 것을 환영해요!';

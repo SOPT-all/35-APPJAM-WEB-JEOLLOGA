@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react';
 
 import container from './onboardingPage.css';
 
-const OnboardingPage: React.FC = () => {
+const OnboardingPage = () => {
   const { Funnel, Step, nextStep, prevStep, currentStep } = useFunnel(
     ONBOARDING_STEPS.map((step) => step.id),
     '/welcome',
@@ -44,6 +44,7 @@ const OnboardingPage: React.FC = () => {
 
   const handleFinalSubmit = () => {
     localStorage.removeItem('onboardingSelections');
+    nextStep();
   };
 
   return (
