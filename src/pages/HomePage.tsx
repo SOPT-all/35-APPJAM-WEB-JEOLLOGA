@@ -1,5 +1,6 @@
+import MainImage from '@components/templeDetail/mainImage/MainImage';
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return <MainImage />;
 };
 
 export default HomePage;

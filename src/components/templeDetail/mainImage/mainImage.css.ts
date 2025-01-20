@@ -3,10 +3,16 @@ import { style } from '@vanilla-extract/css';
 export const imageWrapper = style({
   display: 'flex',
   height: '21rem',
-  overflowX: 'hidden',
+  width: '33.5rem',
+  overflow: 'hidden',
 });
 
 export const imageContainer = style({
+  display: 'flex',
+  gap: '2rem',
+});
+
+export const imageBox = style({
   display: 'flex',
   position: 'relative',
   flexShrink: 0,
@@ -25,6 +31,5 @@ export const numberStyle = style({
   position: 'absolute',
   bottom: '0.8rem',
   right: '0.8rem',
-
   zIndex: 2,
 });
