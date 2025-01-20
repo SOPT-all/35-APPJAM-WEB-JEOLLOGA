@@ -1,3 +1,4 @@
+import MESSAGES from '@apis/messages';
 import axios, { isAxiosError } from 'axios';
 
 const API_URL = `${import.meta.env.VITE_APP_BASE_URL}`;
@@ -36,7 +37,7 @@ export const postRefreshToken = async () => {
     return response;
   } catch (error) {
     if (isAxiosError(error)) throw error;
-    else throw new Error();
+    else throw new Error(MESSAGES.UNKNOWN_ERROR);
   }
 };
 
@@ -59,7 +60,7 @@ privateInstance.interceptors.response.use(
           localStorage.setItem('accessToken', newAccessToken);
 
           axios.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`;
-          //진행중이던 요청 이어서 하기
+          // 진행중이던 요청 이어서 하기
           originRequest.headers.Authorization = `Bearer ${newAccessToken}`;
 
           return axios(originRequest);
@@ -67,8 +68,9 @@ privateInstance.interceptors.response.use(
       } catch (error) {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
+
         console.error(error);
-        alert('로그인 정보가 유효하지 않습니다.');
+        alert(MESSAGES.EXPIRED);
         window.location.replace('/');
       }
     }
