@@ -1,12 +1,15 @@
+import LoginPage from '@pages/loginPage/LoginPage';
 import WishListPage from '@pages/wishList/WishListPage';
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import App from 'src/App';
+import PrivateRoute from 'src/router/PrivateRoute';
 
 const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
+const WishPage = lazy(() => import('@pages/WishPage'));
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,23 @@ const router = createBrowserRouter([
       },
       {
         path: 'myPage',
-        element: <MyPage />,
+        element: (
+          <PrivateRoute redirectPath="/login" state={{ type: 'my' }}>
+            <MyPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'wish',
+        element: (
+          <PrivateRoute redirectPath="/login" state={{ type: 'wish' }}>
+            <WishPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
       },
       {
         path: 'wishList',
@@ -32,7 +51,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
   {
     path: '*',
     element: <Navigate to="/" replace />,
