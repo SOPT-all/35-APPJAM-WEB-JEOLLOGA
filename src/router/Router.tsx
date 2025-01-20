@@ -10,6 +10,8 @@ const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
 const WishPage = lazy(() => import('@pages/WishPage'));
+const DetailPage = lazy(() => import('@pages/templeDetailPage/TempleDetailPage'));
+const LargeMap = lazy(() => import('@components/templeDetail/naverMap/largeMap/LargeMap'));
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <DetailPage />,
+        element: <HomePage />,
       },
       {
         path: 'search',
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
       {
         path: 'wishList',
         element: <WishListPage />,
+      },
+      {
+        path: 'detail',
+        element: <DetailPage />,
+      },
+      {
+        path: 'detail/map',
+        element: <LargeMap />,
       },
     ],
   },
