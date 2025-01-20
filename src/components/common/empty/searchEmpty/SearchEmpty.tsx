@@ -12,7 +12,7 @@ const SearchEmpty = ({ text }: SearchEmptyProps) => {
     <div>
       <div className={styles.container}>
         <p className={styles.textStyle}>
-          '<span className={styles.highlight}>{`${text}`}</span>'에 대한 검색결과가 없어요
+          '<span className={styles.highlight}>{`${text}`}</span>'{'에 대한\n검색결과가 없어요'}
         </p>
         <img className={styles.imgStyle} src={emptyImage} alt="검색결과 없음" />
       </div>

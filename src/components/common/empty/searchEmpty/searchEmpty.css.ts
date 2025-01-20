@@ -15,6 +15,7 @@ export const textStyle = style({
   textAlign: 'center',
   marginBottom: '5rem',
   width: '23.4rem',
+  whiteSpace: 'pre-line',
 });
 
 export const highlight = style({
