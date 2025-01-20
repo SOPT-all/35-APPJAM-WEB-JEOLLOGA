@@ -8,7 +8,6 @@ const searchHeaderStyle = style({
   width: '37.5rem',
   height: '4.4rem',
 
-  marginBottom: '2rem',
 });
 
 export default searchHeaderStyle;
