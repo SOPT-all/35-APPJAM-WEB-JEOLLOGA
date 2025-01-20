@@ -7,6 +7,7 @@ import PrivateRoute from 'src/router/PrivateRoute';
 const HomePage = lazy(() => import('@pages/HomePage'));
 const SearchPage = lazy(() => import('@pages/searchPage/SearchPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage'));
+const FilterPage = lazy(() => import('@pages/filterPage/FilterPage'));
 const MyPage = lazy(() => import('@pages/myPage/MyPage'));
 const WishListPage = lazy(() => import('@pages/wishList/WishListPage'));
 const LoginPage = lazy(() => import('@pages/loginPage/LoginPage'));
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'search',
         element: <SearchPage />,
+      },
+      {
+        path: 'filter',
+        element: <FilterPage />,
       },
       {
         path: 'myPage',
