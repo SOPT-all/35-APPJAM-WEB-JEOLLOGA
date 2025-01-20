@@ -1,7 +1,6 @@
 import ProgressBar from '@components/common/progressBar/ProgressBar';
 import OnboardingSection from '@components/onboarding/OnboardingSection';
 import { ONBOARDING_STEPS, COMMON_DESCRIPTION } from '@constants/onboarding/onboardingSteps';
-import REGISTER_OPTIONS from '@constants/onboarding/registerOptions';
 import useFunnel from '@hooks/useFunnel';
 import React, { useState, useEffect } from 'react';
 
@@ -17,7 +16,7 @@ const OnboardingPage = () => {
     const savedSelections = localStorage.getItem('onboardingSelections');
     return savedSelections
       ? JSON.parse(savedSelections)
-      : { 나이: null, 성별: null, 종교: null, 이용경험: null };
+      : ONBOARDING_STEPS.reduce((acc, step) => ({ ...acc, [step.id]: null }), {});
   });
 
   const [userName] = useState<string>('');
@@ -54,18 +53,18 @@ const OnboardingPage = () => {
         onBackClick={prevStep}
       />
       <Funnel steps={ONBOARDING_STEPS.map((step) => step.id)}>
-        {ONBOARDING_STEPS.map(({ id, title }) => {
+        {ONBOARDING_STEPS.map(({ id, title, options, isNextDisabledInitially, isFinalStep }) => {
           return (
             <Step key={id} name={id}>
               <OnboardingSection
                 id={id}
-                title={id === '나이' || id === '성별' ? [`${userName}님의`, title] : title}
+                title={id === 'ageRange' || id === 'gender' ? [`${userName}님의`, title] : title}
                 description={COMMON_DESCRIPTION}
-                options={REGISTER_OPTIONS[id as keyof typeof REGISTER_OPTIONS]}
-                isNextDisabledInitially={id === '나이' || id === '성별'}
+                options={options}
+                isNextDisabledInitially={isNextDisabledInitially || false}
                 selectedOption={selections[id]}
                 onSelectionChange={(selected) => handleSelectionChange(id, selected)}
-                onNextClick={id === '이용경험' ? handleFinalSubmit : nextStep}
+                onNextClick={isFinalStep ? handleFinalSubmit : nextStep}
               />
             </Step>
           );

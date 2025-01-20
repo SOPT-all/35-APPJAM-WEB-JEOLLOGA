@@ -1,8 +1,29 @@
+import REGISTER_OPTIONS from './registerOptions';
+
 export const ONBOARDING_STEPS = [
-  { id: '나이', title: '\n나이를 알려주세요' },
-  { id: '성별', title: '\n성별을 알려주세요' },
-  { id: '종교', title: '종교가\n있으신가요?' },
-  { id: '이용경험', title: '템플스테이 이용경험이\n있으신가요?' },
+  {
+    id: 'ageRange',
+    title: '\n나이를 알려주세요',
+    options: REGISTER_OPTIONS.ageRange,
+    isNextDisabledInitially: true,
+  },
+  {
+    id: 'gender',
+    title: '\n성별을 알려주세요',
+    options: REGISTER_OPTIONS.gender,
+    isNextDisabledInitially: true,
+  },
+  {
+    id: 'religion',
+    title: '종교가\n있으신가요?',
+    options: REGISTER_OPTIONS.religion,
+  },
+  {
+    id: 'hasExperience',
+    title: '템플스테이 이용경험이\n있으신가요?',
+    options: REGISTER_OPTIONS.hasExperience,
+    isFinalStep: true,
+  },
 ];
 
 export const COMMON_DESCRIPTION = '서비스 발전 이외의 목적으로는 사용하지 않아요!';
