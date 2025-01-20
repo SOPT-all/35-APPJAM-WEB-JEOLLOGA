@@ -22,7 +22,7 @@ const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: ['primary', 'grayOutlined', 'blackOutlined', 'lightGrayOutlined'],
+      options: ['primary', 'grayOutlined', 'blackOutlined', 'lightGrayOutlined', 'green'],
     },
     size: {
       control: { type: 'radio' },

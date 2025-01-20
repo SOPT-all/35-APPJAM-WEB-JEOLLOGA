@@ -3,9 +3,9 @@ import { style } from '@vanilla-extract/css';
 
 export const recentBtnBox = style({
   display: 'flex',
-  width: 'calc(100% - 2rem)',
   gap: '0.8rem',
   marginTop: '0.8rem',
+  paddingRight: '2rem',
 
   overflowX: 'auto',
   whiteSpace: 'nowrap',

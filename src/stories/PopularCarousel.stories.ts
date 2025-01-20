@@ -1,14 +1,14 @@
-import SearchBar from '@components/search/searchBar/SearchBar';
+import PopularCarousel from '@components/carousel/popularCarousel/PopularCarousel';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/SearchBar',
-  component: SearchBar,
+  title: 'Carousel/PopularCarousel/PopularCarousel',
+  component: PopularCarousel,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<typeof PopularCarousel>;
 
 export default meta;
 

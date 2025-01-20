@@ -1,14 +1,14 @@
-import SearchBar from '@components/search/searchBar/SearchBar';
+import MapCard from '@components/card/mapCard/MapCard';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Common/SearchBar',
-  component: SearchBar,
+  title: 'Card/MapCard',
+  component: MapCard,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof SearchBar>;
+} satisfies Meta<typeof MapCard>;
 
 export default meta;
 
