@@ -19,6 +19,7 @@ export const titleLayout = style({
 
 export const titleStyle = style({
   ...theme.FONTS.h1Sb24,
+  whiteSpace: 'pre-line',
 });
 
 export const descriptionStyle = style({

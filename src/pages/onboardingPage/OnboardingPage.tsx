@@ -1,9 +1,8 @@
 import ProgressBar from '@components/common/progressBar/ProgressBar';
 import OnboardingSection from '@components/onboarding/OnboardingSection';
-import BUTTON_TEXTS from '@constants/onboarding/buttonTexts';
 import { ONBOARDING_STEPS, COMMON_DESCRIPTION } from '@constants/onboarding/onboardingSteps';
+import REGISTER_OPTIONS from '@constants/onboarding/registerOptions';
 import useFunnel from '@hooks/useFunnel';
-import formatText from '@utils/formatText';
 import React, { useState, useEffect } from 'react';
 
 import container from './onboardingPage.css';
@@ -56,18 +55,13 @@ const OnboardingPage = () => {
       />
       <Funnel steps={ONBOARDING_STEPS.map((step) => step.id)}>
         {ONBOARDING_STEPS.map(({ id, title }) => {
-          const formattedTitle = formatText(title);
           return (
             <Step key={id} name={id}>
               <OnboardingSection
                 id={id}
-                title={
-                  id === '나이' || id === '성별'
-                    ? [`${userName}님의`, ...formattedTitle]
-                    : formattedTitle
-                }
+                title={id === '나이' || id === '성별' ? [`${userName}님의`, title] : title}
                 description={COMMON_DESCRIPTION}
-                options={BUTTON_TEXTS[id as keyof typeof BUTTON_TEXTS]}
+                options={REGISTER_OPTIONS[id as keyof typeof REGISTER_OPTIONS]}
                 isNextDisabledInitially={id === '나이' || id === '성별'}
                 selectedOption={selections[id]}
                 onSelectionChange={(selected) => handleSelectionChange(id, selected)}

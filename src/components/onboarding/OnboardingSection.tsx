@@ -16,7 +16,7 @@ interface OnboardingSectionProps {
   onNextClick: () => void;
 }
 
-const OnboardingSection: React.FC<OnboardingSectionProps> = ({
+const OnboardingSection = ({
   id,
   title,
   description,
@@ -25,7 +25,7 @@ const OnboardingSection: React.FC<OnboardingSectionProps> = ({
   selectedOption,
   onSelectionChange,
   onNextClick,
-}) => {
+}: OnboardingSectionProps) => {
   const handleOptionClick = (option: string) => {
     if (selectedOption === option) {
       onSelectionChange?.(null);
