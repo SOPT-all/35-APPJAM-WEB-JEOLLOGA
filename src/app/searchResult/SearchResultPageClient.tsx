@@ -1,8 +1,8 @@
 'use client';
 
 import useFetchFilteredListV2 from '@apis/filter';
-import { TemplestaySearchParamsV2 } from '@apis/filter/type';
 import { useAddWishlistV2, useRemoveWishlistV2 } from '@apis/wish';
+import Icon from '@assets/svgs';
 import SearchCardList from '@components/card/templeStayCard/searchCardList/SearchCardList';
 import BottomSheet from '@components/common/bottmsheet/BottomSheet';
 import SortBtn from '@components/common/button/sortBtn/SortBtn';
@@ -11,42 +11,39 @@ import ModalContainer from '@components/common/modal/ModalContainer';
 import Pagination from '@components/common/pagination/Pagination';
 import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
 import FilterTypeBox from '@components/filter/filterTypeBox/FilterTypeBox';
-import SearchHeader from '@components/search/searchHeader/SearchHeader';
 import Header from '@components/header/Header';
+import SearchHeader from '@components/search/searchHeader/SearchHeader';
 import { SortOption, SORT_LABELS, SORT_OPTIONS } from '@constants/sort';
 import { getStorageValue } from '@hooks/useLocalStorage';
 import useNavigateTo from '@hooks/useNavigateTo';
-import useUpdateSearchParams from '@utils/updateSearchParams';
+import {
+  parseFilters,
+  toApiParams,
+  buildFilterQuery,
+  isPriceChanged,
+  FILTER_GROUPS,
+  DEFAULT_MIN,
+  DEFAULT_MAX,
+  type FilterGroup,
+  type SearchFilterState,
+} from '@utils/searchFilters';
 import { getCookie } from 'cookies-next';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import useEventLogger from 'src/gtm/hooks/useEventLogger';
 
 import * as styles from './searchResultPage.css';
-import Icon from '@assets/svgs';
-import { filterListInstance, priceAtom } from 'src/store/store';
-import { useSetAtom } from 'jotai';
 
 export default function SearchResultPageClient() {
   const searchParams = useSearchParams();
-  const setPrice = useSetAtom(priceAtom);
+  const router = useRouter();
 
-  const getJoinedArrayParam = (key: string): string | undefined => {
-    const values = searchParams.getAll(key);
-    return values.length ? values.join(',') : undefined;
-  };
+  const filterState = parseFilters(new URLSearchParams(searchParams.toString()));
+  const queryParams = toApiParams(filterState);
 
-  const queryParams: TemplestaySearchParamsV2 = {
-    region: getJoinedArrayParam('region'),
-    type: getJoinedArrayParam('type'),
-    activity: getJoinedArrayParam('activity'),
-    etc: getJoinedArrayParam('etc'),
-    min: Number(searchParams.get('min') ?? '0'),
-    max: Number(searchParams.get('max') ?? '30'),
-    sort: searchParams.get('sort') ?? SORT_OPTIONS.RECOMMEND,
-    search: searchParams.get('search') ?? '',
-    page: Number(searchParams.get('page') ?? '1'),
-    size: Number(searchParams.get('size') ?? '5'),
+  const pushFilters = (next: SearchFilterState) => {
+    const queryString = buildFilterQuery(next);
+    router.push(queryString ? `/searchResult?${queryString}` : '/searchResult');
   };
 
   const [isSortSheetOpen, setIsSortSheetOpen] = useState(false);
@@ -54,7 +51,6 @@ export default function SearchResultPageClient() {
 
   const { mutate: addWish } = useAddWishlistV2();
   const { mutate: removeWish } = useRemoveWishlistV2();
-  const updateSearchParams = useUpdateSearchParams();
 
   const { data, isLoading } = useFetchFilteredListV2(queryParams);
 
@@ -79,44 +75,35 @@ export default function SearchResultPageClient() {
     }
   };
 
-  const searchText = queryParams.search ?? '';
-  const selectedOption: SortOption = queryParams.sort as SortOption;
+  const searchText = filterState.search;
+  const selectedOption: SortOption = filterState.sort as SortOption;
 
-  const minPrice = queryParams.min;
-  const maxPrice = queryParams.max;
-  const isPriceChanged = Number(minPrice) > 0 || Number(maxPrice) < 30;
+  const activeFilters: string[] = FILTER_GROUPS.filter((group) => filterState[group].length > 0);
 
-  const filterKeys = ['region', 'type', 'activity', 'etc'];
-  const activeFilters = filterKeys.filter(
-    (key) => queryParams[key as keyof TemplestaySearchParamsV2],
-  );
-
-  if (isPriceChanged) {
+  if (isPriceChanged(filterState.min, filterState.max)) {
     activeFilters.push('price');
   }
 
   const handlePageChange = (newPage: number) => {
-    updateSearchParams({ ...queryParams, page: newPage });
+    pushFilters({ ...filterState, page: newPage });
   };
 
   const handleSortChange = (option: SortOption) => {
     setIsSortSheetOpen(false);
-    updateSearchParams({ ...queryParams, page: 1, sort: option });
+    pushFilters({ ...filterState, sort: option, page: 1 });
   };
 
   const handleResetGroup = (groupKey: string) => {
-    const newParams: Record<string, string | number | undefined> = { ...queryParams };
+    const next: SearchFilterState = { ...filterState, page: 1 };
 
     if (groupKey === 'price') {
-      setPrice({ minPrice: 0, maxPrice: 30 });
-      newParams.min = 0;
-      newParams.max = 30;
+      next.min = DEFAULT_MIN;
+      next.max = DEFAULT_MAX;
     } else {
-      filterListInstance.resetGroup(groupKey);
-      newParams[groupKey] = undefined;
+      next[groupKey as FilterGroup] = [];
     }
 
-    updateSearchParams({ ...newParams, page: 1 });
+    pushFilters(next);
   };
 
   const navigateToLogin = useNavigateTo('/loginStart');
