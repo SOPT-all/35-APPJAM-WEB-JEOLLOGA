@@ -38,3 +38,5 @@ CLAUDE.md
 tsconfig.tsbuildinfo
 
 /note
+
+.omc/

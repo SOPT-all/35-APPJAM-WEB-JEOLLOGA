@@ -42,6 +42,7 @@ const ReviewCard = ({
           alt="thumbnail"
           width={dimensions.width}
           height={dimensions.height}
+          unoptimized={false}
         />
       ) : (
         <div className={styles.emptyImage({ size })}>

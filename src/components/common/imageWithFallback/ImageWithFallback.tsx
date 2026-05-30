@@ -18,6 +18,7 @@ const ImageWithFallback = ({
   fallbackSrc = DEFAULT_FALLBACK,
   alt,
   style,
+  unoptimized = true,
   ...rest
 }: ImageWithFallbackProps) => {
   const [imgSrc, setImgSrc] = useState(src);
@@ -35,7 +36,7 @@ const ImageWithFallback = ({
       {...rest}
       src={imgSrc}
       alt={alt}
-      unoptimized
+      unoptimized={unoptimized}
       style={isError ? { ...style, objectFit: 'contain' } : style}
       onError={() => {
         setImgSrc(fallbackSrc);
