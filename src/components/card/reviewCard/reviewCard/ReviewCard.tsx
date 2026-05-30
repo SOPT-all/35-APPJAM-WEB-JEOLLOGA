@@ -1,6 +1,7 @@
 const emptyMediumImage = '/assets/images/img_gray_light_leaf_medium.png';
 const emptySmallImage = '/assets/images/img_gray_light_leaf_small.png';
 
+import ImageWithFallback from '@components/common/imageWithFallback/ImageWithFallback';
 import Image from 'next/image';
 
 import * as styles from './reviewCard.css';
@@ -34,9 +35,10 @@ const ReviewCard = ({
   return (
     <button className={styles.cardContainer({ size })} onClick={handleButtonClick}>
       {blogImage ? (
-        <Image
+        <ImageWithFallback
           className={styles.cardImage({ size })}
           src={blogImage}
+          fallbackSrc={emptyImage}
           alt="thumbnail"
           width={dimensions.width}
           height={dimensions.height}

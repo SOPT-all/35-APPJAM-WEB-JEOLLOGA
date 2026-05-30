@@ -2,7 +2,7 @@
 import { useGetTempleImages } from '@apis/templeInfo';
 import PageName from '@components/common/pageName/PageName';
 import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
-import Image from 'next/image';
+import ImageWithFallback from '@components/common/imageWithFallback/ImageWithFallback';
 
 import * as styles from './style.css';
 
@@ -32,7 +32,7 @@ const TempleImageClient = ({ templestayId }: TemplePhotoPageProps) => {
       </div>
       <div className={styles.photoGrid}>
         {data.imgUrls.map((photo) => (
-          <Image
+          <ImageWithFallback
             key={photo.imgurl}
             width={162}
             height={162}
