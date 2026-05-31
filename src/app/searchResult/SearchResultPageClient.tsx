@@ -4,12 +4,13 @@ import useFetchFilteredListV2 from '@apis/filter';
 import { useAddWishlistV2, useRemoveWishlistV2 } from '@apis/wish';
 import Icon from '@assets/svgs';
 import SearchCardList from '@components/card/templeStayCard/searchCardList/SearchCardList';
+import SearchCardListSkeleton from '@components/card/templeStayCard/searchCardList/SearchCardListSkeleton';
 import BottomSheet from '@components/common/bottmsheet/BottomSheet';
 import SortBtn from '@components/common/button/sortBtn/SortBtn';
 import SearchEmpty from '@components/common/empty/searchEmpty/SearchEmpty';
 import ModalContainer from '@components/common/modal/ModalContainer';
 import Pagination from '@components/common/pagination/Pagination';
-import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
+import skeletonBase from '@components/common/skeleton/skeleton.css';
 import FilterTypeBox from '@components/filter/filterTypeBox/FilterTypeBox';
 import Header from '@components/header/Header';
 import SearchHeader from '@components/search/searchHeader/SearchHeader';
@@ -122,10 +123,6 @@ export default function SearchResultPageClient() {
 
   const prevPath = getStorageValue('prevPage') || '';
 
-  if (isInitialLoading) {
-    return <ExceptLayout type="loading" />;
-  }
-
   return (
     <div className={styles.container}>
       {isModalOpen && (
@@ -149,7 +146,22 @@ export default function SearchResultPageClient() {
         />
       </div>
 
-      {templestays.length === 0 ? (
+      {isInitialLoading ? (
+        <div className={styles.bodyContainer}>
+          <div>
+            <div className={styles.sortWrapper}>
+              <div
+                className={skeletonBase}
+                style={{ width: '6rem', height: '2rem', borderRadius: '4px' }}
+                aria-hidden
+              />
+            </div>
+            <div className={styles.cardListWrapper}>
+              <SearchCardListSkeleton count={5} />
+            </div>
+          </div>
+        </div>
+      ) : templestays.length === 0 ? (
         <div className={styles.emptyContainer}>
           <SearchEmpty text={searchText || undefined} />
         </div>

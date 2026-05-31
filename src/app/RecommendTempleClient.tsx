@@ -10,10 +10,10 @@ import { ApiResponse } from '@apis/response';
 import { useGetMyPage } from '@apis/user';
 import { useAddWishlistV2, useRemoveWishlistV2 } from '@apis/wish';
 import { titleWithIconStyle, typeIconStyle } from '@app/homePage.css';
+import RecommendListSkeleton from '@components/card/recommendCard/RecommendListSkeleton';
 import TempleStayCard from '@components/card/templeStayCard/TempleStayCard';
 import ModalContainer from '@components/common/modal/ModalContainer';
 import DetailTitle from '@components/detailTitle/DetailTitle';
-import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
 import { TestType } from '@constants/test';
 import useNavigateTo from '@hooks/useNavigateTo';
 import useScrollToTarget from '@hooks/useScrollToTarget';
@@ -136,7 +136,12 @@ const RecommendTempleClient = ({ isLoggedIn }: RecommendTempleClientProps) => {
       : '성향 테스트를 통해 맞춤형 추천을 받을 수 있어요!';
 
   if (isLoading) {
-    return <ExceptLayout type="loading" />;
+    return (
+      <>
+        <DetailTitle title={title} subtitle={subtitle} />
+        <RecommendListSkeleton />
+      </>
+    );
   }
 
   return (
