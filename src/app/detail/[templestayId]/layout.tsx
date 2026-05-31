@@ -1,3 +1,4 @@
+import convertTempleImageUrl from '@utils/convertImageUrl';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
@@ -31,7 +32,8 @@ const fetchFirstImageUrl = async (id: number): Promise<string | null> => {
     });
     if (!res.ok) return null;
     const json = await res.json();
-    return json?.data?.imgUrls?.[0]?.imgurl ?? null;
+    const imgurl = json?.data?.imgUrls?.[0]?.imgurl;
+    return imgurl ? convertTempleImageUrl(imgurl) : null;
   } catch {
     return null;
   }

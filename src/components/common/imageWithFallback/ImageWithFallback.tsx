@@ -1,7 +1,12 @@
 'use client';
 
+import convertTempleImageUrl from '@utils/convertImageUrl';
 import Image, { ImageProps } from 'next/image';
 import { useEffect, useState } from 'react';
+
+// 문자열 src(원격 URL)는 죽은 templestay.com URL을 ts-cdn으로 미리 변환
+const resolveSrc = (src: ImageProps['src']): ImageProps['src'] =>
+  typeof src === 'string' ? convertTempleImageUrl(src) : src;
 
 const DEFAULT_FALLBACK = '/assets/images/img_pink_light_smile.png';
 
@@ -21,12 +26,12 @@ const ImageWithFallback = ({
   unoptimized = true,
   ...rest
 }: ImageWithFallbackProps) => {
-  const [imgSrc, setImgSrc] = useState(src);
+  const [imgSrc, setImgSrc] = useState(() => resolveSrc(src));
   const [isError, setIsError] = useState(false);
 
   // src가 바뀌면(다른 아이템 재사용 등) 상태도 새 src로 초기화
   useEffect(() => {
-    setImgSrc(src);
+    setImgSrc(resolveSrc(src));
     setIsError(false);
   }, [src]);
 
