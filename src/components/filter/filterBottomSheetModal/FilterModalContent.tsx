@@ -93,7 +93,7 @@ const FilterModalContent = ({ onComplete, scrollRef, searchText, isOpen }: Props
   };
 
   const searchFilter = () => {
-    const queryString = buildFilterQuery({ ...draft, search: searchText, page: 1 });
+    const queryString = buildFilterQuery({ ...draft, search: searchText ?? draft.search, page: 1 });
     router.push(queryString ? `/searchResult?${queryString}` : '/searchResult');
     logClickEvent('click_list', { label: '' });
     onComplete?.();
