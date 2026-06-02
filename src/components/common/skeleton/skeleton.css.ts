@@ -19,4 +19,6 @@ const skeletonBase = style({
   },
 });
 
+export const skeletonOverlay = style([skeletonBase, { position: 'absolute', inset: 0 }]);
+
 export default skeletonBase;
