@@ -1,6 +1,7 @@
 'use client';
 import { templeReviewsQueryOptions } from '@apis/templeInfo/prefetch';
 import ReviewCard from '@components/card/reviewCard/reviewCard/ReviewCard';
+import ReviewEmpty from '@components/common/empty/reviewEmpty/ReviewEmpty';
 import PageName from '@components/common/pageName/PageName';
 import Pagination from '@components/common/pagination/Pagination';
 import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
@@ -95,7 +96,7 @@ const BlogReviewClient = ({ templestayId, initialPage }: BlogReviewClientProps) 
             </div>
           ))
         ) : (
-          <p>No reviews available</p>
+          <ReviewEmpty />
         )}
       </div>
       <div className={styles.pageBox}>

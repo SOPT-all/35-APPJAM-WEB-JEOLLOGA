@@ -1,25 +1,38 @@
 'use client';
 import debounce from '@hooks/debounce';
-import { useAtom } from 'jotai';
-import React, { useCallback, useEffect, useState } from 'react';
-import { priceAtom } from 'src/store/store';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import * as styles from './priceSlider.css';
 
-const PriceSlider = () => {
+interface Price {
+  minPrice: number;
+  maxPrice: number;
+}
+
+interface PriceSliderProps {
+  value: Price;
+  onChange: (price: Price) => void;
+}
+
+const PriceSlider = ({ value, onChange }: PriceSliderProps) => {
   const MIN_PRICE = 0;
   const MAX_PRICE = 30;
-  const [price, setPrice] = useAtom(priceAtom);
-  const [localPrice, setLocalPrice] = useState(price);
+  const [localPrice, setLocalPrice] = useState<Price>(value);
 
+  // 외부 값이 바뀌면 로컬 상태 동기화
   useEffect(() => {
-    setLocalPrice(price);
-  }, [price]);
+    setLocalPrice(value);
+  }, [value]);
 
-  // 디바운스 처리한 price 업데이트 핸들러
+  // onChange가 매 렌더 새로 와도 debounce 인스턴스는 유지하고 최신 onChange를 호출
+  const onChangeRef = useRef(onChange);
+  useEffect(() => {
+    onChangeRef.current = onChange;
+  });
+
   const handleDebounceSetPrice = useCallback(
-    debounce((updatedPrice: { minPrice: number; maxPrice: number }) => {
-      setPrice(updatedPrice);
+    debounce((updatedPrice: Price) => {
+      onChangeRef.current(updatedPrice);
     }, 300),
     [],
   );
@@ -28,16 +41,16 @@ const PriceSlider = () => {
     const value = Math.min(Number(event.target.value), localPrice.maxPrice - 1);
     const updatedLocalPrice = { ...localPrice, minPrice: value };
 
-    setLocalPrice(updatedLocalPrice); // 로컬 상태 업데이트
-    handleDebounceSetPrice(updatedLocalPrice); // 디바운스된 업데이트
+    setLocalPrice(updatedLocalPrice);
+    handleDebounceSetPrice(updatedLocalPrice);
   };
 
   const handleMaxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = Math.max(Number(event.target.value), localPrice.minPrice + 1);
     const updatedLocalPrice = { ...localPrice, maxPrice: value };
 
-    setLocalPrice(updatedLocalPrice); // 로컬 상태 업데이트
-    handleDebounceSetPrice(updatedLocalPrice); // 디바운스된 업데이트
+    setLocalPrice(updatedLocalPrice);
+    handleDebounceSetPrice(updatedLocalPrice);
   };
 
   const getTrackStyle = () => ({
@@ -50,7 +63,7 @@ const PriceSlider = () => {
       <p className={styles.descriptionStyle}>*1인 프로그램 신청 기준</p>
       <div className={styles.priceSlider}>
         <p className={styles.titleStyle}>
-          {price.minPrice}만원 ~ {price.maxPrice}만원
+          {localPrice.minPrice}만원 ~ {localPrice.maxPrice}만원
         </p>
 
         <div className={styles.sliderContainer}>

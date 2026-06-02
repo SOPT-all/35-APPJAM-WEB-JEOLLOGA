@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     domains: [
       'noms.templestay.com',
       'www.templestay.com',
+      'ts-cdn.com',
       'blogthumb.pstatic.net',
       'phinf.pstatic.net',
     ],

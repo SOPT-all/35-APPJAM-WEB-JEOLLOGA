@@ -1,14 +1,22 @@
 import useFetchFilteredListV2 from '@apis/filter';
-import { TemplestaySearchParamsV2 } from '@apis/filter/type';
 import ButtonBar from '@components/common/button/buttonBar/ButtonBar';
 import Divider from '@components/common/divider/Divider';
 import FilterBox from '@components/filter/filterBox/FilterBox';
 import FILTERS from '@constants/filters';
-import useFilter from '@hooks/useFilter';
-import { useAtom } from 'jotai';
-import { useMemo, useState } from 'react';
+import {
+  parseFilters,
+  toApiParams,
+  buildFilterQuery,
+  toggleFilterValue,
+  FILTER_GROUPS,
+  DEFAULT_MIN,
+  DEFAULT_MAX,
+  type FilterGroup,
+  type SearchFilterState,
+} from '@utils/searchFilters';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 import useEventLogger from 'src/gtm/hooks/useEventLogger';
-import { filterListInstance, priceAtom } from 'src/store/store';
 import titleMap from 'src/type/titleMap';
 
 import * as styles from './filterModalContent.css';
@@ -17,60 +25,76 @@ interface Props {
   onComplete?: () => void;
   scrollRef: React.RefObject<HTMLDivElement>;
   searchText?: string;
+  isOpen: boolean;
 }
 
-const FilterModalContent = ({ onComplete, scrollRef, searchText }: Props) => {
-  const { toggleFilter, handleResetFilter, handleSearch } = useFilter();
+// 필터명 → 그룹 역매핑 (예: '경기' → 'region')
+const FILTER_TO_GROUP: Record<string, FilterGroup> = {};
+Object.entries(FILTERS).forEach(([group, names]) => {
+  if (group === 'price') return;
+  (names as string[]).forEach((name) => {
+    FILTER_TO_GROUP[name] = group as FilterGroup;
+  });
+});
+
+const FilterModalContent = ({ onComplete, scrollRef, searchText, isOpen }: Props) => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const { logClickEvent } = useEventLogger('filter_tag');
-  const [price, setPrice] = useAtom(priceAtom);
 
-  const [filtersState, setFiltersState] = useState(() => filterListInstance.getAllStates());
+  const [draft, setDraft] = useState<SearchFilterState>(() =>
+    parseFilters(new URLSearchParams(searchParams.toString())),
+  );
 
-  const currentSearchParams = useMemo((): TemplestaySearchParamsV2 => {
-    const selectedFilters = filterListInstance.getGroupedSelectedFilters();
+  // 모달이 열릴 때마다 현재 URL 기준으로 draft 재초기화
+  useEffect(() => {
+    if (isOpen) {
+      setDraft(parseFilters(new URLSearchParams(searchParams.toString())));
+    }
+  }, [isOpen, searchParams]);
 
-    const getFilterValue = (filter: string[] | undefined) => {
-      if (!filter || filter.length === 0) return undefined;
-      return filter.join(',');
-    };
+  const filtersState = useMemo(() => {
+    const state: Record<string, number> = {};
+    FILTER_GROUPS.forEach((group) => {
+      draft[group].forEach((name) => {
+        state[name] = 1;
+      });
+    });
+    return state;
+  }, [draft]);
 
-    return {
-      search: searchText,
-      region: getFilterValue(selectedFilters.region),
-      type: getFilterValue(selectedFilters.type),
-      activity: getFilterValue(selectedFilters.activity),
-      etc: getFilterValue(selectedFilters.etc),
-      min: price.minPrice,
-      max: price.maxPrice,
-      page: 1,
-      size: 5,
-    };
-  }, [price, filtersState, searchText]);
-
-  const { data } = useFetchFilteredListV2(currentSearchParams);
+  const previewParams = useMemo(
+    () => toApiParams({ ...draft, search: searchText ?? draft.search, page: 1 }),
+    [draft, searchText],
+  );
+  const { data } = useFetchFilteredListV2(previewParams);
   const totalCount = data?.totalElements || 0;
 
   const handleToggleFilter = (filterName: string) => {
-    toggleFilter(filterName);
-    const updatedState = filterListInstance.getAllStates();
-    setFiltersState(updatedState);
+    const group = FILTER_TO_GROUP[filterName];
+    if (!group) return;
+    setDraft((prev) => ({ ...prev, [group]: toggleFilterValue(prev[group], filterName) }));
   };
 
-  const handleReset = async () => {
-    await handleResetFilter();
-    setFiltersState(filterListInstance.getAllStates());
-    setPrice({ minPrice: 0, maxPrice: 30 });
+  const handlePriceChange = (price: { minPrice: number; maxPrice: number }) => {
+    setDraft((prev) => ({ ...prev, min: price.minPrice, max: price.maxPrice }));
   };
 
-  const searchFilter = async () => {
-    const selectedFilters = filterListInstance.getGroupedSelectedFilters();
-    const searchParams = {
-      ...selectedFilters,
-      min: price.minPrice,
-      max: price.maxPrice,
-      search: searchText,
-    };
-    handleSearch(searchParams);
+  const handleReset = () => {
+    setDraft((prev) => ({
+      ...prev,
+      region: [],
+      type: [],
+      activity: [],
+      etc: [],
+      min: DEFAULT_MIN,
+      max: DEFAULT_MAX,
+    }));
+  };
+
+  const searchFilter = () => {
+    const queryString = buildFilterQuery({ ...draft, search: searchText ?? draft.search, page: 1 });
+    router.push(queryString ? `/searchResult?${queryString}` : '/searchResult');
     logClickEvent('click_list', { label: '' });
     onComplete?.();
   };
@@ -86,6 +110,8 @@ const FilterModalContent = ({ onComplete, scrollRef, searchText }: Props) => {
               id={key}
               filtersState={filtersState}
               onToggleFilter={handleToggleFilter}
+              price={{ minPrice: draft.min, maxPrice: draft.max }}
+              onPriceChange={handlePriceChange}
             />
             <Divider />
           </div>

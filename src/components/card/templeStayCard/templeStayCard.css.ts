@@ -52,10 +52,12 @@ export const container = recipe({
 });
 
 export const imgSection = recipe({
+  base: {
+    position: 'relative',
+  },
   variants: {
     layout: {
       vertical: {
-        position: 'relative',
         width: '16.3rem',
         height: '17.2rem',
       },

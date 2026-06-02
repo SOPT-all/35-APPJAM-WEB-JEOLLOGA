@@ -2,12 +2,13 @@ import useGetRanking from '@apis/ranking';
 import { useAddWishlistV2, useRemoveWishlistV2 } from '@apis/wish';
 import PopularCard from '@components/card/popularCard/PopularCard';
 import CarouselIndex from '@components/carousel/popularCarousel/CarouselIndex';
+import PopularCarouselSkeleton from '@components/carousel/popularCarousel/PopularCarouselSkeleton';
 import ExceptLayout from '@components/except/exceptLayout/ExceptLayout';
-import { useRouter } from 'next/navigation';
+import useInfiniteCarousel from '@hooks/useInfiniteCarousel';
 import { useQueryClient } from '@tanstack/react-query';
 import { getCookie } from 'cookies-next';
+import { useRouter } from 'next/navigation';
 import useEventLogger from 'src/gtm/hooks/useEventLogger';
-import useInfiniteCarousel from '@hooks/useInfiniteCarousel';
 
 import * as styles from './popularCarousel.css';
 
@@ -37,7 +38,7 @@ const PopularCarousel = ({ onRequireLogin }: PopularCarouselProps) => {
     data: data || [],
   });
 
-  if (isLoading) return <ExceptLayout type="loading" />;
+  if (isLoading) return <PopularCarouselSkeleton />;
   if (isError) return <ExceptLayout type="networkError" />;
 
   const handleLikeToggle = (templestayId: number) => {

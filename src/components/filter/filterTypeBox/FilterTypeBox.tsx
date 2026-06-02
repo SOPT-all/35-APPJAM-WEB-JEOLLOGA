@@ -1,3 +1,5 @@
+'use client';
+
 import Icon from '@assets/svgs';
 import BasicBtn from '@components/common/button/basicBtn/BasicBtn';
 import FilterBottomSheetModal from '@components/filter/filterBottomSheetModal/FilterBottomSheetModal';

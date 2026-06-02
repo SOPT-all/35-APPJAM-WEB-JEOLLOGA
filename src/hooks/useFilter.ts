@@ -1,10 +1,7 @@
 import useLocalStorage from '@hooks/useLocalStorage';
 import { getCookie } from 'cookies-next';
-import { useSetAtom } from 'jotai';
 import { useRouter } from 'next/navigation';
 import { useCallback } from 'react';
-import queryClient from 'src/queryClient';
-import { filterListInstance, priceAtom } from 'src/store/store';
 
 type FilterQueryParams = {
   region?: string[];
@@ -23,25 +20,10 @@ const isLoggedIn = getCookie('userNickname');
 
 const useFilter = () => {
   const { addStorageValue } = useLocalStorage();
-  const setPrice = useSetAtom(priceAtom);
-
-  // 필터 상태 토글
-  const toggleFilter = async (filterName: string) => {
-    try {
-      filterListInstance.toggleStatus(filterName);
-      queryClient.invalidateQueries({ queryKey: ['filteredList'], exact: false });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const router = useRouter();
 
   const handleSearch = useCallback(
     (params: FilterQueryParams = {}) => {
-      filterListInstance.resetAllStates();
-      setPrice({ minPrice: 0, maxPrice: 30 });
-
       const searchParams = new URLSearchParams();
 
       Object.entries(params).forEach(([key, value]) => {
@@ -74,14 +56,7 @@ const useFilter = () => {
     [router, addStorageValue],
   );
 
-  // 필터 초기화
-  const handleResetFilter = async () => {
-    filterListInstance.resetAllStates();
-
-    queryClient.invalidateQueries({ queryKey: ['filteredList'], exact: false });
-  };
-
-  return { toggleFilter, handleSearch, handleResetFilter };
+  return { handleSearch };
 };
 
 export default useFilter;

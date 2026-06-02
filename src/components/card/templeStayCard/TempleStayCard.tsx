@@ -3,6 +3,7 @@ const errorImage = '/assets/images/img_gray_light_leaf_medium.png';
 import { WishItemV2 } from '@apis/wish/type';
 import InfoSection from '@components/card/templeStayCard/InfoSection';
 import FlowerIcon from '@components/common/icon/flowerIcon/FlowerIcon';
+import ImageWithFallback from '@components/common/imageWithFallback/ImageWithFallback';
 import { getCookie } from 'cookies-next';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -63,10 +64,12 @@ const TempleStayCard = ({
       }>
       {item.imgUrl ? (
         <section className={styles.imgSection({ layout, size })}>
-          <img
+          <ImageWithFallback
             className={styles.image({ layout })}
             src={item.imgUrl}
             alt={item.templeName + ' 대표사진'}
+            fill
+            style={{ objectFit: 'cover' }}
           />
           <button className={styles.wishBtn} onClick={onClickWishBtn}>
             <FlowerIcon isActive={isWished} />

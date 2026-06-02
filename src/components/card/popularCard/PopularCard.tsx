@@ -1,7 +1,7 @@
 'use client';
 
 import Icon from '@assets/svgs';
-import Image from 'next/image';
+import ImageWithFallback from '@components/common/imageWithFallback/ImageWithFallback';
 import * as styles from './popularCard.css';
 import RankBtn from '@components/card/popularCard/RankBtn';
 
@@ -53,7 +53,7 @@ const PopularCard = ({
       onDragStart={(e) => e.preventDefault()}>
       <div className={styles.slideContent}>
         <div className={styles.imageWrapper}>
-          <Image
+          <ImageWithFallback
             src={templeImg}
             alt={`${templestayName} 대표 이미지`}
             fill
