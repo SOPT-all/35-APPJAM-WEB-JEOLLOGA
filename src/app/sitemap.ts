@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 const API_URL = process.env.NEXT_PUBLIC_APP_BASE_URL;
 const SITE_URL = 'https://www.gototemplestay.com';
 
