@@ -1,5 +1,5 @@
+import ImageWithFallback from '@components/common/imageWithFallback/ImageWithFallback';
 import useNavigateTo from '@hooks/useNavigateTo';
-import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 import * as styles from './detailCarousel.css';
@@ -28,7 +28,7 @@ const ImageItem = ({ id, imgUrl, currentNum, totalNum }: ImageItemProps) => {
       }}
       className={styles.imageBox}
       key={id}>
-      <Image
+      <ImageWithFallback
         className={styles.imageStyle}
         src={imgUrl}
         alt={`Templestay ${id}`}

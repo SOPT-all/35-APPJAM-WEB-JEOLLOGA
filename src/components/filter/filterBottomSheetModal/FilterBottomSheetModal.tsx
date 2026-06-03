@@ -38,6 +38,7 @@ const FilterBottomSheetModal = ({
         onComplete={handleCloseModal}
         scrollRef={scrollRef}
         searchText={searchText}
+        isOpen={isOpen}
       />
     </BottomSheet>
   );

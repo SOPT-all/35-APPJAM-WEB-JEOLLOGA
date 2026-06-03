@@ -3,7 +3,7 @@ import RecommendTempleClient from '@app/RecommendTempleClient';
 import Icon from '@assets/svgs';
 import MainBanner from '@components/banner/MainBanner';
 import DetailTitle from '@components/detailTitle/DetailTitle';
-import FilterTypeBoxClient from '@components/filter/filterTypeBox/FilterTypeBoxClient';
+import FilterTypeBox from '@components/filter/filterTypeBox/FilterTypeBox';
 import Footer from '@components/footer/Footer';
 import Header from '@components/header/Header';
 import TestBanner from '@components/test/testBanner/TestBanner';
@@ -31,7 +31,7 @@ const HomePage = async () => {
         <Icon.IcnSearchMediumGray />
       </Link>
 
-      <FilterTypeBoxClient />
+      <FilterTypeBox activeFilters={[]} />
 
       <MainBanner />
 

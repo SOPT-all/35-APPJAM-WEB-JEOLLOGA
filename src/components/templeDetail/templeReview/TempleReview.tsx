@@ -35,11 +35,13 @@ const TempleReview = ({ templeId }: TempleReviewProps) => {
     return <ExceptLayout type="networkError" />;
   }
 
-  if (!(data && data.reviews)) {
+  if (!data || !data.reviews || data.reviews.length === 0) {
     return (
-      <div className={styles.emptyContainer}>
+      <div className={styles.templeReviewWrapper} id="detail-section-0">
         <DetailTitle title="리뷰" isTotal={false} />
-        <p>리뷰가 없어요</p>
+        <div className={styles.emptyContainer}>
+          <p>리뷰가 없어요</p>
+        </div>
       </div>
     );
   }
