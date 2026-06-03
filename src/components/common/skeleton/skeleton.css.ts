@@ -19,6 +19,16 @@ const skeletonBase = style({
   },
 });
 
-export const skeletonOverlay = style([skeletonBase, { position: 'absolute', inset: 0 }]);
+export const skeletonOverlay = style([
+  skeletonBase,
+  {
+    position: 'absolute',
+    inset: 0,
+    pointerEvents: 'none',
+    transition: 'opacity 0.4s ease-in-out',
+  },
+]);
+
+export const skeletonOverlayHidden = style({ opacity: 0 });
 
 export default skeletonBase;

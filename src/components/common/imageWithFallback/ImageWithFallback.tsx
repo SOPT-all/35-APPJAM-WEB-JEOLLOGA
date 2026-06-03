@@ -1,6 +1,6 @@
 'use client';
 
-import { skeletonOverlay } from '@components/common/skeleton/skeleton.css';
+import { skeletonOverlay, skeletonOverlayHidden } from '@components/common/skeleton/skeleton.css';
 import convertTempleImageUrl from '@utils/convertImageUrl';
 import Image, { ImageProps } from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -55,7 +55,7 @@ const ImageWithFallback = ({
         style={{
           ...style,
           ...(isError && { objectFit: 'contain' as const }),
-          opacity: isLoaded ? 1 : 0,
+          opacity: rest.fill || isLoaded ? 1 : 0,
           transition: 'opacity 0.4s ease-in-out',
         }}
         onLoad={() => setIsLoaded(true)}
@@ -64,7 +64,12 @@ const ImageWithFallback = ({
           setIsError(true);
         }}
       />
-      {Boolean(rest.fill) && !isLoaded && <span aria-hidden className={skeletonOverlay} />}
+      {Boolean(rest.fill) && (
+        <span
+          aria-hidden
+          className={`${skeletonOverlay} ${isLoaded ? skeletonOverlayHidden : ''}`}
+        />
+      )}
     </>
   );
 };
